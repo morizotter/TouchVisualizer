@@ -10,12 +10,15 @@
 Pod::Spec.new do |s|
   s.name             = "MZRPresentationKit"
   s.version          = "0.1.0"
-  s.summary          = "A short description of MZRPresentationKit."
+  s.summary          = "When you give a presentation, your finger points are visible on screen."
   s.description      = <<-DESC
-                       An optional longer description of MZRPresentationKit
+                       # Give a presentation more impressive with finter points.
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       When you give a presentation, your finger points are visible on screen.
+
+                       - Multiple fingers supported.
+                       - Multiple UIWindows supported.
+                       - You can change colors and images of finger points.
                        DESC
   s.homepage         = "https://github.com/morizotter/MZRPresentationKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
@@ -24,7 +27,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/morizotter/MZRPresentationKit.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/morizotter'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.swift'

@@ -37,23 +37,41 @@ class ViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - TableView Delegate
+    // MARK: - Actions
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    @IBAction func leftBarButtonItemTapped(sender: AnyObject) {
         
+        if (NSClassFromString("UIAlertController") != nil) {
+            let alert = UIAlertView(title: "Alert", message: "In this case, your tap is visible.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        } else {
+            let controller = UIAlertController(
+                title: "Alert",
+                message: "In this case, your tap is visible.",
+                preferredStyle: .ActionSheet
+            )
+            controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+            self.presentViewController(controller, animated: true, completion: nil)
+        }
     }
     
     @IBAction func rightBarButtonItemTapped(sender: AnyObject) {
-        let controller = UIAlertController(
-            title: "ActionSheet",
-            message: "In this case, your tap is visible.",
-            preferredStyle: .ActionSheet
-        )
-        for i in 0..<4 {
-            controller.addAction(UIAlertAction(title: "Action(\(i))", style: .Default, handler: nil))
+        if (NSClassFromString("UIAlertController") != nil) {
+            let actionSheet = UIActionSheet(title: "ActionSheet", delegate: nil, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Action(0)", "Action(1)", "Action(2)")
+            actionSheet.showInView(self.view)
+        } else {
+            let controller = UIAlertController(
+                title: "ActionSheet",
+                message: "In this case, your tap is visible.",
+                preferredStyle: .ActionSheet
+            )
+            for i in 0..<3 {
+                controller.addAction(UIAlertAction(title: "Action(\(i))", style: .Default, handler: nil))
+            }
+            controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            self.presentViewController(controller, animated: true, completion: nil)
         }
-        controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        self.presentViewController(controller, animated: true, completion: nil)
+        
     }
 }
 

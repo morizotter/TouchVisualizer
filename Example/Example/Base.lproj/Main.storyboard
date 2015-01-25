@@ -30,6 +30,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="List" id="y4s-AO-uyF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Xe3-ZM-6JL">
+                            <connections>
+                                <action selector="leftBarButtonItemTapped:" destination="mJP-V1-ujx" id="GHR-c9-Raa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="PBW-rd-Wbw">
                             <connections>
                                 <action selector="rightBarButtonItemTapped:" destination="mJP-V1-ujx" id="X3N-7L-hn6"/>
