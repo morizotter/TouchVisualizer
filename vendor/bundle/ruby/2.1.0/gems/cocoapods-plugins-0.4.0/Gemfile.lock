@@ -1,0 +1,133 @@
+GIT
+  remote: https://github.com/CocoaPods/CLAide.git
+  revision: 9e8b9072fd66f69b91999cd3838a4bbba043a7e5
+  branch: master
+  specs:
+    claide (0.8.0)
+
+GIT
+  remote: https://github.com/CocoaPods/CocoaPods.git
+  revision: e64a60a621920aca53f57b70dfc0c4f6f2638a6f
+  branch: master
+  specs:
+    cocoapods (0.35.0)
+      activesupport (>= 3.2.15)
+      claide (~> 0.8.0)
+      cocoapods-core (= 0.35.0)
+      cocoapods-downloader (~> 0.8.0)
+      cocoapods-plugins (~> 0.4.0)
+      cocoapods-trunk (~> 0.5.0)
+      cocoapods-try (~> 0.4.3)
+      colored (~> 1.2)
+      escape (~> 0.0.4)
+      molinillo (~> 0.2.0)
+      nap (~> 0.8)
+      open4 (~> 1.3)
+      xcodeproj (~> 0.21.0)
+
+GIT
+  remote: https://github.com/CocoaPods/Core.git
+  revision: 7d2b3c0cba15d4c62639c5b390df306a30cc1d40
+  branch: master
+  specs:
+    cocoapods-core (0.35.0)
+      activesupport (>= 3.2.15)
+      fuzzy_match (~> 2.0.4)
+      nap (~> 0.8.0)
+
+PATH
+  remote: .
+  specs:
+    cocoapods-plugins (0.4.0)
+      nap
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    addressable (2.3.6)
+    ast (2.0.0)
+    astrolabe (1.3.0)
+      parser (>= 2.2.0.pre.3, < 3.0)
+    bacon (1.2.0)
+    cocoapods-downloader (0.8.0)
+    cocoapods-trunk (0.5.0)
+      nap (>= 0.8)
+      netrc (= 0.7.8)
+    cocoapods-try (0.4.3)
+    codeclimate-test-reporter (0.4.0)
+      simplecov (>= 0.7.1, < 1.0.0)
+    colored (1.2)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    docile (1.1.5)
+    escape (0.0.4)
+    fuzzy_match (2.0.4)
+    i18n (0.7.0)
+    json (1.8.1)
+    metaclass (0.0.4)
+    minitest (5.5.0)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
+    mocha-on-bacon (0.2.2)
+      mocha (>= 0.13.0)
+    molinillo (0.2.0)
+    multi_json (1.10.1)
+    nap (0.8.0)
+    netrc (0.7.8)
+    open4 (1.3.4)
+    parser (2.2.0.pre.7)
+      ast (>= 1.1, < 3.0)
+      slop (~> 3.4, >= 3.4.5)
+    powerpack (0.0.9)
+    prettybacon (0.0.2)
+      bacon (~> 1.2)
+    rainbow (2.0.0)
+    rake (10.3.2)
+    rubocop (0.27.1)
+      astrolabe (~> 1.3)
+      parser (>= 2.2.0.pre.7, < 3.0)
+      powerpack (~> 0.0.6)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.4)
+    ruby-progressbar (1.7.0)
+    safe_yaml (1.0.3)
+    simplecov (0.9.0)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
+    slop (3.6.0)
+    thread_safe (0.3.4)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    vcr (2.9.3)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+    xcodeproj (0.21.0)
+      activesupport (>= 3)
+      colored (~> 1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bacon
+  bundler (~> 1.3)
+  claide!
+  cocoapods!
+  cocoapods-core!
+  cocoapods-plugins!
+  codeclimate-test-reporter
+  mocha-on-bacon
+  prettybacon
+  rake
+  rubocop
+  vcr
+  webmock

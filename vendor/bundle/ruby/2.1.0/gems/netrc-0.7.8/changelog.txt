@@ -1,0 +1,52 @@
+0.7.8 10/15/14
+==============
+
+add entry class to facilitate usage
+switch gem source to rubygems.org
+use guard, when available via guardfile
+add default/read-only behavior
+add allow_permissive_netrc_file option
+fix an undefined variable path
+fix Errno::EACCES error
+silence const warnings in test
+
+0.7.7 08/15/12
+==============
+
+add newline between entries if one is missing
+
+0.7.6 08/15/12
+==============
+
+more unified newline handling
+make entries with login/password parsable
+
+
+0.7.5 06/25/12
+==============
+
+* improved operating system detection
+
+0.7.4 06/04/12
+==============
+
+* add support for encrypted files pgp netrc files
+
+0.7.3 06/04/12
+==============
+
+* also skip permissions check on cygwin
+
+0.7.2 05/23/12
+=============
+
+* use length instead of count on Array, provides compatibility with 1.8.6
+
+
+0.7.1 03/13/12
+==============
+
+* add Gemfile to simplify development
+* add MIT license
+* fix test require path
+* fix unused variable assignment (caused warnings) in tests

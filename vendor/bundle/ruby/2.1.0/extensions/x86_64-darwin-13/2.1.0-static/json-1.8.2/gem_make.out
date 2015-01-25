@@ -1,0 +1,10 @@
+/Users/namorit/.rbenv/versions/2.1.5/bin/ruby extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
+installing default libraries
