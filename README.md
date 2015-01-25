@@ -1,6 +1,5 @@
 # MZRPresentationKit
 
-[![CI Status](http://img.shields.io/travis/Naoki Morita/MZRPresentationKit.svg?style=flat)](https://travis-ci.org/Naoki Morita/MZRPresentationKit)
 [![Version](https://img.shields.io/cocoapods/v/MZRPresentationKit.svg?style=flat)](http://cocoadocs.org/docsets/MZRPresentationKit)
 [![License](https://img.shields.io/cocoapods/l/MZRPresentationKit.svg?style=flat)](http://cocoadocs.org/docsets/MZRPresentationKit)
 [![Platform](https://img.shields.io/cocoapods/p/MZRPresentationKit.svg?style=flat)](http://cocoadocs.org/docsets/MZRPresentationKit)
