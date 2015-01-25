@@ -1,0 +1,6 @@
+framework module MZRPresentationKit {
+  umbrella header "Pods-Example-MZRPresentationKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

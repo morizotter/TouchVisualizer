@@ -1,11 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'MZRPresentationKit', :exclusive => true do
+target 'Example', :exclusive => true do
   pod "MZRPresentationKit", :path => "../"
 end
 
-target 'Tests', :exclusive => true do
+target 'ExampleTests', :exclusive => true do
   pod "MZRPresentationKit", :path => "../"
-
-  
 end
