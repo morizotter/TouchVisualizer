@@ -56,7 +56,7 @@ MZRPresentationView.stop()
 
 ## Author
 
-Naoki Morita, namorit@gmail.com
+Naoki Morita, namorit@gmail.com, [page](http://moritanaoki.org)
 
 ## License
 
