@@ -16,6 +16,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textLabel.text = self.text
+        if let text = self.text {
+            self.textLabel.text = text
+        }
     }
 }
