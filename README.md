@@ -30,7 +30,7 @@ pod "MZRPresentationKit", '~>1.0.0'
 
 ## Usage
 
-Just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`.
+`import MZRPresentationKit` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`. 
 
 ```
 MZRPresentationView.start()
