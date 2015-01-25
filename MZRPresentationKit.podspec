@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MZRPresentationKit"
-  s.version          = "0.1.0"
+  s.version          = "1.0.0"
   s.summary          = "When you give a presentation, your finger points are visible on screen."
   s.description      = <<-DESC
                        # Give a presentation more impressive with finter points.
