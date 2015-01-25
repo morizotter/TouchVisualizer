@@ -8,6 +8,11 @@
 
 ![Gif](https://github.com/morizotter/MZRPresentationKit/blob/master/presentation.gif)
 
+When you give a presentation, your finger points are visible on screen.
+- Multiple fingers supported.
+- Multiple UIWindows supported.
+- You can change colors and images of finger points.
+
 ## Installation
 
 > Embedded frameworks require a minimum deployment target of iOS 8
