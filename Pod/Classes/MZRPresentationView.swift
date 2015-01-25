@@ -40,6 +40,10 @@ public extension UIWindow {
     }
 }
 
+public class TouchView: UIImageView {
+    weak var touch: UITouch?
+}
+
 public class MZRPresentationView: UIView {
 
     // MARK: - Properties
@@ -63,6 +67,7 @@ public class MZRPresentationView: UIView {
     private var image: UIImage?
     private var color: UIColor?
     private var touchViewSize = CGSizeMake(60.0, 60.0)
+    private var touchViews = [TouchView]()
     
     // MARK: - Life Cycle
     
@@ -128,6 +133,8 @@ public class MZRPresentationView: UIView {
             UIGraphicsEndImageContext();
             instance.image = image;
         }
+        image?.imageWithRenderingMode(.AlwaysTemplate)
+        
         if let window = instance.application?.keyWindow {
             for subview in instance.subviews {
                 subview.removeFromSuperview()
@@ -155,42 +162,42 @@ public class MZRPresentationView: UIView {
             }
         }
         
-        func createTouchView() -> UIImageView {
-            let view = UIImageView(frame: CGRectMake(0.0, 0.0, self.touchViewSize.width, self.touchViewSize.height))
-            view.image = self.image?.imageWithRenderingMode(.AlwaysTemplate) ?? UIImage(named: "touch")?.imageWithRenderingMode(.AlwaysTemplate)
+        func createTouchView(touch: UITouch) -> UIImageView {
+            let view = TouchView(frame: CGRectMake(0.0, 0.0, self.touchViewSize.width, self.touchViewSize.height))
+            view.touch = touch
+            view.image = self.image
             view.tintColor = self.color
+            self.touchViews.append(view)
             return view
         }
         
-        func findTouchView(locations: [CGPoint]) -> UIView? {
-            for subview in self.subviews {
-                for location in locations {
-                    if subview.center == location {
-                        return subview as UIImageView
-                    }
+        func findTouchView(touch: UITouch) -> TouchView? {
+            for view in self.touchViews {
+                if view.touch == touch {
+                    return view
                 }
             }
             return nil
         }
         
         for touch in event.allTouches()?.allObjects as [UITouch] {
-            let location = touch.locationInView(self)
-            let previousLocation = touch.previousLocationInView(self)
-            let phase = touch.phase
             
+            let phase = touch.phase
             switch phase {
             case .Began:
-                let view = createTouchView()
-                view.center = location
+                let view = createTouchView(touch)
+                view.center = touch.locationInView(self)
                 self.addSubview(view)
             case .Moved:
-                if let view = findTouchView([previousLocation]) {
-                    view.center = location
+                if let view = findTouchView(touch) {
+                    view.center = touch.locationInView(self)
                 }
             case .Stationary:
                 break
             case .Ended, .Cancelled:
-                if let view = findTouchView([previousLocation, location]) {
+                if let view = findTouchView(touch) {
+                    let index = find(self.touchViews, view)
+                    self.touchViews.removeAtIndex(index!)
                     UIView.animateWithDuration(0.1, animations: { () -> Void in
                         view.alpha = 0.0
                     }, completion: { (finished) -> Void in
