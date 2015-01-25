@@ -43,6 +43,12 @@ You can change colors and images like this. You can set only color or image.
 MZRPresentationView.start(UIColor.redColor(), image: UIImage(named: "YOUR-IMAGE"))
 ```
 
+You can stop presentation from the app like this.
+
+```
+MZRPresentationView.stop()
+```
+
 ## Requirements
 
 - iOS8 or later
