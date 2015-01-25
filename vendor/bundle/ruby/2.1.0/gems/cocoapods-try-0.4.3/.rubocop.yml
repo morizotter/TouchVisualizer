@@ -1,3 +1,0 @@
-inherit_from:
- - rubocop-todo.yml
- - .rubocop_cocoapods.yml
