@@ -20,7 +20,7 @@ class ViewController: UITableViewController {
         if segue.identifier == "ToDetail" {
             let viewController = segue.destinationViewController as DetailViewController
             if let cell = sender as? UITableViewCell {
-                viewController.text = "\(cell.textLabel?.text)"
+                viewController.text = cell.textLabel?.text
             }
         }
     }
