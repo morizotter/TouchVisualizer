@@ -1,6 +1,5 @@
 # MZRPresentationKit
 
-[![CI Status](http://img.shields.io/travis/Naoki Morita/MZRPresentationKit.svg?style=flat)](https://travis-ci.org/Naoki Morita/MZRPresentationKit)
 [![Version](https://img.shields.io/cocoapods/v/MZRPresentationKit.svg?style=flat)](http://cocoadocs.org/docsets/MZRPresentationKit)
 [![License](https://img.shields.io/cocoapods/l/MZRPresentationKit.svg?style=flat)](http://cocoadocs.org/docsets/MZRPresentationKit)
 [![Platform](https://img.shields.io/cocoapods/p/MZRPresentationKit.svg?style=flat)](http://cocoadocs.org/docsets/MZRPresentationKit)
@@ -8,6 +7,11 @@
 ## Let's give a presentation with finger points easily
 
 ![Gif](https://github.com/morizotter/MZRPresentationKit/blob/master/presentation.gif)
+
+When you give a presentation, your finger points are visible on screen.
+- Multiple fingers supported.
+- Multiple UIWindows supported.
+- You can change colors and images of finger points.
 
 ## Installation
 
@@ -31,7 +35,7 @@ pod "MZRPresentationKit", '~>1.0.0'
 
 ## Usage
 
-Just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`.
+`import MZRPresentationKit` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`. 
 
 ```
 MZRPresentationView.start()
