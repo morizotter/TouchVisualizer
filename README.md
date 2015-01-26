@@ -30,12 +30,12 @@ To install it, simply add the following lines to your Podfile:
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod "MZRPresentationKit", '~>1.0.0'
+pod "MZRPresentationKit", '~>1.0.1'
 ```
 
 ## Usage
 
-`import MZRPresentationKit` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`. 
+`import MZRPresentationKit` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`.
 
 ```
 MZRPresentationView.start()
