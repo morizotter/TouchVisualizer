@@ -8,42 +8,6 @@
 
 import UIKit
 
-public extension UIWindow {
-    
-    var swizzlingMessage: String {
-        return "Method Swizzlings: sendEvent: and description"
-    }
-    
-    func swizzle() {
-        
-        var range = self.description.rangeOfString(self.swizzlingMessage, options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
-        if (range?.startIndex != nil) {
-            return;
-        }
-        
-        var sendEvent: Method = class_getInstanceMethod(object_getClass(self), "sendEvent:")
-        var swizzledSendEvent: Method = class_getInstanceMethod(object_getClass(self), "swizzledSendEvent:")
-        method_exchangeImplementations(sendEvent, swizzledSendEvent)
-        
-        var description: Method = class_getInstanceMethod(object_getClass(self), "description")
-        var swizzledDescription: Method = class_getInstanceMethod(object_getClass(self), "swizzledDescription")
-        method_exchangeImplementations(description, swizzledDescription)
-    }
-    
-    func swizzledSendEvent(event: UIEvent) {
-        MZRPresentationView.sharedInstance().handleEvnet(event)
-        self.swizzledSendEvent(event)
-    }
-    
-    func swizzledDescription() -> String {
-        return self.swizzledDescription() + "; " + self.swizzlingMessage
-    }
-}
-
-public class TouchView: UIImageView {
-    weak var touch: UITouch?
-}
-
 public class MZRPresentationView: UIView {
 
     // MARK: - Properties
@@ -67,7 +31,7 @@ public class MZRPresentationView: UIView {
     private var image: UIImage?
     private var color: UIColor?
     private var touchViewSize = CGSizeMake(60.0, 60.0)
-    private var touchViews = [TouchView]()
+    private var touchViews = [MZRTouchView]()
     
     // MARK: - Life Cycle
     
@@ -163,7 +127,7 @@ public class MZRPresentationView: UIView {
         }
         
         func createTouchView(touch: UITouch) -> UIImageView {
-            let view = TouchView(frame: CGRectMake(0.0, 0.0, self.touchViewSize.width, self.touchViewSize.height))
+            let view = MZRTouchView(frame: CGRectMake(0.0, 0.0, self.touchViewSize.width, self.touchViewSize.height))
             view.touch = touch
             view.image = self.image
             view.tintColor = self.color
@@ -171,7 +135,7 @@ public class MZRPresentationView: UIView {
             return view
         }
         
-        func findTouchView(touch: UITouch) -> TouchView? {
+        func findTouchView(touch: UITouch) -> MZRTouchView? {
             for view in self.touchViews {
                 if view.touch == touch {
                     return view
