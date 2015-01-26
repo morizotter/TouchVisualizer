@@ -123,7 +123,7 @@ public class MZRPresentationView: UIView {
         if (image != nil) {
             instance.image = image
         } else {
-            let color = instance.color ?? UIColor(red: 32/255.0, green: 89/255.0, blue: 183/255.0, alpha: 1.0)
+            let color = instance.color ?? UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
             let rect = CGRectMake(0, 0, instance.touchViewSize.width, instance.touchViewSize.height);
             UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
             let contextRef = UIGraphicsGetCurrentContext()
