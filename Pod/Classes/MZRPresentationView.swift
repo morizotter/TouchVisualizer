@@ -11,22 +11,6 @@ import UIKit
 public class MZRPresentationView: UIView {
 
     // MARK: - Properties
-    
-    private weak var application: UIApplication? {
-        didSet {
-            if self.enabled {
-                if let window = application?.keyWindow? {
-                    if oldValue?.keyWindow === window {
-                        for subview in self.subviews {
-                            subview.removeFromSuperview()
-                        }
-                    }
-                    window.swizzle()
-                    window.addSubview(self)
-                }
-            }
-        }
-    }
     private var enabled = false
     private var image: UIImage?
     private var color: UIColor?
@@ -65,7 +49,7 @@ public class MZRPresentationView: UIView {
     }
     
     func applicationDidBecomeActiveNotification(notification: NSNotification) {
-        self.application = notification.object as UIApplication?
+        UIApplication.sharedApplication().keyWindow?.swizzle()
     }
     
     func orientationDidChangeNotification(notification: NSNotification) {
@@ -98,13 +82,13 @@ public class MZRPresentationView: UIView {
             instance.image = image;
         }
         image?.imageWithRenderingMode(.AlwaysTemplate)
-        
-        if let window = instance.application?.keyWindow {
-            for subview in instance.subviews {
-                subview.removeFromSuperview()
+
+        if let window = UIApplication.sharedApplication().keyWindow {
+            for subview in window.subviews {
+                if (subview as? MZRTouchView != nil) {
+                    subview.removeFromSuperview()
+                }
             }
-            window.swizzle()
-            window.addSubview(instance)
         }
     }
     
@@ -118,12 +102,6 @@ public class MZRPresentationView: UIView {
         
         if event.type != UIEventType.Touches {
             return
-        }
-        
-        if ((event.allTouches() != nil) && event.allTouches()!.count == 0) {
-            for subview in self.subviews {
-                removeFromSuperview()
-            }
         }
         
         func createTouchView(touch: UITouch) -> UIImageView {
@@ -144,17 +122,19 @@ public class MZRPresentationView: UIView {
             return nil
         }
         
+        let keyWindow = UIApplication.sharedApplication().keyWindow!
+        
         for touch in event.allTouches()?.allObjects as [UITouch] {
             
             let phase = touch.phase
             switch phase {
             case .Began:
                 let view = createTouchView(touch)
-                view.center = touch.locationInView(self)
-                self.addSubview(view)
+                view.center = touch.locationInView(keyWindow)
+                keyWindow.addSubview(view)
             case .Moved:
                 if let view = findTouchView(touch) {
-                    view.center = touch.locationInView(self)
+                    view.center = touch.locationInView(keyWindow)
                 }
             case .Stationary:
                 break
@@ -162,11 +142,11 @@ public class MZRPresentationView: UIView {
                 if let view = findTouchView(touch) {
                     let index = find(self.touchViews, view)
                     self.touchViews.removeAtIndex(index!)
-                    UIView.animateWithDuration(0.1, animations: { () -> Void in
+                    UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
                         view.alpha = 0.0
                     }, completion: { (finished) -> Void in
                         view.removeFromSuperview()
-                    })
+                    });
                 }
             }
         }
