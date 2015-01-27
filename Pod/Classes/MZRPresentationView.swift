@@ -9,12 +9,11 @@
 import UIKit
 
 public class MZRPresentationView: UIView {
-
+    
     // MARK: - Properties
-    private var enabled = false
+    
     private var image: UIImage?
     private var color: UIColor?
-    private var touchViewSize = CGSizeMake(60.0, 60.0)
     private var touchViews = [MZRTouchView]()
     
     // MARK: - Life Cycle
@@ -63,26 +62,11 @@ public class MZRPresentationView: UIView {
     public class func start() {
         self.start(nil, image: nil)
     }
+    
     public class func start(color: UIColor?, image: UIImage?) {
         let instance = self.sharedInstance()
-        instance.enabled = true
         instance.color = color
-        
-        if (image != nil) {
-            instance.image = image
-        } else {
-            let color = instance.color ?? UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
-            let rect = CGRectMake(0, 0, instance.touchViewSize.width, instance.touchViewSize.height);
-            UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
-            let contextRef = UIGraphicsGetCurrentContext()
-            CGContextSetFillColorWithColor(contextRef, color.CGColor)
-            CGContextFillEllipseInRect(contextRef, rect);
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext();
-            instance.image = image;
-        }
-        image?.imageWithRenderingMode(.AlwaysTemplate)
-
+        instance.image = image
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
                 if (subview as? MZRTouchView != nil) {
@@ -94,32 +78,40 @@ public class MZRPresentationView: UIView {
     
     public class func stop() {
         let instance = self.sharedInstance()
-        instance.enabled = false
         instance.removeFromSuperview()
+    }
+    
+    func dequeueTouchView() -> MZRTouchView {
+        var touchView: MZRTouchView?
+        for view in self.touchViews {
+            if view.superview == nil {
+                touchView = view
+                break
+            }
+        }
+        
+        if touchView == nil {
+            touchView = MZRTouchView(image: self.image, color: self.color)
+            self.touchViews.append(touchView!)
+        }
+        
+        touchView!.alpha = 1.0
+        return touchView!
+    }
+    
+    func findTouchView(touch: UITouch) -> MZRTouchView? {
+        for view in self.touchViews {
+            if view.touch == touch {
+                return view
+            }
+        }
+        return nil
     }
     
     public func handleEvnet(event: UIEvent) {
         
         if event.type != UIEventType.Touches {
             return
-        }
-        
-        func createTouchView(touch: UITouch) -> UIImageView {
-            let view = MZRTouchView(frame: CGRectMake(0.0, 0.0, self.touchViewSize.width, self.touchViewSize.height))
-            view.touch = touch
-            view.image = self.image
-            view.tintColor = self.color
-            self.touchViews.append(view)
-            return view
-        }
-        
-        func findTouchView(touch: UITouch) -> MZRTouchView? {
-            for view in self.touchViews {
-                if view.touch == touch {
-                    return view
-                }
-            }
-            return nil
         }
         
         let keyWindow = UIApplication.sharedApplication().keyWindow!
@@ -129,7 +121,8 @@ public class MZRPresentationView: UIView {
             let phase = touch.phase
             switch phase {
             case .Began:
-                let view = createTouchView(touch)
+                let view = self.dequeueTouchView()
+                view.touch = touch
                 view.center = touch.locationInView(keyWindow)
                 keyWindow.addSubview(view)
             case .Moved:
@@ -140,8 +133,6 @@ public class MZRPresentationView: UIView {
                 break
             case .Ended, .Cancelled:
                 if let view = findTouchView(touch) {
-                    let index = find(self.touchViews, view)
-                    self.touchViews.removeAtIndex(index!)
                     UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
                         view.alpha = 0.0
                     }, completion: { (finished) -> Void in
