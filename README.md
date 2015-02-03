@@ -30,7 +30,7 @@ To install it, simply add the following lines to your Podfile:
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod "MZRPresentationKit", '~>1.0.1'
+pod "MZRPresentationKit", '~>1.0.2'
 ```
 
 ## Usage
