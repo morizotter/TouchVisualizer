@@ -95,7 +95,6 @@ public class MZRPresentationView: UIView {
             self.touchViews.append(touchView!)
         }
         
-        touchView!.alpha = 1.0
         return touchView!
     }
     
@@ -123,6 +122,7 @@ public class MZRPresentationView: UIView {
             case .Began:
                 let view = self.dequeueTouchView()
                 view.touch = touch
+                view.start()
                 view.center = touch.locationInView(keyWindow)
                 keyWindow.addSubview(view)
             case .Moved:
@@ -136,6 +136,8 @@ public class MZRPresentationView: UIView {
                     UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
                         view.alpha = 0.0
                     }, completion: { (finished) -> Void in
+                        view.stop()
+                        view.alpha = 1.0
                         view.removeFromSuperview()
                     });
                 }
