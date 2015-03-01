@@ -30,6 +30,22 @@ public class MZRTouchView: UIImageView {
         return image
         }()
     
+    lazy var timerLabel: UILabel = {
+        var label:UILabel = UILabel(frame: CGRect(
+            x: 0.0,
+            y: -CGRectGetHeight(self.frame) / 2 - 40.0,
+            width: CGRectGetWidth(self.frame),
+            height: CGRectGetHeight(self.frame)
+            )
+        )
+        label.font = UIFont(name: "Helvetica", size: 24.0)
+        label.textAlignment = .Center
+        self.addSubview(label)
+        return label
+    }()
+    
+    var lastTimeString: String!
+    
     // MARK: - Life cycle
     
     convenience init(image: UIImage?, color: UIColor?) {
@@ -38,6 +54,7 @@ public class MZRTouchView: UIImageView {
         self.image = image ?? self.defaultImage
         self.image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
         self.tintColor = color ?? self.defaultTintColor
+        self.timerLabel.textColor = color ?? self.defaultTintColor
     }
     
     override init(frame: CGRect) {
@@ -68,7 +85,14 @@ public class MZRTouchView: UIImageView {
     func update(timer: NSTimer) {
         if let startDate = self.startDate {
             let interval = NSDate().timeIntervalSinceDate(startDate)
-            println("interval: \(interval)")
+            var timeString = "\(interval)"
+            let range = "\(interval)".rangeOfString(".")
+            if let range = range {
+                let r = advance(range.startIndex, 3)
+                timeString = timeString.substringToIndex(advance(range.startIndex, 3))
+                
+                self.timerLabel.text = timeString
+            }
         }
     }
 }
