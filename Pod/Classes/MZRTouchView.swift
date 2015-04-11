@@ -31,11 +31,13 @@ public class MZRTouchView: UIImageView {
         }()
     
     lazy var timerLabel: UILabel = {
+        let size = CGSizeMake(200.0, 44.0)
+        let bottom = 8.0 as CGFloat
         var label:UILabel = UILabel(frame: CGRect(
-            x: 0.0,
-            y: -CGRectGetHeight(self.frame) / 2 - 40.0,
-            width: CGRectGetWidth(self.frame),
-            height: CGRectGetHeight(self.frame)
+            x: -(size.width - CGRectGetWidth(self.frame)) / 2,
+            y: -size.height - bottom,
+            width: size.width,
+            height: size.height
             )
         )
         label.font = UIFont(name: "Helvetica", size: 24.0)
