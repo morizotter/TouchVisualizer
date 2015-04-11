@@ -8,48 +8,37 @@
 
 import UIKit
 
-public class MZRPresentationView: UIView {
-    
-    // MARK: - Properties
+final public class MZRPresentation {
     
     private var image: UIImage?
     private var color: UIColor?
     private var touchViews = [MZRTouchView]()
     
-    // MARK: - Life Cycle
-    
-    class func sharedInstance() -> MZRPresentationView {
+    class func sharedInstance() -> MZRPresentation {
         struct Static {
-            static let instance : MZRPresentationView = MZRPresentationView()
+            static let instance : MZRPresentation = MZRPresentation()
         }
         return Static.instance
     }
     
-    private override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.clipsToBounds = false
-        
-        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+    private init() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    required public init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func applicationDidBecomeActiveNotification(notification: NSNotification) {
+    @objc func applicationDidBecomeActiveNotification(notification: NSNotification) {
         UIApplication.sharedApplication().keyWindow?.swizzle()
     }
     
-    func orientationDidChangeNotification(notification: NSNotification) {
-        for subview in self.subviews {
-            subview.removeFromSuperview()
+    @objc func orientationDidChangeNotification(notification: NSNotification) {
+        let instance = MZRPresentation.sharedInstance()
+        for touch in instance.touchViews {
+            touch.removeFromSuperview()
         }
     }
     
@@ -74,10 +63,12 @@ public class MZRPresentationView: UIView {
     
     public class func stop() {
         let instance = self.sharedInstance()
-        instance.removeFromSuperview()
+        for touch in instance.touchViews {
+            touch.removeFromSuperview()
+        }
     }
     
-    func dequeueTouchView() -> MZRTouchView {
+    private func dequeueTouchView() -> MZRTouchView {
         var touchView: MZRTouchView?
         for view in self.touchViews {
             if view.superview == nil {
@@ -94,7 +85,7 @@ public class MZRPresentationView: UIView {
         return touchView!
     }
     
-    func findTouchView(touch: UITouch) -> MZRTouchView? {
+    private func findTouchView(touch: UITouch) -> MZRTouchView? {
         for view in self.touchViews {
             if view.touch == touch {
                 return view
