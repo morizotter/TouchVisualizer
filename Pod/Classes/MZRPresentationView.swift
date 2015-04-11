@@ -25,10 +25,6 @@ public class MZRPresentationView: UIView {
         return Static.instance
     }
     
-    private override init() {
-        super.init()
-    }
-    
     private override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -115,7 +111,7 @@ public class MZRPresentationView: UIView {
         
         let keyWindow = UIApplication.sharedApplication().keyWindow!
         
-        for touch in event.allTouches()?.allObjects as [UITouch] {
+        for touch in event.allTouches()! as! Set<UITouch> {
             
             let phase = touch.phase
             switch phase {

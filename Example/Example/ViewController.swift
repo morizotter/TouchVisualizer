@@ -18,7 +18,7 @@ class ViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ToDetail" {
-            let viewController = segue.destinationViewController as DetailViewController
+            let viewController = segue.destinationViewController as! DetailViewController
             if let cell = sender as? UITableViewCell {
                 viewController.text = cell.textLabel?.text
             }
@@ -32,7 +32,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = "Cell: \(indexPath.row)"
         return cell
     }
