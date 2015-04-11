@@ -1,14 +1,14 @@
 PODS:
-  - MZRPresentationKit (0.1.0)
+  - MZRPresentationKit (1.0.3)
 
 DEPENDENCIES:
   - MZRPresentationKit (from `../`)
 
 EXTERNAL SOURCES:
   MZRPresentationKit:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  MZRPresentationKit: 288b90fac626ff888677c4f1f071d67590fb7afc
+  MZRPresentationKit: 4bd6bad8bd8ea1c371753294865ee1c8d89cc6a7
 
-COCOAPODS: 0.36.0.beta.1
+COCOAPODS: 0.36.3
