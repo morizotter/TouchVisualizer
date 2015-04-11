@@ -25,10 +25,6 @@ public class MZRPresentationView: UIView {
         return Static.instance
     }
     
-    private override init() {
-        super.init()
-    }
-    
     private override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -95,7 +91,6 @@ public class MZRPresentationView: UIView {
             self.touchViews.append(touchView!)
         }
         
-        touchView!.alpha = 1.0
         return touchView!
     }
     
@@ -116,13 +111,14 @@ public class MZRPresentationView: UIView {
         
         let keyWindow = UIApplication.sharedApplication().keyWindow!
         
-        for touch in event.allTouches()?.allObjects as [UITouch] {
+        for touch in event.allTouches()! as! Set<UITouch> {
             
             let phase = touch.phase
             switch phase {
             case .Began:
                 let view = self.dequeueTouchView()
                 view.touch = touch
+                view.start()
                 view.center = touch.locationInView(keyWindow)
                 keyWindow.addSubview(view)
             case .Moved:
@@ -136,6 +132,8 @@ public class MZRPresentationView: UIView {
                     UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
                         view.alpha = 0.0
                     }, completion: { (finished) -> Void in
+                        view.stop()
+                        view.alpha = 1.0
                         view.removeFromSuperview()
                     });
                 }
