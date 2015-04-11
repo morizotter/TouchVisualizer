@@ -31,7 +31,7 @@ public extension UIWindow {
     }
     
     func swizzledSendEvent(event: UIEvent) {
-        MZRPresentationView.sharedInstance().handleEvnet(event)
+        MZRPresentation.sharedInstance().handleEvnet(event)
         self.swizzledSendEvent(event)
     }
     
