@@ -41,19 +41,19 @@ pod "MZRPresentationKit", '~>1.0.3'
 `import MZRPresentationKit` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`.
 
 ```
-MZRPresentationView.start()
+MZRPresentation.start()
 ```
 
 You can change colors and images like this. You can set only color or image.
 
 ```
-MZRPresentationView.start(UIColor.redColor(), image: UIImage(named: "YOUR-IMAGE"))
+MZRPresentation.start(UIColor.redColor(), image: UIImage(named: "YOUR-IMAGE"))
 ```
 
 You can stop presentation from the app like this.
 
 ```
-MZRPresentationView.stop()
+MZRPresentation.stop()
 ```
 
 ## Requirements
