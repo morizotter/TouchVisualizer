@@ -9,9 +9,7 @@
 import UIKit
 
 final public class MZRPresentation {
-    
-    private var image: UIImage?
-    private var color: UIColor?
+    private var config: MZRPresentationConfig!
     private var touchViews = [MZRTouchView]()
     
     class func sharedInstance() -> MZRPresentation {
@@ -45,13 +43,12 @@ final public class MZRPresentation {
     // MARK: - Methods
     
     public class func start() {
-        self.start(nil, image: nil)
+        self.start(MZRPresentationConfig())
     }
     
-    public class func start(color: UIColor?, image: UIImage?) {
+    public class func start(config: MZRPresentationConfig) {
         let instance = self.sharedInstance()
-        instance.color = color
-        instance.image = image
+        instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
                 if (subview as? MZRTouchView != nil) {
@@ -78,7 +75,7 @@ final public class MZRPresentation {
         }
         
         if touchView == nil {
-            touchView = MZRTouchView(image: self.image, color: self.color)
+            touchView = MZRTouchView(image: self.config.image, color: self.config.color)
             self.touchViews.append(touchView!)
         }
         
