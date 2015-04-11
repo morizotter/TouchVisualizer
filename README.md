@@ -28,9 +28,9 @@ To install it, simply add the following lines to your Podfile:
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '8.1'
 
-pod "MZRPresentationKit", '~>1.0.2'
+pod "MZRPresentationKit", '~>1.0.3'
 ```
 
 ## Usage
@@ -56,7 +56,7 @@ MZRPresentationView.stop()
 ## Requirements
 
 - iOS8 or later
-- Xcode 6.1
+- Xcode 6.3
 
 ## Author
 
