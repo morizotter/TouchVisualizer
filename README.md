@@ -15,13 +15,14 @@ When you give a presentation, your finger points are visible on screen.
 
 ## Installation
 
-> Embedded frameworks require a minimum deployment target of iOS 8
-> To use MZRPresentationKit with a project targeting iOS 7, you must include the MZRPresentationKit.swift source file directly in your project.
+> Embedded frameworks require a minimum deployment target of iOS 8.1
+> To use MZRPresentationKit with a project targeting iOS 8.0 or lower, you must include the MZRPresentationKit.swift source file directly in your project.
 
-[CocoaPods](http://cocoapods.org) 0.36 beta adds supports for Swift and embedded frameworks. You can install it with the following command:
+[CocoaPods](http://cocoapods.org) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```
-$ gem install cocoapods --pre
+$ gem install cocoapods
+$ pods --version
 ```
 
 To install it, simply add the following lines to your Podfile:
@@ -29,6 +30,8 @@ To install it, simply add the following lines to your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.1'
+
+use_frameworks!
 
 pod "MZRPresentationKit", '~>1.0.3'
 ```
@@ -55,7 +58,7 @@ MZRPresentationView.stop()
 
 ## Requirements
 
-- iOS8 or later
+- iOS8.1 or later
 - Xcode 6.3
 
 ## Author
