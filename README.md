@@ -75,6 +75,10 @@ Naoki Morita, namorit@gmail.com, [page](http://moritanaoki.org)
 
 TouchVisualizer is available under the MIT license. See the LICENSE file for more info.
 
+## Documents
+
+- [How to take an iOS screen movie](doc/take_a_movie.md)
+
 ## Alternative
 
 There is similar *touch visualization* library: [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer). It seems support lower iOS versions and probably works neater. If TouchVisualizer doesn't fit for your project. Let's try this.
