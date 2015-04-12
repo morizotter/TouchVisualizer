@@ -36,6 +36,8 @@ use_frameworks!
 pod "TouchVisualizer", '~>1.1.0'
 ```
 
+then, `pod install`
+
 ## Usage
 
 `import TouchVisualizer` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`.
