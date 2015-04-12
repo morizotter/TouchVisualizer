@@ -13,6 +13,7 @@ final public class MZRTouchView: UIImageView {
     // MARK: - Properties
     
     weak var touch: UITouch?
+    private var config: MZRPresentationConfig
     private var startDate: NSDate?
     private weak var timer: NSTimer?
     private var lastTimeString: String!
@@ -37,18 +38,19 @@ final public class MZRTouchView: UIImageView {
     
     convenience init(config: MZRPresentationConfig) {
         self.init(frame: CGRectMake(0.0, 0.0, 60.0, 60.0))
-        
-        self.image = config.image
+        self.config = config
+        self.image = self.config.image
         self.image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
-        self.tintColor = config.color
-        self.timerLabel.textColor = config.color
+        self.tintColor = self.config.color
+        self.timerLabel.textColor = self.config.color
     }
     
     override init(frame: CGRect) {
+        self.config = MZRPresentationConfig()
         super.init(frame: frame)
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -60,8 +62,10 @@ final public class MZRTouchView: UIImageView {
     
     func start() {
         self.startDate = NSDate()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
-        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        if self.config.showsTimer {
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
+            NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        }
     }
     
     func stop() {

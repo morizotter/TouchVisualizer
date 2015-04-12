@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        // Initialize with config
 //        var config = MZRPresentationConfig()
 //        config.color = UIColor.redColor()
+//        config.showsTimer = true
 //        MZRPresentation.start(config)
         
         return true
