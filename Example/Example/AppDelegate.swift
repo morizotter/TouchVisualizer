@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MZRPresentationKit
+import TouchVisualizer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
