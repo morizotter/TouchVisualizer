@@ -6,7 +6,7 @@
 
 ## Let's give a presentation with finger points easily
 
-![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif =300x)
+![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
 
 When you give a presentation, your finger points are visible on screen.
 - Multiple fingers supported.
