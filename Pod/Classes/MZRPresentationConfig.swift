@@ -23,11 +23,16 @@ public struct MZRPresentationConfig {
         image.imageWithRenderingMode(.AlwaysTemplate)
         return image
         }()
+    public var showsTimer = false
+    
     public init() {}
     public mutating func setColor(color: UIColor) {
         self.color = color
     }
     public mutating func setImage(image: UIImage) {
         self.image = image
+    }
+    public mutating func setShowsTimer(shows: Bool) {
+        self.showsTimer = shows
     }
 }
