@@ -75,3 +75,6 @@ Naoki Morita, namorit@gmail.com, [page](http://moritanaoki.org)
 
 TouchVisualizer is available under the MIT license. See the LICENSE file for more info.
 
+## Alternative
+
+There is similar *touch visualization* library: [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer). It seems support lower iOS version and probably works neater. If TouchVisualizer doesn't fit for your project. Let's try this.
