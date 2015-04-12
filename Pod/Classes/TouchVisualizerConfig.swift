@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct MZRPresentationConfig {
+public struct TouchVisualizerConfig {
     public var color: UIColor = {
         UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
     }()

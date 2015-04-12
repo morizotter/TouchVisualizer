@@ -1,14 +1,14 @@
 PODS:
-  - MZRPresentationKit (1.0.3)
+  - TouchVisualizer (1.1.0)
 
 DEPENDENCIES:
-  - MZRPresentationKit (from `../`)
+  - TouchVisualizer (from `../`)
 
 EXTERNAL SOURCES:
-  MZRPresentationKit:
+  TouchVisualizer:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MZRPresentationKit: 4bd6bad8bd8ea1c371753294865ee1c8d89cc6a7
+  TouchVisualizer: c9087ec9a7207a28e63934c3f423ac98bde97bb9
 
 COCOAPODS: 0.36.3

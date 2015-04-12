@@ -8,22 +8,22 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "MZRPresentationKit"
-  s.version          = "1.0.3"
+  s.name             = "TouchVisualizer"
+  s.version          = "1.1.0"
   s.summary          = "When you give a presentation, your finger points are visible on screen."
   s.description      = <<-DESC
                        # Give a presentation more impressive with finter points.
-
                        When you give a presentation, your finger points are visible on screen.
+                       TouchVisualizer is a new version of MZRPresentationKit
 
                        - Multiple fingers supported.
                        - Multiple UIWindows supported.
                        - You can change colors and images of finger points.
                        DESC
-  s.homepage         = "https://github.com/morizotter/MZRPresentationKit"
+  s.homepage         = "https://github.com/morizotter/TouchVisualizer"
   s.license          = 'MIT'
   s.author           = { "Naoki Morita" => "namorit@gmail.com" }
-  s.source           = { :git => "https://github.com/morizotter/MZRPresentationKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/morizotter/TouchVisualizer.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/morizotter'
 
   s.platform     = :ios, '8.1'

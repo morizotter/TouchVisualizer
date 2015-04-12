@@ -8,13 +8,14 @@
 
 import UIKit
 
-final public class MZRPresentation {
-    private var config: MZRPresentationConfig!
-    private var touchViews = [MZRTouchView]()
+final public class TouchVisualizer {
     
-    class func sharedInstance() -> MZRPresentation {
+    private var config: TouchVisualizerConfig!
+    private var touchViews = [TouchView]()
+    
+    class func sharedInstance() -> TouchVisualizer {
         struct Static {
-            static let instance : MZRPresentation = MZRPresentation()
+            static let instance : TouchVisualizer = TouchVisualizer()
         }
         return Static.instance
     }
@@ -34,7 +35,7 @@ final public class MZRPresentation {
     }
     
     @objc func orientationDidChangeNotification(notification: NSNotification) {
-        let instance = MZRPresentation.sharedInstance()
+        let instance = TouchVisualizer.sharedInstance()
         for touch in instance.touchViews {
             touch.removeFromSuperview()
         }
@@ -43,15 +44,15 @@ final public class MZRPresentation {
     // MARK: - Methods
     
     public class func start() {
-        self.start(MZRPresentationConfig())
+        self.start(TouchVisualizerConfig())
     }
     
-    public class func start(config: MZRPresentationConfig) {
+    public class func start(config: TouchVisualizerConfig) {
         let instance = self.sharedInstance()
         instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
-                if (subview as? MZRTouchView != nil) {
+                if (subview as? TouchView != nil) {
                     subview.removeFromSuperview()
                 }
             }
@@ -65,8 +66,8 @@ final public class MZRPresentation {
         }
     }
     
-    private func dequeueTouchView() -> MZRTouchView {
-        var touchView: MZRTouchView?
+    private func dequeueTouchView() -> TouchView {
+        var touchView: TouchView?
         for view in self.touchViews {
             if view.superview == nil {
                 touchView = view
@@ -75,14 +76,14 @@ final public class MZRPresentation {
         }
         
         if touchView == nil {
-            touchView = MZRTouchView(config: self.config)
+            touchView = TouchView(config: self.config)
             self.touchViews.append(touchView!)
         }
         
         return touchView!
     }
     
-    private func findTouchView(touch: UITouch) -> MZRTouchView? {
+    private func findTouchView(touch: UITouch) -> TouchView? {
         for view in self.touchViews {
             if view.touch == touch {
                 return view
