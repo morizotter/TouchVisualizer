@@ -33,7 +33,7 @@ platform :ios, '8.1'
 
 use_frameworks!
 
-pod "TouchVisualizer", '~>1.0.3'
+pod "TouchVisualizer", '~>1.1.0'
 ```
 
 ## Usage
