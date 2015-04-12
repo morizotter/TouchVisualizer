@@ -17,12 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // Initialization with default values
         MZRPresentation.start()
 
-        // Set with config
-        var config = MZRPresentationConfig()
-        config.color = UIColor.redColor()
-        MZRPresentation.start(config)
+//        // Initialize with config
+//        var config = MZRPresentationConfig()
+//        config.color = UIColor.redColor()
+//        MZRPresentation.start(config)
         
         return true
     }

@@ -75,7 +75,7 @@ final public class MZRPresentation {
         }
         
         if touchView == nil {
-            touchView = MZRTouchView(image: self.config.image, color: self.config.color)
+            touchView = MZRTouchView(config: self.config)
             self.touchViews.append(touchView!)
         }
         

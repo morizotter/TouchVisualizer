@@ -8,27 +8,14 @@
 
 import UIKit
 
-public class MZRTouchView: UIImageView {
+final public class MZRTouchView: UIImageView {
     
     // MARK: - Properties
     
     weak var touch: UITouch?
-    
     private var startDate: NSDate?
     private weak var timer: NSTimer?
-    
-    let defaultTintColor = UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
-    let defaultImage: UIImage = {
-        let rect = CGRectMake(0, 0, 60.0, 60.0);
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
-        let contextRef = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(contextRef, UIColor.blackColor().CGColor)
-        CGContextFillEllipseInRect(contextRef, rect);
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        image.imageWithRenderingMode(.AlwaysTemplate)
-        return image
-        }()
+    private var lastTimeString: String!
     
     lazy var timerLabel: UILabel = {
         let size = CGSizeMake(200.0, 44.0)
@@ -46,17 +33,15 @@ public class MZRTouchView: UIImageView {
         return label
     }()
     
-    var lastTimeString: String!
-    
     // MARK: - Life cycle
     
-    convenience init(image: UIImage?, color: UIColor?) {
+    convenience init(config: MZRPresentationConfig) {
         self.init(frame: CGRectMake(0.0, 0.0, 60.0, 60.0))
         
-        self.image = image ?? self.defaultImage
+        self.image = config.image
         self.image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
-        self.tintColor = color ?? self.defaultTintColor
-        self.timerLabel.textColor = color ?? self.defaultTintColor
+        self.tintColor = config.color
+        self.timerLabel.textColor = config.color
     }
     
     override init(frame: CGRect) {
