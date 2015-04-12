@@ -67,6 +67,10 @@ TouchVisualizer.stop()
 - iOS8.1 or later
 - Xcode 6.3
 
+## Document
+
+- [How to take an iOS screen movie](doc/take_a_movie.md)
+
 ## Author
 
 Naoki Morita, namorit@gmail.com, [page](http://moritanaoki.org)
