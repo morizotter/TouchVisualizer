@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 [![Platform](https://img.shields.io/cocoapods/p/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 
-## Let's give a presentation with finger points easily
+## Let's give a presentation effectively
 
 ![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
 
@@ -21,6 +21,7 @@ When you give a presentation, your finger points are visible on screen.
 [CocoaPods](http://cocoapods.org) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```
+$ gem update
 $ gem install cocoapods
 $ pods --version
 ```
