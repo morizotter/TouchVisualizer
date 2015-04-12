@@ -8,12 +8,12 @@
 
 import UIKit
 
-final public class MZRTouchView: UIImageView {
+final public class TouchView: UIImageView {
     
     // MARK: - Properties
     
     weak var touch: UITouch?
-    private var config: MZRPresentationConfig
+    private var config: TouchVisualizerConfig
     private var startDate: NSDate?
     private weak var timer: NSTimer?
     private var lastTimeString: String!
@@ -36,7 +36,7 @@ final public class MZRTouchView: UIImageView {
     
     // MARK: - Life cycle
     
-    convenience init(config: MZRPresentationConfig) {
+    convenience init(config: TouchVisualizerConfig) {
         self.init(frame: CGRectMake(0.0, 0.0, 60.0, 60.0))
         self.config = config
         self.image = self.config.image
@@ -46,7 +46,7 @@ final public class MZRTouchView: UIImageView {
     }
     
     override init(frame: CGRect) {
-        self.config = MZRPresentationConfig()
+        self.config = TouchVisualizerConfig()
         super.init(frame: frame)
     }
 
