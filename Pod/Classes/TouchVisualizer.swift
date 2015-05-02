@@ -92,7 +92,7 @@ final public class TouchVisualizer {
         return nil
     }
     
-    public func handleEvnet(event: UIEvent) {
+    public func handleEvent(event: UIEvent) {
         
         if event.type != UIEventType.Touches {
             return
