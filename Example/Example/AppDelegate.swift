@@ -16,16 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-//        // Initialization with default values
-//        TouchVisualizer.start()
-
-        // Initialize with config
-        var config = TouchVisualizerConfig()
-        config.color = UIColor.redColor()
-        config.showsTimer = true
-        TouchVisualizer.start(config)
-        
         return true
     }
 
