@@ -13,7 +13,19 @@ final public class TouchView: UIImageView {
     // MARK: - Properties
     
     weak var touch: UITouch?
-    private var config: TouchVisualizerConfig
+    private var _config: TouchVisualizerConfig
+    
+    public var config: TouchVisualizerConfig{
+        get{ return _config }
+        set(value) {
+            _config = value
+            self.image = self.config.image
+            self.image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
+            self.tintColor = self.config.color
+            self.timerLabel.textColor = self.config.color
+        }
+    }
+    
     private var startDate: NSDate?
     private weak var timer: NSTimer?
     private var lastTimeString: String!
@@ -38,15 +50,11 @@ final public class TouchView: UIImageView {
     
     convenience init(config: TouchVisualizerConfig) {
         self.init(frame: CGRectMake(0.0, 0.0, 60.0, 60.0))
-        self.config = config
-        self.image = self.config.image
-        self.image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
-        self.tintColor = self.config.color
-        self.timerLabel.textColor = self.config.color
+        self._config = config
     }
     
     override init(frame: CGRect) {
-        self.config = TouchVisualizerConfig()
+        self._config = TouchVisualizerConfig()
         super.init(frame: frame)
     }
 
@@ -59,10 +67,9 @@ final public class TouchView: UIImageView {
     }
     
     // MARK: - Methods
-    
     func start() {
         self.startDate = NSDate()
-        if self.config.showsTimer {
+        if self._config.showsTimer {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
             NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
         }

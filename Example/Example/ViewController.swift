@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import TouchVisualizer
 
 class ViewController: UITableViewController {
     
     // MARK: - Life Cycle
+    let colorList = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()]
+    var currentColorIndex:Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize with config
+        var newConfig = TouchVisualizerConfig()
+            newConfig.color = colorList[currentColorIndex]
+        
+        TouchVisualizer.start(newConfig)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -22,6 +32,20 @@ class ViewController: UITableViewController {
             if let cell = sender as? UITableViewCell {
                 viewController.text = cell.textLabel?.text
             }
+            
+//            if(TouchVisualizer.isEnabled()) {
+//                TouchVisualizer.stop()
+//            } else {
+                currentColorIndex++
+                if(currentColorIndex >= colorList.count) { currentColorIndex = 0 }
+                
+                var config = TouchVisualizerConfig()
+                config.color = colorList[currentColorIndex]
+                //config.showsTimer = true
+                TouchVisualizer.start(config)
+
+//            }
+            
         }
     }
     

@@ -6,9 +6,9 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   TouchVisualizer:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   TouchVisualizer: c9087ec9a7207a28e63934c3f423ac98bde97bb9
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.36.4
