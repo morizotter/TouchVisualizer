@@ -12,6 +12,7 @@ final public class TouchVisualizer {
     
     private var config: TouchVisualizerConfig!
     private var touchViews = [TouchView]()
+    private var enabled:Bool = false
     
     class func sharedInstance() -> TouchVisualizer {
         struct Static {
@@ -42,13 +43,18 @@ final public class TouchVisualizer {
     }
     
     // MARK: - Methods
+    public class func isEnabled() -> Bool {
+        return self.sharedInstance().enabled
+    }
     
     public class func start() {
         self.start(TouchVisualizerConfig())
     }
     
     public class func start(config: TouchVisualizerConfig) {
+        
         let instance = self.sharedInstance()
+        instance.enabled = true
         instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
@@ -61,6 +67,7 @@ final public class TouchVisualizer {
     
     public class func stop() {
         let instance = self.sharedInstance()
+        instance.enabled = false
         for touch in instance.touchViews {
             touch.removeFromSuperview()
         }
@@ -98,6 +105,10 @@ final public class TouchVisualizer {
             return
         }
         
+        if(!TouchVisualizer.sharedInstance().enabled){
+            return
+        }
+        
         let keyWindow = UIApplication.sharedApplication().keyWindow!
         
         for touch in event.allTouches()! as! Set<UITouch> {
@@ -106,6 +117,7 @@ final public class TouchVisualizer {
             switch phase {
             case .Began:
                 let view = self.dequeueTouchView()
+                view.config = TouchVisualizer.sharedInstance().config
                 view.touch = touch
                 view.start()
                 view.center = touch.locationInView(keyWindow)
