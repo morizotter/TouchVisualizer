@@ -24,4 +24,5 @@ DerivedData
 vendor/bundle/*
 
 # Pods
-Example/Pods/
+Example/Pods/*
+Example/*.lock
