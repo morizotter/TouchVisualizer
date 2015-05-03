@@ -6,14 +6,14 @@
 [![License](https://img.shields.io/cocoapods/l/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 [![Platform](https://img.shields.io/cocoapods/p/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 
-## Let's give a presentation effectively
-
-![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
-
 When you give a presentation, your finger points are visible on screen.
 - Multiple fingers supported.
 - Multiple UIWindows supported.
 - You can change colors and images of finger points.
+
+![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
+
+Let's give a presentation effectively
 
 ## Installation
 
