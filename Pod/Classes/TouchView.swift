@@ -112,7 +112,7 @@ final public class TouchView: UIImageView {
     
     func updateSize() {
         if let touch = touch {
-            let ratio = touch.majorRadius / _config.defaultSize.width
+            let ratio = touch.majorRadius * 2.0 / _config.defaultSize.width
             if ratio != previousRatio {
                 layer.transform = CATransform3DMakeScale(ratio, ratio, 1.0)
                 previousRatio = ratio
