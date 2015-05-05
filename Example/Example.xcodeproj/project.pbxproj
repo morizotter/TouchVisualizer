@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		44B5E41972D5EDF7B99A2347 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFA0A3B9BFBDEC298674EBA /* Pods_ExampleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C4E6F97F8235F055F974F868 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFD340AB516E90F7280B83B /* Pods_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FF3B75651A75382F006F303C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B75641A75382F006F303C /* ModalViewController.swift */; };
 		FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1A1A74E52500DC12EF /* AppDelegate.swift */; };
 		FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */; };
 		FF828F201A74E52500DC12EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF828F1E1A74E52500DC12EF /* Main.storyboard */; };
@@ -37,7 +36,6 @@
 		5DFA0A3B9BFBDEC298674EBA /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFD340AB516E90F7280B83B /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F7AF63FEAD656DB1548A49 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FF3B75641A75382F006F303C /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		FF828F151A74E52500DC12EF /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF828F191A74E52500DC12EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF828F1A1A74E52500DC12EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				FF84A2CA1AF929A3005A5759 /* ViewController.swift */,
 				FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */,
 				FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */,
-				FF3B75641A75382F006F303C /* ModalViewController.swift */,
 				FF828F1E1A74E52500DC12EF /* Main.storyboard */,
 				FF828F211A74E52500DC12EF /* Images.xcassets */,
 				FF828F231A74E52500DC12EF /* LaunchScreen.xib */,
@@ -353,7 +350,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF84A2CB1AF929A3005A5759 /* ViewController.swift in Sources */,
-				FF3B75651A75382F006F303C /* ModalViewController.swift in Sources */,
 				FFF1D64E1A75001500EB3DD4 /* DetailViewController.swift in Sources */,
 				FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */,
 				FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */,

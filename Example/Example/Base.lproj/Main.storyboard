@@ -167,26 +167,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iQ-AB-vGx">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.032998204230000001" green="0.6937255859" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="c5X-uJ-mIK"/>
-                                </constraints>
-                                <state key="normal" title="Modal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="NWz-0U-y5Q" kind="presentation" id="7Fd-TR-i07"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6iQ-AB-vGx" firstAttribute="leading" secondItem="sUs-A4-5nz" secondAttribute="leading" id="4SR-jo-KzH"/>
-                            <constraint firstAttribute="bottom" secondItem="6iQ-AB-vGx" secondAttribute="bottom" id="C1u-Bp-tUh"/>
                             <constraint firstAttribute="centerY" secondItem="9FZ-tc-LuH" secondAttribute="centerY" id="PLX-kf-4ex"/>
-                            <constraint firstAttribute="trailing" secondItem="6iQ-AB-vGx" secondAttribute="trailing" id="hGV-aU-hLX"/>
                             <constraint firstAttribute="centerX" secondItem="9FZ-tc-LuH" secondAttribute="centerX" id="qOQ-OK-hhD"/>
                         </constraints>
                     </view>
@@ -198,52 +182,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHg-wS-XPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1304" y="462"/>
-        </scene>
-        <!--Modal View Controller-->
-        <scene sceneID="9JM-sR-C1z">
-            <objects>
-                <viewController id="NWz-0U-y5Q" customClass="ModalViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fBG-ip-mTJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="vpa-ly-xET"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="v4n-oN-Qgn">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGa-og-Sh2">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.032998204230000001" green="0.6937255859" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Btb-l6-xPY"/>
-                                </constraints>
-                                <state key="normal" title="Close">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="NWz-0U-y5Q" eventType="touchUpInside" id="hRM-7z-ISp"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpJ-IZ-to5">
-                                <rect key="frame" x="267" y="286" width="66" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lGa-og-Sh2" secondAttribute="trailing" id="6Gf-Ns-LBK"/>
-                            <constraint firstAttribute="centerY" secondItem="jpJ-IZ-to5" secondAttribute="centerY" id="HsE-mQ-1EY"/>
-                            <constraint firstItem="vpa-ly-xET" firstAttribute="top" secondItem="lGa-og-Sh2" secondAttribute="bottom" id="Q8W-Wh-ZF2"/>
-                            <constraint firstAttribute="centerX" secondItem="jpJ-IZ-to5" secondAttribute="centerX" id="Xvd-t2-seA"/>
-                            <constraint firstItem="lGa-og-Sh2" firstAttribute="leading" secondItem="v4n-oN-Qgn" secondAttribute="leading" id="s0o-XF-WCO"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F6S-cJ-9ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2067" y="462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yhS-F1-9fv">
