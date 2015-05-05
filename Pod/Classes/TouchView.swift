@@ -69,14 +69,17 @@ final public class TouchView: UIImageView {
     
     func beginTouch() {
         self.alpha = 1.0
+        self.timerLabel.alpha = 0.0
         self.layer.transform = CATransform3DIdentity
         self.previousRatio = 1.0
         self.frame = CGRect(origin: self.frame.origin, size: self._config.defaultSize)
         self.startDate = NSDate()
         
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        
         if self._config.showsTimer {
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
-            NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+            self.timerLabel.alpha = 1.0
         }
         
         if self._config.showsTouchRadius {
