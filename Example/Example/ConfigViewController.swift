@@ -9,28 +9,22 @@
 import UIKit
 import TouchVisualizer
 
-class ConfigViewController: UITableViewController {
+final class ConfigViewController: UITableViewController {
     
-    @IBOutlet weak var startAndStopCell: UITableViewCell!
     @IBOutlet weak var blueColorCell: UITableViewCell!
     @IBOutlet weak var redColorCell: UITableViewCell!
     @IBOutlet weak var greenColorCell: UITableViewCell!
     
+    var config = TouchVisualizerConfig()
+    
     let colors = [
         "blue": UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8),
         "green": UIColor.greenColor(),
-        "redColor": UIColor.redColor()
+        "red": UIColor.redColor()
     ]
     
-    
     // MARK: - Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        TouchVisualizer.start()
-    }
-    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "ToDetail" {
 //            let viewController = segue.destinationViewController as! DetailViewController
@@ -55,6 +49,12 @@ class ConfigViewController: UITableViewController {
 //        }
 //    }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        TouchVisualizer.start()
+        updateCells()
+    }
+    
     // MARK: - TableView Delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -63,27 +63,33 @@ class ConfigViewController: UITableViewController {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-        let isStartAndStop = self.startAndStopCell == cell
-        let isBlueColor = self.blueColorCell == cell
-        let isRedColor = self.redColorCell == cell
-        let isGreenColor = self.greenColorCell == cell
-        
-        if isStartAndStop {
-            if TouchVisualizer.isEnabled() {
-                TouchVisualizer.stop()
-            } else {
-                TouchVisualizer.start()
-            }
+        if cell == blueColorCell {
+            config.color = colors["blue"]!
+        }
+        if cell == redColorCell {
+            config.color = colors["red"]!
+        }
+        if cell == greenColorCell {
+            config.color = colors["green"]!
         }
         
-        self.updateCells()
+        updateCells()
+        TouchVisualizer.start(config)
     }
     
     func updateCells() {
-        if TouchVisualizer.isEnabled() {
-            self.startAndStopCell.textLabel?.text = "Stop"
-        } else {
-            self.startAndStopCell.textLabel?.text = "Start"
+        let checkmarkCells = [blueColorCell, redColorCell, greenColorCell]
+        for cell in checkmarkCells {
+            cell.accessoryType = .None
+        }
+        if config.color == colors["blue"] {
+            self.blueColorCell.accessoryType = .Checkmark
+        }
+        else if config.color == colors["red"] {
+            self.redColorCell.accessoryType = .Checkmark
+        }
+        else if config.color == colors["green"] {
+            self.greenColorCell.accessoryType = .Checkmark
         }
     }
     
@@ -91,6 +97,7 @@ class ConfigViewController: UITableViewController {
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        TouchVisualizer.start()
     }
     
     @IBAction func doneButtonTapped(sender: UIBarButtonItem) {

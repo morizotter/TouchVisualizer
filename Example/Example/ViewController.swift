@@ -13,10 +13,6 @@ class ViewController: UITableViewController {
 
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ToDetail" {
             let viewController = segue.destinationViewController as! DetailViewController
@@ -61,8 +57,10 @@ class ViewController: UITableViewController {
             { [unowned self] (alertAction) -> Void in
                 if TouchVisualizer.isEnabled() {
                     TouchVisualizer.stop()
+                    self.navigationItem.leftBarButtonItem?.enabled = false
                 } else {
                     TouchVisualizer.start()
+                    self.navigationItem.leftBarButtonItem?.enabled = true
                 }
             }
         )

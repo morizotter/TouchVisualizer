@@ -118,8 +118,8 @@
 				FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */,
 				FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */,
 				FF828F1E1A74E52500DC12EF /* Main.storyboard */,
-				FF828F211A74E52500DC12EF /* Images.xcassets */,
 				FF828F231A74E52500DC12EF /* LaunchScreen.xib */,
+				FF828F211A74E52500DC12EF /* Images.xcassets */,
 				FF828F181A74E52500DC12EF /* Supporting Files */,
 			);
 			path = Example;
