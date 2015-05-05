@@ -11,6 +11,9 @@ import TouchVisualizer
 
 class ConfigViewController: UITableViewController {
     
+    @IBOutlet weak var startAndStopCell: UITableViewCell!
+    
+    
     // MARK: - Life Cycle
     let colorList = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()]
     var currentColorIndex:Int = 0
@@ -50,16 +53,42 @@ class ConfigViewController: UITableViewController {
         }
     }
     
-    // MARK: - TableView DataSource
+//    // MARK: - TableView DataSource
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 100
+//    }
+//    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+//        cell.textLabel?.text = "Cell: \(indexPath.row)"
+//        return cell
+//    }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+    // MARK: - TableView Delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        if cell == self.startAndStopCell {
+            if TouchVisualizer.isEnabled() {
+                TouchVisualizer.stop()
+            } else {
+                TouchVisualizer.start()
+            }
+        }
+        
+        self.updateCells()
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = "Cell: \(indexPath.row)"
-        return cell
+    func updateCells() {
+        if TouchVisualizer.isEnabled() {
+            self.startAndStopCell.textLabel?.text = "Stop"
+        } else {
+            self.startAndStopCell.textLabel?.text = "Start"
+        }
     }
     
     // MARK: - Actions
