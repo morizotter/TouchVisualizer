@@ -119,7 +119,7 @@ final public class TouchVisualizer {
                 let view = self.dequeueTouchView()
                 view.config = TouchVisualizer.sharedInstance().config
                 view.touch = touch
-                view.start()
+                view.beginTouch()
                 view.center = touch.locationInView(keyWindow)
                 keyWindow.addSubview(view)
             case .Moved:
@@ -132,9 +132,8 @@ final public class TouchVisualizer {
                 if let view = findTouchView(touch) {
                     UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
                         view.alpha = 0.0
+                        view.endTouch()
                     }, completion: { (finished) -> Void in
-                        view.stop()
-                        view.alpha = 1.0
                         view.removeFromSuperview()
                     });
                 }

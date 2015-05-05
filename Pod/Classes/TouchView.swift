@@ -67,7 +67,8 @@ final public class TouchView: UIImageView {
     }
     
     // MARK: - Methods
-    func start() {
+    func beginTouch() {
+        self.alpha = 1.0
         self.startDate = NSDate()
         if self._config.showsTimer {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
@@ -75,8 +76,7 @@ final public class TouchView: UIImageView {
         }
     }
     
-    func stop() {
-        self.startDate = nil
+    func endTouch() {
         self.timer?.invalidate()
     }
     
