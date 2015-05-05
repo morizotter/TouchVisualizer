@@ -19,6 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TouchVisualizer.start()
         
+//        // Initialize with config
+//        var config = TouchVisualizerConfig()
+//        config.color = UIColor.purpleColor()
+//        config.showsTimer = true
+//        config.showsTouchRadius = true
+//        TouchVisualizer.start(config)
+        
         return true
     }
 
