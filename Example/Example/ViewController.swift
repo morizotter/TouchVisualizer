@@ -64,16 +64,6 @@ class ViewController: UITableViewController {
     
     // MARK: - Actions
     
-    @IBAction func leftBarButtonItemTapped(sender: AnyObject) {
-        let controller = UIAlertController(
-            title: "Alert",
-            message: "Even when alert shows, your tap is visible.",
-            preferredStyle: .Alert
-        )
-        controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
     @IBAction func rightBarButtonItemTapped(sender: AnyObject) {
         let controller = UIAlertController(
             title: "ActionSheet",
@@ -81,7 +71,15 @@ class ViewController: UITableViewController {
             preferredStyle: .ActionSheet
         )
         for i in 0..<3 {
-            controller.addAction(UIAlertAction(title: "Action(\(i))", style: .Default, handler: nil))
+            controller.addAction(UIAlertAction(title: "Alert(\(i))", style: .Default, handler: { [unowned self] (alertAction) -> Void in
+                let controller = UIAlertController(
+                    title: "Alert",
+                    message: "Even when alert shows, your tap is visible.",
+                    preferredStyle: .Alert
+                )
+                controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+                self.presentViewController(controller, animated: true, completion: nil)
+            }))
         }
         controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(controller, animated: true, completion: nil)
