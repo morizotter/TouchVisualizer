@@ -26,6 +26,8 @@ final public class TouchView: UIImageView {
         }
     }
     
+    private var size = CGSize(width: 60.0, height: 60.0)
+    private var previousRatio: CGFloat = 1.0
     private var startDate: NSDate?
     private weak var timer: NSTimer?
     private var lastTimeString: String!
@@ -49,13 +51,14 @@ final public class TouchView: UIImageView {
     // MARK: - Life cycle
     
     convenience init(config: TouchVisualizerConfig) {
-        self.init(frame: CGRectMake(0.0, 0.0, 60.0, 60.0))
+        self.init(frame: CGRectZero)
         self._config = config
     }
     
     override init(frame: CGRect) {
         self._config = TouchVisualizerConfig()
         super.init(frame: frame)
+        self.frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: size)
     }
 
     public required init(coder aDecoder: NSCoder) {
@@ -69,6 +72,7 @@ final public class TouchView: UIImageView {
     // MARK: - Methods
     func beginTouch() {
         self.alpha = 1.0
+        self.layer.transform = CATransform3DIdentity
         self.startDate = NSDate()
         if self._config.showsTimer {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
@@ -94,9 +98,11 @@ final public class TouchView: UIImageView {
         }
         if self._config.showsTouchRadius {
             if let touch = self.touch {
-                println("radius: \(touch.majorRadius)")
-            } else {
-                println("No touch")
+                let ratio = touch.majorRadius / 60.0
+                if ratio != self.previousRatio {
+                    self.layer.transform = CATransform3DMakeScale(ratio, ratio, 1.0)
+                    self.previousRatio = ratio
+                }
             }
         }
     }
