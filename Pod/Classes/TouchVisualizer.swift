@@ -1,6 +1,6 @@
 //
-//  MZRPresentationView.swift
-//  MZRPresentation
+//  TouchVisualizer.swift
+//  Pods
 //
 //  Created by MORITA NAOKI on 2015/01/24.
 //  Copyright (c) 2015年 molabo. All rights reserved.

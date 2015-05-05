@@ -42,6 +42,7 @@ class ViewController: UITableViewController {
                 var config = TouchVisualizerConfig()
                 config.color = colorList[currentColorIndex]
                 config.showsTimer = true
+                config.showsTouchRadius = true
                 TouchVisualizer.start(config)
 
 //            }
