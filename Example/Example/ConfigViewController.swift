@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ConfigViewController.swift
 //  Example
 //
 //  Created by MORITA NAOKI on 2015/01/25.
@@ -9,7 +9,7 @@
 import UIKit
 import TouchVisualizer
 
-class ViewController: UITableViewController {
+class ConfigViewController: UITableViewController {
     
     // MARK: - Life Cycle
     let colorList = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()]
