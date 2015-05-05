@@ -6,9 +6,12 @@
 [![License](https://img.shields.io/cocoapods/l/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 [![Platform](https://img.shields.io/cocoapods/p/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 
-When you give a presentation, your finger points are visible on screen.
+Effective presentation with TouchVisualizer! Main features are below.
+
 - Multiple fingers supported.
 - Multiple UIWindows supported.
+- Shows touch radius.
+- Shows touch duration.
 - You can change colors and images of finger points.
 
 ![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
@@ -36,7 +39,7 @@ platform :ios, '8.1'
 
 use_frameworks!
 
-pod "TouchVisualizer", '~>1.1.0'
+pod "TouchVisualizer", '~>1.1.2'
 ```
 
 then, `pod install`
