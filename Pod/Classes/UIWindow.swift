@@ -16,7 +16,7 @@ public extension UIWindow {
     
     func swizzle() {
         
-        var range = self.description.rangeOfString(self.swizzlingMessage, options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
+        var range = self.description.rangeOfString(swizzlingMessage, options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
         if (range?.startIndex != nil) {
             return;
         }
@@ -31,11 +31,11 @@ public extension UIWindow {
     }
     
     func swizzledSendEvent(event: UIEvent) {
-        TouchVisualizer.sharedInstance().handleEvent(event)
-        self.swizzledSendEvent(event)
+        TouchVisualizer.sharedInstance.handleEvent(event)
+        swizzledSendEvent(event)
     }
     
     func swizzledDescription() -> String {
-        return self.swizzledDescription() + "; " + self.swizzlingMessage
+        return swizzledDescription() + "; " + swizzlingMessage
     }
 }

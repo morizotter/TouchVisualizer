@@ -19,10 +19,10 @@ final public class TouchView: UIImageView {
         get{ return _config }
         set(value) {
             _config = value
-            self.image = self.config.image
-            self.image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
-            self.tintColor = self.config.color
-            self.timerLabel.textColor = self.config.color
+            image = self.config.image
+            image = image?.imageWithRenderingMode(.AlwaysTemplate)
+            tintColor = self.config.color
+            timerLabel.textColor = self.config.color
         }
     }
     
@@ -54,9 +54,9 @@ final public class TouchView: UIImageView {
     }
     
     override init(frame: CGRect) {
-        self._config = TouchVisualizerConfig()
+        _config = TouchVisualizerConfig()
         super.init(frame: frame)
-        self.frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: self._config.defaultSize)
+        self.frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: _config.defaultSize)
     }
 
     public required init(coder aDecoder: NSCoder) {
@@ -64,35 +64,35 @@ final public class TouchView: UIImageView {
     }
     
     deinit {
-        self.timer?.invalidate()
+        timer?.invalidate()
     }
     
     func beginTouch() {
-        self.alpha = 1.0
-        self.timerLabel.alpha = 0.0
-        self.layer.transform = CATransform3DIdentity
-        self.previousRatio = 1.0
-        self.frame = CGRect(origin: self.frame.origin, size: self._config.defaultSize)
-        self.startDate = NSDate()
+        alpha = 1.0
+        timerLabel.alpha = 0.0
+        layer.transform = CATransform3DIdentity
+        previousRatio = 1.0
+        frame = CGRect(origin: frame.origin, size: _config.defaultSize)
+        startDate = NSDate()
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
-        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
         
-        if self._config.showsTimer {
-            self.timerLabel.alpha = 1.0
+        if _config.showsTimer {
+            timerLabel.alpha = 1.0
         }
         
-        if self._config.showsTouchRadius {
-            self.updateSize()
+        if _config.showsTouchRadius {
+            updateSize()
         }
     }
     
     func endTouch() {
-        self.timer?.invalidate()
+        timer?.invalidate()
     }
     
     internal func update(timer: NSTimer) {
-        if let startDate = self.startDate {
+        if let startDate = startDate {
             let interval = NSDate().timeIntervalSinceDate(startDate)
             var timeString = "\(interval)"
             let range = "\(interval)".rangeOfString(".")
@@ -100,22 +100,22 @@ final public class TouchView: UIImageView {
                 let r = advance(range.startIndex, 3)
                 timeString = timeString.substringToIndex(advance(range.startIndex, 3))
                 
-                self.timerLabel.text = timeString
+                timerLabel.text = timeString
             }
         }
-        if self._config.showsTouchRadius {
-            self.updateSize()
+        if _config.showsTouchRadius {
+            updateSize()
         }
     }
     
     // MARK: - Methods
     
     func updateSize() {
-        if let touch = self.touch {
-            let ratio = touch.majorRadius / self._config.defaultSize.width
-            if ratio != self.previousRatio {
-                self.layer.transform = CATransform3DMakeScale(ratio, ratio, 1.0)
-                self.previousRatio = ratio
+        if let touch = touch {
+            let ratio = touch.majorRadius / _config.defaultSize.width
+            if ratio != previousRatio {
+                layer.transform = CATransform3DMakeScale(ratio, ratio, 1.0)
+                previousRatio = ratio
             }
         }
     }
