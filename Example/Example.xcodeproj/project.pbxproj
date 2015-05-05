@@ -16,6 +16,7 @@
 		FF828F221A74E52500DC12EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF828F211A74E52500DC12EF /* Images.xcassets */; };
 		FF828F251A74E52500DC12EF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF828F231A74E52500DC12EF /* LaunchScreen.xib */; };
 		FF828F311A74E52500DC12EF /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F301A74E52500DC12EF /* ExampleTests.swift */; };
+		FF84A2CB1AF929A3005A5759 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF84A2CA1AF929A3005A5759 /* ViewController.swift */; };
 		FFF1D64E1A75001500EB3DD4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		FF828F2A1A74E52500DC12EF /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF828F2F1A74E52500DC12EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF828F301A74E52500DC12EF /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		FF84A2CA1AF929A3005A5759 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				FF828F1A1A74E52500DC12EF /* AppDelegate.swift */,
+				FF84A2CA1AF929A3005A5759 /* ViewController.swift */,
 				FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */,
 				FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */,
 				FF3B75641A75382F006F303C /* ModalViewController.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF84A2CB1AF929A3005A5759 /* ViewController.swift in Sources */,
 				FF3B75651A75382F006F303C /* ModalViewController.swift in Sources */,
 				FFF1D64E1A75001500EB3DD4 /* DetailViewController.swift in Sources */,
 				FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */,

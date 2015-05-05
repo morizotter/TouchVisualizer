@@ -12,57 +12,47 @@ import TouchVisualizer
 class ConfigViewController: UITableViewController {
     
     @IBOutlet weak var startAndStopCell: UITableViewCell!
+    @IBOutlet weak var blueColorCell: UITableViewCell!
+    @IBOutlet weak var redColorCell: UITableViewCell!
+    @IBOutlet weak var greenColorCell: UITableViewCell!
+    
+    let colors = [
+        "blue": UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8),
+        "green": UIColor.greenColor(),
+        "redColor": UIColor.redColor()
+    ]
     
     
     // MARK: - Life Cycle
-    let colorList = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()]
-    var currentColorIndex:Int = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize with config
-        var newConfig = TouchVisualizerConfig()
-            newConfig.color = colorList[currentColorIndex]
-        
-        TouchVisualizer.start(newConfig)
+        TouchVisualizer.start()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ToDetail" {
-            let viewController = segue.destinationViewController as! DetailViewController
-            if let cell = sender as? UITableViewCell {
-                viewController.text = cell.textLabel?.text
-            }
-            
-//            if(TouchVisualizer.isEnabled()) {
-//                TouchVisualizer.stop()
-//            } else {
-                currentColorIndex++
-                if(currentColorIndex >= colorList.count) { currentColorIndex = 0 }
-                
-                var config = TouchVisualizerConfig()
-                config.color = colorList[currentColorIndex]
-                config.showsTimer = true
-                config.showsTouchRadius = true
-                TouchVisualizer.start(config)
-
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "ToDetail" {
+//            let viewController = segue.destinationViewController as! DetailViewController
+//            if let cell = sender as? UITableViewCell {
+//                viewController.text = cell.textLabel?.text
 //            }
-            
-        }
-    }
-    
-//    // MARK: - TableView DataSource
-//    
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 100
-//    }
-//    
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-//        cell.textLabel?.text = "Cell: \(indexPath.row)"
-//        return cell
+//            
+////            if(TouchVisualizer.isEnabled()) {
+////                TouchVisualizer.stop()
+////            } else {
+//                currentColorIndex++
+//                if(currentColorIndex >= colorList.count) { currentColorIndex = 0 }
+//                
+//                var config = TouchVisualizerConfig()
+//                config.color = colorList[currentColorIndex]
+//                config.showsTimer = true
+//                config.showsTouchRadius = true
+//                TouchVisualizer.start(config)
+//
+////            }
+//            
+//        }
 //    }
     
     // MARK: - TableView Delegate
@@ -72,7 +62,13 @@ class ConfigViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if cell == self.startAndStopCell {
+        
+        let isStartAndStop = self.startAndStopCell == cell
+        let isBlueColor = self.blueColorCell == cell
+        let isRedColor = self.redColorCell == cell
+        let isGreenColor = self.greenColorCell == cell
+        
+        if isStartAndStop {
             if TouchVisualizer.isEnabled() {
                 TouchVisualizer.stop()
             } else {
@@ -92,26 +88,13 @@ class ConfigViewController: UITableViewController {
     }
     
     // MARK: - Actions
+
+    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
-    @IBAction func rightBarButtonItemTapped(sender: AnyObject) {
-        let controller = UIAlertController(
-            title: "ActionSheet",
-            message: "Even when action sheet shows, your tap is visible.",
-            preferredStyle: .ActionSheet
-        )
-        for i in 0..<3 {
-            controller.addAction(UIAlertAction(title: "Alert(\(i))", style: .Default, handler: { [unowned self] (alertAction) -> Void in
-                let controller = UIAlertController(
-                    title: "Alert",
-                    message: "Even when alert shows, your tap is visible.",
-                    preferredStyle: .Alert
-                )
-                controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-                self.presentViewController(controller, animated: true, completion: nil)
-            }))
-        }
-        controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        self.presentViewController(controller, animated: true, completion: nil)
+    @IBAction func doneButtonTapped(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
