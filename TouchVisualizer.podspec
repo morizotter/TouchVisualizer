@@ -9,8 +9,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "TouchVisualizer"
-  s.version          = "1.1.1"
-  s.summary          = "When you give a presentation, your finger points are visible on screen."
+  s.version          = "1.1.2"
+  s.summary          = "Effective presentation with TouchVisualizer!"
   s.description      = <<-DESC
                        # Give a presentation more impressive with finter points.
                        When you give a presentation, your finger points are visible on screen.
@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
 
                        - Multiple fingers supported.
                        - Multiple UIWindows supported.
+                       - Shows touch radius.
+                       - Shows touch duration.
                        - You can change colors and images of finger points.
                        DESC
   s.homepage         = "https://github.com/morizotter/TouchVisualizer"
