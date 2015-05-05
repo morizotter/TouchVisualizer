@@ -74,9 +74,9 @@ TouchVisualizer.stop()
 
 - [How to take an iOS screen movie](doc/take_a_movie.md)
 
-## Author
+## Contribution
 
-Naoki Morita, namorit@gmail.com, [page](http://moritanaoki.org)
+I'm waiting for your contribution:)
 
 ## License
 
