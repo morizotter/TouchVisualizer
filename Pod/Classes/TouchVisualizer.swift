@@ -83,7 +83,7 @@ final public class TouchVisualizer {
         }
         
         if touchView == nil {
-            touchView = TouchView(config: self.config)
+            touchView = TouchView()
             self.touchViews.append(touchView!)
         }
         

@@ -23,6 +23,7 @@ public struct TouchVisualizerConfig {
         image.imageWithRenderingMode(.AlwaysTemplate)
         return image
         }()
+    public var defaultSize = CGSize(width: CGFloat(60.0), height: CGFloat(60.0))
     public var showsTimer = false
     public var showsTouchRadius = false
     
@@ -38,5 +39,16 @@ public struct TouchVisualizerConfig {
     }
     public mutating func setShowsTouchRadius(shows: Bool) {
         self.showsTouchRadius = shows
+    }
+    public mutating func setDefaultSize(size: CGSize) {
+        var newSize = size
+        if size.width != size.height {
+            if newSize.width > newSize.height {
+                newSize.height = newSize.width
+            } else {
+                newSize.width = newSize.height
+            }
+        }
+        self.defaultSize = newSize
     }
 }
