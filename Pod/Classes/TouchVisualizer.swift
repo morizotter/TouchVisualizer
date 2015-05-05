@@ -14,12 +14,7 @@ final public class TouchVisualizer {
     private var touchViews = [TouchView]()
     private var enabled:Bool = false
     
-    class func sharedInstance() -> TouchVisualizer {
-        struct Static {
-            static let instance : TouchVisualizer = TouchVisualizer()
-        }
-        return Static.instance
-    }
+    static let sharedInstance = TouchVisualizer()
     
     private init() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -36,7 +31,7 @@ final public class TouchVisualizer {
     }
     
     @objc func orientationDidChangeNotification(notification: NSNotification) {
-        let instance = TouchVisualizer.sharedInstance()
+        let instance = TouchVisualizer.sharedInstance
         for touch in instance.touchViews {
             touch.removeFromSuperview()
         }
@@ -44,7 +39,7 @@ final public class TouchVisualizer {
     
     // MARK: - Methods
     public class func isEnabled() -> Bool {
-        return self.sharedInstance().enabled
+        return self.sharedInstance.enabled
     }
     
     public class func start() {
@@ -53,7 +48,7 @@ final public class TouchVisualizer {
     
     public class func start(config: TouchVisualizerConfig) {
         
-        let instance = self.sharedInstance()
+        let instance = self.sharedInstance
         instance.enabled = true
         instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
@@ -66,7 +61,7 @@ final public class TouchVisualizer {
     }
     
     public class func stop() {
-        let instance = self.sharedInstance()
+        let instance = self.sharedInstance
         instance.enabled = false
         for touch in instance.touchViews {
             touch.removeFromSuperview()
@@ -105,7 +100,7 @@ final public class TouchVisualizer {
             return
         }
         
-        if(!TouchVisualizer.sharedInstance().enabled){
+        if(!TouchVisualizer.sharedInstance.enabled){
             return
         }
         
@@ -117,7 +112,7 @@ final public class TouchVisualizer {
             switch phase {
             case .Began:
                 let view = self.dequeueTouchView()
-                view.config = TouchVisualizer.sharedInstance().config
+                view.config = TouchVisualizer.sharedInstance.config
                 view.touch = touch
                 view.beginTouch()
                 view.center = touch.locationInView(keyWindow)

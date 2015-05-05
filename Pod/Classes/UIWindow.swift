@@ -31,7 +31,7 @@ public extension UIWindow {
     }
     
     func swizzledSendEvent(event: UIEvent) {
-        TouchVisualizer.sharedInstance().handleEvent(event)
+        TouchVisualizer.sharedInstance.handleEvent(event)
         self.swizzledSendEvent(event)
     }
     
