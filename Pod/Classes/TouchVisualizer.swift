@@ -39,16 +39,16 @@ final public class TouchVisualizer {
     
     // MARK: - Methods
     public class func isEnabled() -> Bool {
-        return self.sharedInstance.enabled
+        return sharedInstance.enabled
     }
     
     public class func start() {
-        self.start(TouchVisualizerConfig())
+        start(TouchVisualizerConfig())
     }
     
     public class func start(config: TouchVisualizerConfig) {
         
-        let instance = self.sharedInstance
+        let instance = sharedInstance
         instance.enabled = true
         instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
@@ -61,7 +61,7 @@ final public class TouchVisualizer {
     }
     
     public class func stop() {
-        let instance = self.sharedInstance
+        let instance = sharedInstance
         instance.enabled = false
         for touch in instance.touchViews {
             touch.removeFromSuperview()
@@ -70,7 +70,7 @@ final public class TouchVisualizer {
     
     private func dequeueTouchView() -> TouchView {
         var touchView: TouchView?
-        for view in self.touchViews {
+        for view in touchViews {
             if view.superview == nil {
                 touchView = view
                 break
@@ -79,14 +79,14 @@ final public class TouchVisualizer {
         
         if touchView == nil {
             touchView = TouchView()
-            self.touchViews.append(touchView!)
+            touchViews.append(touchView!)
         }
         
         return touchView!
     }
     
     private func findTouchView(touch: UITouch) -> TouchView? {
-        for view in self.touchViews {
+        for view in touchViews {
             if view.touch == touch {
                 return view
             }
@@ -111,7 +111,7 @@ final public class TouchVisualizer {
             let phase = touch.phase
             switch phase {
             case .Began:
-                let view = self.dequeueTouchView()
+                let view = dequeueTouchView()
                 view.config = TouchVisualizer.sharedInstance.config
                 view.touch = touch
                 view.beginTouch()
