@@ -24,6 +24,7 @@ public struct TouchVisualizerConfig {
         return image
         }()
     public var showsTimer = false
+    public var showsTouchRadius = false
     
     public init() {}
     public mutating func setColor(color: UIColor) {
@@ -34,5 +35,8 @@ public struct TouchVisualizerConfig {
     }
     public mutating func setShowsTimer(shows: Bool) {
         self.showsTimer = shows
+    }
+    public mutating func setShowsTouchRadius(shows: Bool) {
+        self.showsTouchRadius = shows
     }
 }

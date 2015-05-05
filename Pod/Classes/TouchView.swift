@@ -80,7 +80,7 @@ final public class TouchView: UIImageView {
         self.timer?.invalidate()
     }
     
-    func update(timer: NSTimer) {
+    internal func update(timer: NSTimer) {
         if let startDate = self.startDate {
             let interval = NSDate().timeIntervalSinceDate(startDate)
             var timeString = "\(interval)"
@@ -90,6 +90,13 @@ final public class TouchView: UIImageView {
                 timeString = timeString.substringToIndex(advance(range.startIndex, 3))
                 
                 self.timerLabel.text = timeString
+            }
+        }
+        if self._config.showsTouchRadius {
+            if let touch = self.touch {
+                println("radius: \(touch.majorRadius)")
+            } else {
+                println("No touch")
             }
         }
     }
