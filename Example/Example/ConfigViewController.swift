@@ -11,6 +11,9 @@ import TouchVisualizer
 
 final class ConfigViewController: UITableViewController {
     
+    @IBOutlet weak var timerCell: UITableViewCell!
+    @IBOutlet weak var touchRadiusCell: UITableViewCell!
+    
     @IBOutlet weak var blueColorCell: UITableViewCell!
     @IBOutlet weak var redColorCell: UITableViewCell!
     @IBOutlet weak var greenColorCell: UITableViewCell!
@@ -24,30 +27,6 @@ final class ConfigViewController: UITableViewController {
     ]
     
     // MARK: - Life Cycle
-        
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "ToDetail" {
-//            let viewController = segue.destinationViewController as! DetailViewController
-//            if let cell = sender as? UITableViewCell {
-//                viewController.text = cell.textLabel?.text
-//            }
-//            
-////            if(TouchVisualizer.isEnabled()) {
-////                TouchVisualizer.stop()
-////            } else {
-//                currentColorIndex++
-//                if(currentColorIndex >= colorList.count) { currentColorIndex = 0 }
-//                
-//                var config = TouchVisualizerConfig()
-//                config.color = colorList[currentColorIndex]
-//                config.showsTimer = true
-//                config.showsTouchRadius = true
-//                TouchVisualizer.start(config)
-//
-////            }
-//            
-//        }
-//    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -63,6 +42,12 @@ final class ConfigViewController: UITableViewController {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
+        if cell == timerCell {
+            config.showsTimer = !config.showsTimer
+        }
+        if cell == touchRadiusCell {
+            config.showsTouchRadius = !config.showsTouchRadius
+        }
         if cell == blueColorCell {
             config.color = colors["blue"]!
         }
@@ -78,25 +63,36 @@ final class ConfigViewController: UITableViewController {
     }
     
     func updateCells() {
+        let boolCells = [timerCell, touchRadiusCell]
+        for cell in boolCells {
+            cell.detailTextLabel?.text = "false"
+        }
         let checkmarkCells = [blueColorCell, redColorCell, greenColorCell]
         for cell in checkmarkCells {
             cell.accessoryType = .None
         }
+        
+        if config.showsTimer {
+            timerCell.detailTextLabel?.text = "true"
+        }
+        if config.showsTouchRadius {
+            touchRadiusCell.detailTextLabel?.text = "true"
+        }
         if config.color == colors["blue"] {
-            self.blueColorCell.accessoryType = .Checkmark
+            blueColorCell.accessoryType = .Checkmark
         }
         else if config.color == colors["red"] {
-            self.redColorCell.accessoryType = .Checkmark
+            redColorCell.accessoryType = .Checkmark
         }
         else if config.color == colors["green"] {
-            self.greenColorCell.accessoryType = .Checkmark
+            greenColorCell.accessoryType = .Checkmark
         }
     }
     
     // MARK: - Actions
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         TouchVisualizer.start()
     }
     
