@@ -1,5 +1,5 @@
 //
-//  MZRTouchView.swift
+//  TouchView.swift
 //  Pods
 //
 //  Created by MORITA NAOKI on 2015/01/27.

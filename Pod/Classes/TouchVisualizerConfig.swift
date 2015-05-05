@@ -1,5 +1,5 @@
 //
-//  MZRPresentationConfig.swift
+//  TouchVisualizerConfig.swift
 //  Pods
 //
 //  Created by MORITA NAOKI on 2015/04/11.
