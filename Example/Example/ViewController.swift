@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TouchVisualizer
 
 class ViewController: UITableViewController {
 
@@ -40,13 +41,8 @@ class ViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func rightBarButtonItemTapped(sender: AnyObject) {
-        let controller = UIAlertController(
-            title: "ActionSheet",
-            message: "Even when action sheet shows, your tap is visible.",
-            preferredStyle: .ActionSheet
-        )
-        for i in 0..<3 {
-            controller.addAction(UIAlertAction(title: "Alert(\(i))", style: .Default, handler: { [unowned self] (alertAction) -> Void in
+        let alertAction = UIAlertAction(title: "Show Alert", style: .Default, handler:
+            { [unowned self] (alertAction) -> Void in
                 let controller = UIAlertController(
                     title: "Alert",
                     message: "Even when alert shows, your tap is visible.",
@@ -54,8 +50,30 @@ class ViewController: UITableViewController {
                 )
                 controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
                 self.presentViewController(controller, animated: true, completion: nil)
-                }))
+            }
+        )
+        
+        var startOrStopTitle = "Start Visualizer"
+        if TouchVisualizer.isEnabled() {
+            startOrStopTitle = "Stop Visualizer"
         }
+        let startOrStopAction = UIAlertAction(title: startOrStopTitle, style: .Default, handler:
+            { [unowned self] (alertAction) -> Void in
+                if TouchVisualizer.isEnabled() {
+                    TouchVisualizer.stop()
+                } else {
+                    TouchVisualizer.start()
+                }
+            }
+        )
+        
+        let controller = UIAlertController(
+            title: "ActionSheet",
+            message: "Even when action sheet shows, your tap is visible.",
+            preferredStyle: .ActionSheet
+        )
+        controller.addAction(alertAction)
+        controller.addAction(startOrStopAction)
         controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(controller, animated: true, completion: nil)
     }

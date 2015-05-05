@@ -115,8 +115,8 @@
 			children = (
 				FF828F1A1A74E52500DC12EF /* AppDelegate.swift */,
 				FF84A2CA1AF929A3005A5759 /* ViewController.swift */,
-				FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */,
 				FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */,
+				FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */,
 				FF828F1E1A74E52500DC12EF /* Main.storyboard */,
 				FF828F211A74E52500DC12EF /* Images.xcassets */,
 				FF828F231A74E52500DC12EF /* LaunchScreen.xib */,
