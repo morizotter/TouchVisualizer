@@ -14,6 +14,10 @@ Effective presentation with TouchVisualizer! Main features are below.
 - Shows touch duration.
 - You can change colors and images of finger points.
 
+![top](https://github.com/morizotter/TouchVisualizer/blob/master/top.png)
+
+Catch the image with GIF!
+
 ![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
 
 Let's give a presentation effectively
