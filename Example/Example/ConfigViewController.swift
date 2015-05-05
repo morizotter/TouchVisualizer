@@ -22,8 +22,8 @@ final class ConfigViewController: UITableViewController {
     
     let colors = [
         "blue": UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8),
-        "green": UIColor.greenColor(),
-        "red": UIColor.redColor()
+        "green": UIColor(red: 22/255.0, green: 160/255.0, blue: 133/255.0, alpha: 0.8),
+        "red": UIColor(red: 192/255.0, green: 57/255.0, blue: 43/255.0, alpha: 0.8)
     ]
     
     // MARK: - Life Cycle
