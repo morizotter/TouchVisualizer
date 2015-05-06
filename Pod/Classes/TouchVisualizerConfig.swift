@@ -48,35 +48,9 @@ public struct TouchVisualizerConfig {
     public var showsTouchRadius = false
     
     /**
-    Shows log
+    Shows log. This will affect performance. Make sure showing logs only in development environment.
     */
     public var showsLog = false
     
     public init() {}
-    public mutating func setColor(color: UIColor) {
-        self.color = color
-    }
-    public mutating func setImage(image: UIImage) {
-        self.image = image
-    }
-    public mutating func setDefaultSize(size: CGSize) {
-        var newSize = size
-        if size.width != size.height {
-            if newSize.width > newSize.height {
-                newSize.height = newSize.width
-            } else {
-                newSize.width = newSize.height
-            }
-        }
-        self.defaultSize = newSize
-    }
-    public mutating func setShowsTimer(shows: Bool) {
-        self.showsTimer = shows
-    }
-    public mutating func setShowsTouchRadius(shows: Bool) {
-        self.showsTouchRadius = shows
-    }
-    public mutating func setShowsLog(shows: Bool) {
-        self.showsLog = shows
-    }
 }

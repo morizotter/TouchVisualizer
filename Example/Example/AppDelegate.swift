@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        config.color = UIColor.purpleColor()
 //        config.showsTimer = true
 //        config.showsTouchRadius = true
+//        config.showsLog = true
 //        TouchVisualizer.start(config)
         
         return true
