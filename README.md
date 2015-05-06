@@ -44,7 +44,7 @@ platform :ios, '8.1'
 
 use_frameworks!
 
-pod "TouchVisualizer", '~>1.1.2'
+pod "TouchVisualizer", '~>1.1'
 ```
 
 then, `pod install`
@@ -65,6 +65,7 @@ config.color = UIColor.redColor()
 config.image = UIImage(named: "YOUR-IMAGE")
 config.showsTimer = true
 config.showsTouchRadius = true
+config.showsLog = true
 TouchVisualizer.start(config)
 ```
 
