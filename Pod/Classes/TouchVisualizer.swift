@@ -148,13 +148,43 @@ final public class TouchVisualizer {
 //            return
 //        }
         
-        var log = ""
         var ti = 0
+        var viewLogs = [[String:String]]()
         for view in touchViews {
+            var index = ""
             if view.superview != nil {
-                log += "[\(ti)] \(CGPoint(x: Int(view.center.x), y: Int(view.center.y)))\t"
+                index = "\(ti)"
                 ++ti
             }
+            
+            var phase = ""
+            switch touch.phase {
+            case .Began: phase = "B"
+            case .Moved: phase = "M"
+            case .Ended: phase = "E"
+            case .Cancelled: phase = "C"
+            case .Stationary: phase = "S"
+            }
+            
+            let x = String(format: "%.02f", Float(view.center.x))
+            let y = String(format: "%.02f", Float(view.center.y))
+            let center = "(\(x), \(y))"
+            
+            let radius = String(format: "%.02f", Float(touch.majorRadius))
+            
+            viewLogs.append(["index": index, "center": center, "phase": phase, "radius": radius])
+        }
+        
+        var log = "TV: "
+        for viewLog in viewLogs {
+            if count(viewLog["index"]!) == 0 {
+                continue
+            }
+            let index = viewLog["index"]!
+            let center = viewLog["center"]!
+            let phase = viewLog["phase"]!
+            let radius = viewLog["radius"]!
+            log += "[\(index)]<\(phase)> c:\(center) r:\(radius)\t"
         }
         
         if previousLog == log {
