@@ -9,9 +9,17 @@
 import Foundation
 
 public struct TouchVisualizerConfig {
+    
+    /**
+    Color of touch points.
+    */
     public var color: UIColor = {
         UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
     }()
+    
+    /**
+    Image of touch points.
+    */
     public var image: UIImage = {
         let rect = CGRectMake(0, 0, 60.0, 60.0);
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
@@ -23,9 +31,20 @@ public struct TouchVisualizerConfig {
         image.imageWithRenderingMode(.AlwaysTemplate)
         return image
         }()
+    
+    /**
+    Default touch point size. If `showsTouchRadius` is enabled, this value is ignored.
+    */
     public var defaultSize = CGSize(width: CGFloat(60.0), height: CGFloat(60.0))
+    
+    /**
+    Shows touch duration.
+    */
     public var showsTimer = false
-    // Shows touch radius. It doesn't work on simulator because it is not possible to read touch radius on it. Please test it on device.
+    
+    /**
+    Shows touch radius. It doesn't work on simulator because it is not possible to read touch radius on it. Please test it on device.
+    */
     public var showsTouchRadius = false
     
     public init() {}
