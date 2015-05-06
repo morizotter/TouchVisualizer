@@ -14,10 +14,10 @@ class ViewController: UITableViewController {
     // MARK: - Life Cycle
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ToDetail" {
+        if segue.identifier == "PushToDetail" {
             let viewController = segue.destinationViewController as! DetailViewController
             if let cell = sender as? UITableViewCell {
-                viewController.text = cell.textLabel?.text
+                viewController.text = cell.detailTextLabel?.text
             }
         }
     }
@@ -30,7 +30,8 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = "Cell: \(indexPath.row)"
+        cell.textLabel?.text = "Smooth scrolling!"
+        cell.detailTextLabel?.text = "\(indexPath.row)"
         return cell
     }
     

@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let text = self.text {
-            self.textLabel.text = text
+            self.textLabel.text = "No.\(text) cell is tapped."
         }
     }
 }
