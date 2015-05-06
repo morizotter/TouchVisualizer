@@ -64,6 +64,7 @@ var config = TouchVisualizerConfig()
 config.color = UIColor.redColor()
 config.image = UIImage(named: "YOUR-IMAGE")
 config.showsTimer = true
+config.showsTouchRadius = true
 TouchVisualizer.start(config)
 ```
 
