@@ -14,6 +14,8 @@ final public class TouchVisualizer {
     private var touchViews = [TouchView]()
     private var enabled:Bool = false
     
+    private var previousLog = ""
+    
     static let sharedInstance = TouchVisualizer()
     
     private init() {
@@ -38,6 +40,7 @@ final public class TouchVisualizer {
     }
     
     // MARK: - Methods
+    
     public class func isEnabled() -> Bool {
         return sharedInstance.enabled
     }
@@ -107,7 +110,6 @@ final public class TouchVisualizer {
         let keyWindow = UIApplication.sharedApplication().keyWindow!
         
         for touch in event.allTouches()! as! Set<UITouch> {
-            
             let phase = touch.phase
             switch phase {
             case .Began:
@@ -117,22 +119,78 @@ final public class TouchVisualizer {
                 view.beginTouch()
                 view.center = touch.locationInView(keyWindow)
                 keyWindow.addSubview(view)
+                log(touch)
             case .Moved:
                 if let view = findTouchView(touch) {
                     view.center = touch.locationInView(keyWindow)
                 }
+                log(touch)
             case .Stationary:
+                log(touch)
                 break
             case .Ended, .Cancelled:
                 if let view = findTouchView(touch) {
-                    UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
+                    UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { [unowned self] () -> Void  in
                         view.alpha = 0.0
                         view.endTouch()
-                    }, completion: { (finished) -> Void in
+                    }, completion: { [unowned self] (finished) -> Void in
                         view.removeFromSuperview()
+                        self.log(touch)
                     });
                 }
+                log(touch)
             }
         }
+    }
+    
+    public func log(touch: UITouch) {
+        if !config.showsLog {
+            return
+        }
+        
+        var ti = 0
+        var viewLogs = [[String:String]]()
+        for view in touchViews {
+            var index = ""
+            if view.superview != nil {
+                index = "\(ti)"
+                ++ti
+            }
+            
+            var phase = ""
+            switch touch.phase {
+            case .Began: phase = "B"
+            case .Moved: phase = "M"
+            case .Ended: phase = "E"
+            case .Cancelled: phase = "C"
+            case .Stationary: phase = "S"
+            }
+            
+            let x = String(format: "%.02f", Float(view.center.x))
+            let y = String(format: "%.02f", Float(view.center.y))
+            let center = "(\(x), \(y))"
+            
+            let radius = String(format: "%.02f", Float(touch.majorRadius))
+            
+            viewLogs.append(["index": index, "center": center, "phase": phase, "radius": radius])
+        }
+        
+        var log = "TV: "
+        for viewLog in viewLogs {
+            if count(viewLog["index"]!) == 0 {
+                continue
+            }
+            let index = viewLog["index"]!
+            let center = viewLog["center"]!
+            let phase = viewLog["phase"]!
+            let radius = viewLog["radius"]!
+            log += "[\(index)]<\(phase)> c:\(center) r:\(radius)\t"
+        }
+        
+        if previousLog == log {
+            return
+        }
+        previousLog = log
+        println(log)
     }
 }
