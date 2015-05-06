@@ -15,11 +15,11 @@ Effective presentation with TouchVisualizer! Main features are below.
 - Shows touch duration.
 - You can change colors and images of finger points.
 
-![top](https://github.com/morizotter/TouchVisualizer/blob/master/top.png)
+![top](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/top.png)
 
 Catch the image with GIF!
 
-![gif](https://github.com/morizotter/TouchVisualizer/blob/master/presentation.gif)
+![gif](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/presentation.gif)
 
 Let's give a presentation effectively
 
@@ -80,7 +80,7 @@ TouchVisualizer.stop()
 
 ## Document
 
-- [How to take an iOS screen movie](doc/take_a_movie.md)
+- [How to take an iOS screen movie](misc/take_a_movie.md)
 
 ## Contribution
 
