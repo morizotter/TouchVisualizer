@@ -51,13 +51,13 @@ then, `pod install`
 
 ## Usage
 
-`import TouchVisualizer` and just write the following line in the `application(application:didFinishLaunchingWithOptions:)` in `AppDelegate`.
+`import TouchVisualizer` and just write the following line wherever you want to start visualization. 
 
 ```
 TouchVisualizer.start()
 ```
 
-You can change colors and images like this. You can set only color or image.
+Is it really simple, isn't it? And you can change settings:
 
 ```
 var config = TouchVisualizerConfig()
