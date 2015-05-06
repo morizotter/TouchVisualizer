@@ -144,9 +144,9 @@ final public class TouchVisualizer {
     }
     
     public func log(touch: UITouch) {
-//        if !config.showsLog {
-//            return
-//        }
+        if !config.showsLog {
+            return
+        }
         
         var ti = 0
         var viewLogs = [[String:String]]()

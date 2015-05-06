@@ -55,6 +55,26 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="tEe-kH-vn6" detailTextLabel="LeT-lN-Pew" style="IBUITableViewCellStyleValue1" id="Brb-4E-Fk2">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Brb-4E-Fk2" id="8U1-JI-W8K">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ShowsLog" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tEe-kH-vn6">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="false" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LeT-lN-Pew">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Color" id="aH2-zl-zBH">
@@ -126,6 +146,7 @@
                     <connections>
                         <outlet property="blueColorCell" destination="34A-MD-1d4" id="BPE-38-WT0"/>
                         <outlet property="greenColorCell" destination="coC-Q3-Snd" id="GZM-Re-dBZ"/>
+                        <outlet property="logCell" destination="Brb-4E-Fk2" id="kIm-Cl-yHA"/>
                         <outlet property="redColorCell" destination="8EW-9h-JgJ" id="2ex-7v-ecD"/>
                         <outlet property="timerCell" destination="Qv0-Nv-vdg" id="JRw-pB-jrs"/>
                         <outlet property="touchRadiusCell" destination="Sm6-u8-Lxc" id="jM3-OP-7dh"/>

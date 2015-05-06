@@ -13,6 +13,7 @@ final class ConfigViewController: UITableViewController {
     
     @IBOutlet weak var timerCell: UITableViewCell!
     @IBOutlet weak var touchRadiusCell: UITableViewCell!
+    @IBOutlet weak var logCell: UITableViewCell!
     
     @IBOutlet weak var blueColorCell: UITableViewCell!
     @IBOutlet weak var redColorCell: UITableViewCell!
@@ -58,6 +59,9 @@ final class ConfigViewController: UITableViewController {
             }
             config.showsTouchRadius = !config.showsTouchRadius
         }
+        if cell == logCell {
+            config.showsLog = !config.showsLog
+        }
         if cell == blueColorCell {
             config.color = colors["blue"]!
         }
@@ -73,7 +77,7 @@ final class ConfigViewController: UITableViewController {
     }
     
     func updateCells() {
-        let boolCells = [timerCell, touchRadiusCell]
+        let boolCells = [timerCell, touchRadiusCell, logCell]
         for cell in boolCells {
             cell.detailTextLabel?.text = "false"
         }
@@ -87,6 +91,9 @@ final class ConfigViewController: UITableViewController {
         }
         if config.showsTouchRadius {
             touchRadiusCell.detailTextLabel?.text = "true"
+        }
+        if config.showsLog {
+            logCell.detailTextLabel?.text = "true"
         }
         if config.color == colors["blue"] {
             blueColorCell.accessoryType = .Checkmark
