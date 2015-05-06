@@ -94,14 +94,8 @@ final public class TouchView: UIImageView {
     internal func update(timer: NSTimer) {
         if let startDate = startDate {
             let interval = NSDate().timeIntervalSinceDate(startDate)
-            var timeString = "\(interval)"
-            let range = "\(interval)".rangeOfString(".")
-            if let range = range {
-                let r = advance(range.startIndex, 3)
-                timeString = timeString.substringToIndex(advance(range.startIndex, 3))
-                
-                timerLabel.text = timeString
-            }
+            let timeString = String(format: "%.02f", Float(interval))
+            timerLabel.text = timeString
         }
         if _config.showsTouchRadius {
             updateSize()
