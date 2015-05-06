@@ -9,4 +9,4 @@ dependencies:
         timeout: 300
 test:
   override:
-    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace
+    - xcodebuild test -scheme ExampleTests -workspace Example/Example.xcworkspace
