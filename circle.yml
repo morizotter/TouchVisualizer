@@ -1,0 +1,17 @@
+general:
+  build_dir: Example
+
+machine:
+  timezone:
+    Asia/Tokyo
+  environment:
+    XCODE_SCHEME: ExampleTexts
+  xcode:
+    version: "6.3.1"
+dependencies:
+  override:
+    - pod install:
+        timeout: 300
+test:
+  override:
+    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace

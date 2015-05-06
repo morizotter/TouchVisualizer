@@ -1,5 +1,5 @@
 PODS:
-  - TouchVisualizer (1.1.1)
+  - TouchVisualizer (1.1.2)
 
 DEPENDENCIES:
   - TouchVisualizer (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TouchVisualizer: e6b7378564c219e2f7e800677b838dbdf15b0020
+  TouchVisualizer: e4541c75725fc726f04a90aad7d4b11194b8f063
 
 COCOAPODS: 0.36.4
