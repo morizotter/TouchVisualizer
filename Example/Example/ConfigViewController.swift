@@ -46,6 +46,16 @@ final class ConfigViewController: UITableViewController {
             config.showsTimer = !config.showsTimer
         }
         if cell == touchRadiusCell {
+            if isSimulator() {
+                let controller = UIAlertController(
+                    title: "Warning",
+                    message: "This property doesn't work on simulator because it is not possible to read touch radius on it. Please test it on device.",
+                    preferredStyle: .Alert
+                )
+                controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+                self.presentViewController(controller, animated: true, completion: nil)
+                return
+            }
             config.showsTouchRadius = !config.showsTouchRadius
         }
         if cell == blueColorCell {
@@ -98,6 +108,14 @@ final class ConfigViewController: UITableViewController {
     
     @IBAction func doneButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func isSimulator() -> Bool {
+        var simulator = false
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            simulator = true
+        #endif
+        return simulator
     }
 }
 

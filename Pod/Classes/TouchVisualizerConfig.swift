@@ -25,6 +25,7 @@ public struct TouchVisualizerConfig {
         }()
     public var defaultSize = CGSize(width: CGFloat(60.0), height: CGFloat(60.0))
     public var showsTimer = false
+    // Shows touch radius. It doesn't work on simulator because it is not possible to read touch radius on it. Please test it on device.
     public var showsTouchRadius = false
     
     public init() {}
