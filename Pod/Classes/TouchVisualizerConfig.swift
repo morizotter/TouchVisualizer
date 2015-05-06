@@ -47,18 +47,17 @@ public struct TouchVisualizerConfig {
     */
     public var showsTouchRadius = false
     
+    /**
+    Shows log
+    */
+    public var showsLog = false
+    
     public init() {}
     public mutating func setColor(color: UIColor) {
         self.color = color
     }
     public mutating func setImage(image: UIImage) {
         self.image = image
-    }
-    public mutating func setShowsTimer(shows: Bool) {
-        self.showsTimer = shows
-    }
-    public mutating func setShowsTouchRadius(shows: Bool) {
-        self.showsTouchRadius = shows
     }
     public mutating func setDefaultSize(size: CGSize) {
         var newSize = size
@@ -70,5 +69,14 @@ public struct TouchVisualizerConfig {
             }
         }
         self.defaultSize = newSize
+    }
+    public mutating func setShowsTimer(shows: Bool) {
+        self.showsTimer = shows
+    }
+    public mutating func setShowsTouchRadius(shows: Bool) {
+        self.showsTouchRadius = shows
+    }
+    public mutating func setShowsLog(shows: Bool) {
+        self.showsLog = shows
     }
 }
