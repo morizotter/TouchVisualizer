@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 public struct TouchVisualizerConfig {
     
@@ -20,7 +20,7 @@ public struct TouchVisualizerConfig {
     /**
     Image of touch points.
     */
-    public var image: UIImage = {
+    public var image: UIImage? = {
         let rect = CGRectMake(0, 0, 60.0, 60.0);
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         let contextRef = UIGraphicsGetCurrentContext()
