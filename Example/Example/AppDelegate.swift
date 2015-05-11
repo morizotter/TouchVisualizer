@@ -17,14 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // It's the simpest way!
         TouchVisualizer.start()
         
-//        // Initialize with config
+//        // Initialize with config - githubcat
 //        var config = TouchVisualizerConfig()
-//        config.color = UIColor.purpleColor()
+//        config.color = UIColor.lightGrayColor()
 //        config.showsTimer = true
 //        config.showsTouchRadius = true
 //        config.showsLog = true
+//        config.image = UIImage(named: "githubcat")
+//        TouchVisualizer.start(config)
+
+//        // Initialize with config - potatotips
+//        var config = TouchVisualizerConfig()
+//        config.color = UIColor.orangeColor()
+//        config.image = UIImage(named: "potatotips")
+//        config.showsTouchRadius = true
 //        TouchVisualizer.start(config)
         
         return true
