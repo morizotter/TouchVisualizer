@@ -55,6 +55,12 @@ then, `pod install`
 
 See [instruction here](https://github.com/Carthage/Carthage#installing-carthage).
 
+Known Xcode 6.3.1 Problem: If you failed to install with errors. Try this command below on your risk. It seems Xcode bug - [SimVerifier returned error: Simulator verification failed. · Issue #424 · Carthage/Carthage](https://github.com/Carthage/Carthage/issues/424#issuecomment-95812898).
+
+```
+sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
+```
+
 ## Usage
 
 `import TouchVisualizer` and just write the following line wherever you want to start visualization. 
