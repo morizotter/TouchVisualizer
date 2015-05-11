@@ -28,6 +28,8 @@ Let's give a presentation effectively
 > Embedded frameworks require a minimum deployment target of iOS 8.1
 > To use TouchVisualizer with a project targeting iOS 8.0 or lower, you must include the TouchVisualizer.swift source file directly in your project.
 
+### CocoaPods
+
 [CocoaPods](http://cocoapods.org) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```
@@ -48,6 +50,10 @@ pod "TouchVisualizer", '~>1.1'
 ```
 
 then, `pod install`
+
+### Carthage
+
+See [instruction here](https://github.com/Carthage/Carthage#installing-carthage).
 
 ## Usage
 
