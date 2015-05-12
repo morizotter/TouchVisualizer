@@ -21,7 +21,7 @@ Catch the image with GIF!
 
 ![gif](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/presentation.gif)
 
-Let's give a presentation effectively
+Let's give a presentation effectively!
 
 ## Installation
 
@@ -61,9 +61,13 @@ Known Xcode 6.3.1 Problem: If you failed to install with errors. Try this comman
 sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
 ```
 
+### Manual
+
+Copy files in the `Pod/Classes` directory intoto your project. That's all.
+
 ## Usage
 
-`import TouchVisualizer` and just write the following line wherever you want to start visualization. 
+`import TouchVisualizer` and just write the following line wherever you want to start visualization.
 
 ```
 TouchVisualizer.start()
