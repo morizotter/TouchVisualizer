@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TouchVisualizer"
-  s.version          = "1.1.4"
+  s.version          = "1.1.5"
   s.summary          = "Effective presentation with TouchVisualizer!"
   s.description      = <<-DESC
                        # Give a presentation more impressive with finter points.
