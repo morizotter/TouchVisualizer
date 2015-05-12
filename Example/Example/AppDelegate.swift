@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        config.showsTimer = true
 //        config.showsTouchRadius = true
 //        config.showsLog = true
-//        config.image = UIImage(named: "githubcat")
+//        config.image = UIImage(named: "octocat")
 //        TouchVisualizer.start(config)
 
 //        // Initialize with config - potatotips
