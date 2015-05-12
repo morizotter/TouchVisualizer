@@ -65,7 +65,7 @@ sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simr
 
 ### Manual
 
-Copy files in the `Pod/Classes` directory intoto your project. That's all.
+Copy files in the `Pod/Classes` directory into your project. That's all.
 
 ## Usage
 
