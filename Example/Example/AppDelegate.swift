@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        // Initialize with config - githubcat
 //        var config = TouchVisualizerConfig()
-//        config.color = UIColor.lightGrayColor()
+//        config.color = UIColor.blackColor()
 //        config.showsTimer = true
 //        config.showsTouchRadius = true
 //        config.showsLog = true
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        // Initialize with config - potatotips
 //        var config = TouchVisualizerConfig()
 //        config.color = UIColor.orangeColor()
-//        config.image = UIImage(named: "potatotips")
+//        config.image = UIImage(named: "potatotips")?.imageWithRenderingMode(.AlwaysTemplate)
 //        config.showsTouchRadius = true
 //        TouchVisualizer.start(config)
         

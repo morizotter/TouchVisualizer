@@ -20,7 +20,6 @@ final public class TouchView: UIImageView {
         set(value) {
             _config = value
             image = self.config.image
-            image = image?.imageWithRenderingMode(.AlwaysTemplate)
             tintColor = self.config.color
             timerLabel.textColor = self.config.color
         }

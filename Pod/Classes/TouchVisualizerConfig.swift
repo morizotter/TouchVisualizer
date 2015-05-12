@@ -13,9 +13,7 @@ public struct TouchVisualizerConfig {
     /**
     Color of touch points.
     */
-    public var color: UIColor = {
-        UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
-    }()
+    public var color: UIColor? = UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
     
     /**
     Image of touch points.
@@ -24,11 +22,11 @@ public struct TouchVisualizerConfig {
         let rect = CGRectMake(0, 0, 60.0, 60.0);
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         let contextRef = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(contextRef, UIColor.blackColor().CGColor)
+        CGContextSetFillColorWithColor(contextRef, UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8).CGColor)
         CGContextFillEllipseInRect(contextRef, rect);
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();
-        image.imageWithRenderingMode(.AlwaysTemplate)
+        image = image.imageWithRenderingMode(.AlwaysTemplate)
         return image
         }()
     
