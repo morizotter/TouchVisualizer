@@ -102,6 +102,10 @@ TouchVisualizer.stop()
 
 - [How to take an iOS screen movie](misc/take_a_movie.md)
 
+## Presentation
+
+- [TouchVisualizer Demo movie #potatotips // Speaker Deck](https://speakerdeck.com/morizotter/touchvisualizer-demo-movie-number-potatotips) @potatotips May 13 2015
+
 ## Contribution
 
 I'm waiting for your contribution:)
