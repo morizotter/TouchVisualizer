@@ -11,7 +11,7 @@
 
 Effective presentation with TouchVisualizer! Main features are below.
 
-- Works with **just one line of code**!
+- Works with **just a single line of code**!
 - Multiple fingers supported.
 - Multiple UIWindows supported.
 - Shows touch radius.
