@@ -1,5 +1,3 @@
-# TouchVisualizer
-
 ![TouchVisualizer](misc/logo.png)
 
 [![Version](https://img.shields.io/cocoapods/v/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer) [![License](https://img.shields.io/cocoapods/l/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer) [![Platform](https://img.shields.io/cocoapods/p/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
@@ -8,7 +6,7 @@
 
 TouchVisualizer is a lightweight and pure Swift implemented library for visualizing touches on the screen. Let's give an effective presentation with TouchVisualizer!
 
-Main features:
+## Features
 
 - Works with **just a single line of code**!
 - Multiple fingers supported.
