@@ -75,7 +75,13 @@ Copy files in the `Pod/Classes` directory into your project. That's all.
 TouchVisualizer.start()
 ```
 
-Is it really simple, isn't it? And you can change settings:
+You can stop presentation from the app like this.
+
+```
+TouchVisualizer.stop()
+```
+
+It is really simple, isn't it? And you can change settings:
 
 ```
 var config = TouchVisualizerConfig()
@@ -87,11 +93,16 @@ config.showsLog = true
 TouchVisualizer.start(config)
 ```
 
-You can stop presentation from the app like this.
+### Config properties
 
-```
-TouchVisualizer.stop()
-```
+|property name|description|default value|
+|:----|:----|:----|
+|color| Color of touch point and text|default color|
+|image| Touch point image |circle image|
+|defaultSize| Default size of touch point|60 x 60px|
+|showsTimer| If it is `true`, shows touch duration|false|
+|showsTouchRadius| Shows touch radius by scalling touch point|false|
+|showsLog|Shows log|false|
 
 ## Requirements
 
@@ -100,9 +111,11 @@ TouchVisualizer.stop()
 
 ## Document
 
+### Peripheral
+
 - [How to take an iOS screen movie](misc/take_a_movie.md)
 
-## Presentation
+### Presentation
 
 - [TouchVisualizer Demo movie #potatotips // Speaker Deck](https://speakerdeck.com/morizotter/touchvisualizer-demo-movie-number-potatotips) @potatotips May 13 2015
 
