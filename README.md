@@ -19,11 +19,21 @@ Effective presentation with TouchVisualizer! Main features are below.
 - You can change colors and images of finger points.
 - iPhone and iPad with portlait and landscape supported.
 
+## How it looks
+
+### Portlait
+
 ![one](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/one.gif)
+
+### Landscape
 
 ![two](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/two.gif)
 
+### Robots
+
 ![three](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/three.gif)
+
+### Implemented in app
 
 ![four](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/four.gif)
 
