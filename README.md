@@ -1,15 +1,14 @@
 # TouchVisualizer
 
-[![Version](https://img.shields.io/cocoapods/v/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
-[![License](https://img.shields.io/cocoapods/l/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
-[![Platform](https://img.shields.io/cocoapods/p/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
+![TouchVisualizer](misc/logo.png)
+
+[![Version](https://img.shields.io/cocoapods/v/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer) [![License](https://img.shields.io/cocoapods/l/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer) [![Platform](https://img.shields.io/cocoapods/p/TouchVisualizer.svg?style=flat)](http://cocoadocs.org/docsets/TouchVisualizer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/morizotter/TouchVisualizer)
+[![Circle CI](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master.svg?style=shield&circle-token=b7eb2e179731634bcac95d1e4f8e90b837b092e3)](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master) [![Join the chat at https://gitter.im/morizotter/TouchVisualizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/morizotter/TouchVisualizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Circle CI](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master.svg?style=shield&circle-token=b7eb2e179731634bcac95d1e4f8e90b837b092e3)](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master)
+TouchVisualizer is a lightweight and pure Swift implemented library for visualizing touches on the screen. Let's give an effective presentation with TouchVisualizer!
 
-[![Join the chat at https://gitter.im/morizotter/TouchVisualizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/morizotter/TouchVisualizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Effective presentation with TouchVisualizer! Main features are below.
+Main features:
 
 - Works with **just a single line of code**!
 - Multiple fingers supported.
@@ -23,19 +22,19 @@ Effective presentation with TouchVisualizer! Main features are below.
 
 ### Portlait
 
-![one](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/one.gif)
+![one](misc/one.gif)
 
 ### Landscape
 
-![two](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/two.gif)
+![two](misc/two.gif)
 
 ### Robots
 
-![three](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/three.gif)
+![three](misc/three.gif)
 
 ### Implemented in app
 
-![four](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/four.gif)
+![four](misc/four.gif)
 
 It's fun!
 
