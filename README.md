@@ -17,12 +17,15 @@ Effective presentation with TouchVisualizer! Main features are below.
 - Shows touch radius.
 - Shows touch duration.
 - You can change colors and images of finger points.
+- iPhone and iPad with portlait and landscape supported.
 
-![top](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/top.png)
+![one](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/one.gif)
 
-Catch the image with GIF!
+![two](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/two.gif)
 
-![gif](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/presentation.gif)
+![three](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/three.gif)
+
+![four](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/four.gif)
 
 It's fun!
 
