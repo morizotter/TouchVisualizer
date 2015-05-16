@@ -11,6 +11,7 @@
 
 Effective presentation with TouchVisualizer! Main features are below.
 
+- Works with **just one line of code**!
 - Multiple fingers supported.
 - Multiple UIWindows supported.
 - Shows touch radius.
@@ -23,7 +24,44 @@ Catch the image with GIF!
 
 ![gif](https://raw.githubusercontent.com/morizotter/TouchVisualizer/master/misc/presentation.gif)
 
-Let's give a presentation effectively!
+It's fun!
+
+## Usage
+
+`import TouchVisualizer` and just write the following line wherever you want to start visualization.
+
+```
+TouchVisualizer.start()
+```
+
+You can stop presentation from the app like this.
+
+```
+TouchVisualizer.stop()
+```
+
+It is really simple, isn't it? And you can change settings like:
+
+```
+var config = TouchVisualizerConfig()
+config.color = UIColor.redColor()
+config.image = UIImage(named: "YOUR-IMAGE")
+config.showsTimer = true
+config.showsTouchRadius = true
+config.showsLog = true
+TouchVisualizer.start(config)
+```
+
+### Config properties
+
+|property name|description|default value|
+|:----|:----|:----|
+|color| Color of touch point and text.|default color|
+|image| Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color designated above. |circle image|
+|defaultSize| Default size of touch point.|60 x 60px|
+|showsTimer| If it is `true`, shows touch duration.|false|
+|showsTouchRadius| Shows touch radius by scalling touch point.|false|
+|showsLog|Shows log.|false|
 
 ## Installation
 
@@ -66,43 +104,6 @@ sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simr
 ### Manual
 
 Copy files in the `Pod/Classes` directory into your project. That's all.
-
-## Usage
-
-`import TouchVisualizer` and just write the following line wherever you want to start visualization.
-
-```
-TouchVisualizer.start()
-```
-
-You can stop presentation from the app like this.
-
-```
-TouchVisualizer.stop()
-```
-
-It is really simple, isn't it? And you can change settings:
-
-```
-var config = TouchVisualizerConfig()
-config.color = UIColor.redColor()
-config.image = UIImage(named: "YOUR-IMAGE")
-config.showsTimer = true
-config.showsTouchRadius = true
-config.showsLog = true
-TouchVisualizer.start(config)
-```
-
-### Config properties
-
-|property name|description|default value|
-|:----|:----|:----|
-|color| Color of touch point and text.|default color|
-|image| Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color designated above. |circle image|
-|defaultSize| Default size of touch point.|60 x 60px|
-|showsTimer| If it is `true`, shows touch duration.|false|
-|showsTouchRadius| Shows touch radius by scalling touch point.|false|
-|showsLog|Shows log.|false|
 
 ## Requirements
 
