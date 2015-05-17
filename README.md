@@ -63,14 +63,14 @@ TouchVisualizer.start(config)
 
 ### Config properties
 
-|property name|description|default value|
-|:----|:----|:----|
-|color| Color of touch point and text.|default color|
-|image| Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color designated above. |circle image|
-|defaultSize| Default size of touch point.|60 x 60px|
-|showsTimer| Shows touch duration.|false|
-|showsTouchRadius| Shows touch radius by scalling touch point.|false|
-|showsLog|Shows log.|false|
+|name|type|description|default|
+|:----|:----|:----|:----|
+| color | UIColor | Color of touch point and text. | default color |
+| image | UIImage | Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color above. | circle image |
+| defaultSize| CGize | Default size of touch point.| 60 x 60px |
+| showsTimer| Bool | Shows touch duration. | false |
+| showsTouchRadius | Bool | Shows touch radius by scalling touch point. | false |
+| showsLog | Bool | Shows log. | false |
 
 ## Installation
 
