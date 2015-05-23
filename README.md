@@ -70,7 +70,7 @@ TouchVisualizer.start(config)
 | image | UIImage | Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color above. | circle image |
 | defaultSize| CGize | Default size of touch point.| 60 x 60px |
 | showsTimer| Bool | Shows touch duration. | false |
-| showsTouchRadius | Bool | Shows touch radius by scalling touch point. | false |
+| showsTouchRadius | Bool | Shows touch radius by scalling touch point. It doesn't work on simulator. | false |
 | showsLog | Bool | Shows log. | false |
 
 ## Installation
