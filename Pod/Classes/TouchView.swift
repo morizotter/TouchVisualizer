@@ -13,9 +13,9 @@ final public class TouchView: UIImageView {
     // MARK: - Properties
     
     weak var touch: UITouch?
-    private var _config: TouchVisualizerConfiguration
+    private var _config: Configuration
     
-    public var config: TouchVisualizerConfiguration{
+    public var config: Configuration{
         get{ return _config }
         set(value) {
             _config = value
@@ -53,7 +53,7 @@ final public class TouchView: UIImageView {
     }
     
     override init(frame: CGRect) {
-        _config = TouchVisualizerConfiguration()
+        _config = Configuration()
         super.init(frame: frame)
         self.frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: _config.defaultSize)
     }
