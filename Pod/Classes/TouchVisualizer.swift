@@ -10,7 +10,7 @@ import UIKit
 
 final public class TouchVisualizer {
     
-    private var config: TouchVisualizerConfig!
+    private var config: TouchVisualizerConfiguration!
     private var touchViews = [TouchView]()
     private var enabled:Bool = false
     
@@ -46,10 +46,10 @@ final public class TouchVisualizer {
     }
     
     public class func start() {
-        start(TouchVisualizerConfig())
+        start(TouchVisualizerConfiguration())
     }
     
-    public class func start(config: TouchVisualizerConfig) {
+    public class func start(config: TouchVisualizerConfiguration) {
         
         let instance = sharedInstance
         instance.enabled = true
