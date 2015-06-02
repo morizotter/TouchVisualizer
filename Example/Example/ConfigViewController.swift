@@ -19,7 +19,7 @@ final class ConfigViewController: UITableViewController {
     @IBOutlet weak var redColorCell: UITableViewCell!
     @IBOutlet weak var greenColorCell: UITableViewCell!
     
-    var config = TouchVisualizerConfig()
+    var config = Configuration()
     
     let colors = [
         "blue": UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8),

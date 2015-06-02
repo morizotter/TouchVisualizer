@@ -14,26 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // It's the simpest way!
         TouchVisualizer.start()
         
-//        // Initialize with config - githubcat
-//        var config = TouchVisualizerConfig()
+//        // Initialize with config - octocat
+//        var config = Configuration()
 //        config.color = UIColor.blackColor()
 //        config.showsTimer = true
 //        config.showsTouchRadius = true
 //        config.showsLog = true
 //        config.image = UIImage(named: "octocat")
-//        TouchVisualizer.start(config)
-
-//        // Initialize with config - potatotips
-//        var config = TouchVisualizerConfig()
-//        config.color = UIColor.orangeColor()
-//        config.image = UIImage(named: "potatotips")?.imageWithRenderingMode(.AlwaysTemplate)
-//        config.showsTouchRadius = true
 //        TouchVisualizer.start(config)
         
         return true
