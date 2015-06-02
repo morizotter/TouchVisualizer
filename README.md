@@ -59,7 +59,7 @@ config.image = UIImage(named: "YOUR-IMAGE")
 config.showsTimer = true
 config.showsTouchRadius = true
 config.showsLog = true
-TouchVisualizer.start(config)
+Visualizer.start(config)
 ```
 
 ### Configration properties
