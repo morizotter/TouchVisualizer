@@ -38,9 +38,9 @@ final public class Visualizer {
             touch.removeFromSuperview()
         }
     }
-    
-    // MARK: - Methods
-    
+}
+
+extension Visualizer {
     public class func isEnabled() -> Bool {
         return sharedInstance.enabled
     }
@@ -50,7 +50,6 @@ final public class Visualizer {
     }
     
     public class func start(config: Configuration) {
-        
         let instance = sharedInstance
         instance.enabled = true
         instance.config = config
@@ -98,7 +97,6 @@ final public class Visualizer {
     }
     
     public func handleEvent(event: UIEvent) {
-        
         if event.type != UIEventType.Touches {
             return
         }
@@ -133,16 +131,18 @@ final public class Visualizer {
                     UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { [unowned self] () -> Void  in
                         view.alpha = 0.0
                         view.endTouch()
-                    }, completion: { [unowned self] (finished) -> Void in
-                        view.removeFromSuperview()
-                        self.log(touch)
-                    });
+                        }, completion: { [unowned self] (finished) -> Void in
+                            view.removeFromSuperview()
+                            self.log(touch)
+                        });
                 }
                 log(touch)
             }
         }
     }
-    
+}
+
+extension Visualizer {
     public func log(touch: UITouch) {
         if !config.showsLog {
             return
