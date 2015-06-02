@@ -50,7 +50,7 @@ final class ConfigViewController: UITableViewController {
             if isSimulator() {
                 let controller = UIAlertController(
                     title: "Warning",
-                    message: "This property doesn't work on simulator because it is not possible to read touch radius on it. Please test it on device.",
+                    message: "This property doesn't work on the simulator because it is not possible to read touch radius on it. Please test it on device.",
                     preferredStyle: .Alert
                 )
                 controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
