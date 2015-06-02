@@ -12,7 +12,7 @@
 		FF1A1AC51AFF6C6200267156 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = FF1A1ABF1AFF6C6200267156 /* .gitkeep */; };
 		FF1A1AC61AFF6C6200267156 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC01AFF6C6200267156 /* TouchView.swift */; };
 		FF1A1AC71AFF6C6200267156 /* TouchVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC11AFF6C6200267156 /* TouchVisualizer.swift */; };
-		FF1A1AC81AFF6C6200267156 /* TouchVisualizerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC21AFF6C6200267156 /* TouchVisualizerConfig.swift */; };
+		FF1A1AC81AFF6C6200267156 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC21AFF6C6200267156 /* Configuration.swift */; };
 		FF1A1AC91AFF6C6200267156 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC31AFF6C6200267156 /* UIWindow.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		FF1A1ABF1AFF6C6200267156 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		FF1A1AC01AFF6C6200267156 /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		FF1A1AC11AFF6C6200267156 /* TouchVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchVisualizer.swift; sourceTree = "<group>"; };
-		FF1A1AC21AFF6C6200267156 /* TouchVisualizerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchVisualizerConfig.swift; sourceTree = "<group>"; };
+		FF1A1AC21AFF6C6200267156 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FF1A1AC31AFF6C6200267156 /* UIWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +96,7 @@
 				FF1A1ABF1AFF6C6200267156 /* .gitkeep */,
 				FF1A1AC01AFF6C6200267156 /* TouchView.swift */,
 				FF1A1AC11AFF6C6200267156 /* TouchVisualizer.swift */,
-				FF1A1AC21AFF6C6200267156 /* TouchVisualizerConfig.swift */,
+				FF1A1AC21AFF6C6200267156 /* Configuration.swift */,
 				FF1A1AC31AFF6C6200267156 /* UIWindow.swift */,
 			);
 			path = Classes;
@@ -182,7 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF1A1AC81AFF6C6200267156 /* TouchVisualizerConfig.swift in Sources */,
+				FF1A1AC81AFF6C6200267156 /* Configuration.swift in Sources */,
 				FF1A1AC61AFF6C6200267156 /* TouchView.swift in Sources */,
 				FF1A1AC71AFF6C6200267156 /* TouchVisualizer.swift in Sources */,
 				FF1A1AC91AFF6C6200267156 /* UIWindow.swift in Sources */,

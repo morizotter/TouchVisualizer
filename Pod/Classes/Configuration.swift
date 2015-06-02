@@ -1,5 +1,5 @@
 //
-//  TouchVisualizerConfig.swift
+//  Configuration.swift
 //  Pods
 //
 //  Created by MORITA NAOKI on 2015/04/11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct TouchVisualizerConfig {
+public struct Configuration {
     
     /**
     Color of touch points.
