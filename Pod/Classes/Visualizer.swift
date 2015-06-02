@@ -22,6 +22,8 @@ final public class Visualizer {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+        
+        warnIfSimulator()
     }
     
     deinit {
@@ -143,6 +145,12 @@ extension Visualizer {
 }
 
 extension Visualizer {
+    private func warnIfSimulator() {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            println("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.")
+        #endif
+    }
+    
     public func log(touch: UITouch) {
         if !config.showsLog {
             return
