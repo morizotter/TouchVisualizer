@@ -1,5 +1,5 @@
 PODS:
-  - TouchVisualizer (1.1.5)
+  - TouchVisualizer (1.2.0)
 
 DEPENDENCIES:
   - TouchVisualizer (from `../`)
