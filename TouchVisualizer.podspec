@@ -9,18 +9,18 @@
 
 Pod::Spec.new do |s|
   s.name             = "TouchVisualizer"
-  s.version          = "1.1.5"
+  s.version          = "1.2.0"
   s.summary          = "Effective presentation with TouchVisualizer!"
   s.description      = <<-DESC
-                       # Give a presentation more impressive with finter points.
-                       When you give a presentation, your finger points are visible on screen.
-                       TouchVisualizer is a new version of MZRPresentationKit
+                       TouchVisualizer is a lightweight and pure Swift implemented library for visualizing touches on the screen. Let's give an effective presentation with TouchVisualizer!
 
+                       - Works with just a single line of code!
                        - Multiple fingers supported.
                        - Multiple UIWindows supported.
                        - Shows touch radius.
                        - Shows touch duration.
                        - You can change colors and images of finger points.
+                       - iPhone and iPad with portlait and landscape supported.
                        DESC
   s.homepage         = "https://github.com/morizotter/TouchVisualizer"
   s.license          = 'MIT'

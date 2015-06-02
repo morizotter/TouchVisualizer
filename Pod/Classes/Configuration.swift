@@ -10,10 +10,12 @@ import UIKit
 
 public struct Configuration {
     
+    static let defaultColor = UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
+    
     /**
     Color of touch points.
     */
-    public var color: UIColor? = UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
+    public var color: UIColor? = defaultColor
     
     /**
     Image of touch points.
@@ -22,7 +24,7 @@ public struct Configuration {
         let rect = CGRectMake(0, 0, 60.0, 60.0);
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         let contextRef = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(contextRef, UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8).CGColor)
+        CGContextSetFillColorWithColor(contextRef, defaultColor.CGColor)
         CGContextFillEllipseInRect(contextRef, rect);
         var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();
