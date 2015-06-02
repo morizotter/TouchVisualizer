@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TouchVisualizer"
-  s.version          = "1.2.0"
+  s.version          = "1.2.1"
   s.summary          = "Effective presentation with TouchVisualizer!"
   s.description      = <<-DESC
                        TouchVisualizer is a lightweight and pure Swift implemented library for visualizing touches on the screen. Let's give an effective presentation with TouchVisualizer!
