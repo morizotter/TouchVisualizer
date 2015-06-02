@@ -31,7 +31,7 @@ final class ConfigViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        TouchVisualizer.start()
+        Visualizer.start()
         updateCells()
     }
     
@@ -73,7 +73,7 @@ final class ConfigViewController: UITableViewController {
         }
         
         updateCells()
-        TouchVisualizer.start(config)
+        Visualizer.start(config)
     }
     
     func updateCells() {
@@ -110,7 +110,7 @@ final class ConfigViewController: UITableViewController {
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
-        TouchVisualizer.start()
+        Visualizer.start()
     }
     
     @IBAction func doneButtonTapped(sender: UIBarButtonItem) {

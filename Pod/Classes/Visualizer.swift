@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class TouchVisualizer {
+final public class Visualizer {
     
     private var config: Configuration!
     private var touchViews = [TouchView]()
@@ -16,7 +16,7 @@ final public class TouchVisualizer {
     
     private var previousLog = ""
     
-    static let sharedInstance = TouchVisualizer()
+    static let sharedInstance = Visualizer()
     
     private init() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -33,7 +33,7 @@ final public class TouchVisualizer {
     }
     
     @objc func orientationDidChangeNotification(notification: NSNotification) {
-        let instance = TouchVisualizer.sharedInstance
+        let instance = Visualizer.sharedInstance
         for touch in instance.touchViews {
             touch.removeFromSuperview()
         }
@@ -103,7 +103,7 @@ final public class TouchVisualizer {
             return
         }
         
-        if(!TouchVisualizer.sharedInstance.enabled){
+        if(!Visualizer.sharedInstance.enabled){
             return
         }
         
@@ -114,7 +114,7 @@ final public class TouchVisualizer {
             switch phase {
             case .Began:
                 let view = dequeueTouchView()
-                view.config = TouchVisualizer.sharedInstance.config
+                view.config = Visualizer.sharedInstance.config
                 view.touch = touch
                 view.beginTouch()
                 view.center = touch.locationInView(keyWindow)

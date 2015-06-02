@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // It's the simpest way!
-        TouchVisualizer.start()
+        Visualizer.start()
         
 //        // Initialize with config - octocat
 //        var config = Configuration()
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        config.showsTouchRadius = true
 //        config.showsLog = true
 //        config.image = UIImage(named: "octocat")
-//        TouchVisualizer.start(config)
+//        Visualizer.start(config)
         
         return true
     }
