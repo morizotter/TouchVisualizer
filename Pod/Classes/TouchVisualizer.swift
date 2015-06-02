@@ -56,7 +56,7 @@ final public class TouchVisualizer {
         instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
-                if (subview as? TouchView != nil) {
+                if let subview = subview as? TouchView {
                     subview.removeFromSuperview()
                 }
             }
