@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TouchVisualizer: 4065fa1dfa0999df1741f971ae2905dff143cf89
+  TouchVisualizer: 1372f334d452ac8c9bbe9ee18ed4ad9a4b41dadb
 
 COCOAPODS: 0.37.2
