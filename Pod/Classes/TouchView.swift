@@ -1,23 +1,26 @@
 //
 //  TouchView.swift
-//  Pods
+//  TouchVisualizer
 //
 //  Created by MORITA NAOKI on 2015/01/27.
-//
+//  Copyright (c) 2015年 molabo. All rights reserved.
 //
 
 import UIKit
 
 final public class TouchView: UIImageView {
     
-    // MARK: - Properties
-    
-    weak var touch: UITouch?
+    // MARK: - Public Variables
+    public weak var touch: UITouch?
+    private weak var timer: NSTimer?
     private var _config: Configuration
+    private var previousRatio: CGFloat = 1.0
+    private var startDate: NSDate?
+    private var lastTimeString: String!
     
-    public var config: Configuration{
-        get{ return _config }
-        set(value) {
+    public var config: Configuration {
+        get { return _config }
+        set (value) {
             _config = value
             image = self.config.image
             tintColor = self.config.color
@@ -25,36 +28,32 @@ final public class TouchView: UIImageView {
         }
     }
     
-    private var previousRatio: CGFloat = 1.0
-    private var startDate: NSDate?
-    private weak var timer: NSTimer?
-    private var lastTimeString: String!
-    
     lazy var timerLabel: UILabel = {
-        let size = CGSizeMake(200.0, 44.0)
-        let bottom = 8.0 as CGFloat
-        var label:UILabel = UILabel(frame: CGRect(
-            x: -(size.width - CGRectGetWidth(self.frame)) / 2,
-            y: -size.height - bottom,
-            width: size.width,
-            height: size.height
-            )
-        )
+        let size = CGSize(width: 200.0, height: 44.0)
+        let bottom: CGFloat = 8.0
+        var label = UILabel()
+        
+        label.frame = CGRect(x: -(size.width - CGRectGetWidth(self.frame)) / 2,
+                             y: -size.height - bottom,
+                             width: size.width,
+                             height: size.height)
+        
         label.font = UIFont(name: "Helvetica", size: 24.0)
         label.textAlignment = .Center
         self.addSubview(label)
+        
         return label
     }()
     
-    // MARK: - Life cycle
-    
+    // MARK: - Object life cycle
     convenience init() {
-        self.init(frame:CGRectZero)
+        self.init(frame: CGRectZero)
     }
     
     override init(frame: CGRect) {
         _config = Configuration()
         super.init(frame: frame)
+        
         self.frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: _config.defaultSize)
     }
 
@@ -66,16 +65,19 @@ final public class TouchView: UIImageView {
         timer?.invalidate()
     }
     
-    func beginTouch() {
+    // MARK: - Begin and end touching functions
+    public func beginTouch() {
         alpha = 1.0
         timerLabel.alpha = 0.0
         layer.transform = CATransform3DIdentity
         previousRatio = 1.0
         frame = CGRect(origin: frame.origin, size: _config.defaultSize)
         startDate = NSDate()
-        
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
-        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+        
+        NSRunLoop
+            .mainRunLoop()
+            .addTimer(timer!, forMode: NSRunLoopCommonModes)
         
         if _config.showsTimer {
             timerLabel.alpha = 1.0
@@ -90,20 +92,20 @@ final public class TouchView: UIImageView {
         timer?.invalidate()
     }
     
+    // MARK: - Update Functions
     internal func update(timer: NSTimer) {
         if let startDate = startDate {
             let interval = NSDate().timeIntervalSinceDate(startDate)
             let timeString = String(format: "%.02f", Float(interval))
             timerLabel.text = timeString
         }
+        
         if _config.showsTouchRadius {
             updateSize()
         }
     }
     
-    // MARK: - Methods
-    
-    func updateSize() {
+    public func updateSize() {
         if let touch = touch {
             let ratio = touch.majorRadius * 2.0 / _config.defaultSize.width
             if ratio != previousRatio {

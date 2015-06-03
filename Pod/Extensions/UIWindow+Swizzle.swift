@@ -1,28 +1,26 @@
 //
-//  UIWindow.swift
-//  Pods
+//  UIWindow+Swizzle.swift
+//  TouchVisualizer
 //
 //  Created by MORITA NAOKI on 2015/01/27.
-//
+//  Copyright (c) 2015年 molabo. All rights reserved.
 //
 
 import UIKit
 
-public extension UIWindow {
-    
-    var swizzlingMessage: String {
+extension UIWindow {
+    public var swizzlingMessage: String {
         return "Method Swizzlings: sendEvent: and description"
     }
     
-    func swizzle() {
-        
-        var range = self.description.rangeOfString(swizzlingMessage, options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
+    public func swizzle() {
+        var range = self.description.rangeOfString(swizzlingMessage, options: .LiteralSearch, range: nil, locale: nil)
         if (range?.startIndex != nil) {
-            return;
+            return
         }
         
-        var sendEvent: Method = class_getInstanceMethod(object_getClass(self), "sendEvent:")
-        var swizzledSendEvent: Method = class_getInstanceMethod(object_getClass(self), "swizzledSendEvent:")
+        var sendEvent = class_getInstanceMethod(object_getClass(self), "sendEvent:")
+        var swizzledSendEvent = class_getInstanceMethod(object_getClass(self), "swizzledSendEvent:")
         method_exchangeImplementations(sendEvent, swizzledSendEvent)
         
         var description: Method = class_getInstanceMethod(object_getClass(self), "description")
@@ -30,12 +28,12 @@ public extension UIWindow {
         method_exchangeImplementations(description, swizzledDescription)
     }
     
-    func swizzledSendEvent(event: UIEvent) {
+    public func swizzledSendEvent(event: UIEvent) {
         Visualizer.sharedInstance.handleEvent(event)
         swizzledSendEvent(event)
     }
     
-    func swizzledDescription() -> String {
+    public func swizzledDescription() -> String {
         return swizzledDescription() + "; " + swizzlingMessage
     }
 }
