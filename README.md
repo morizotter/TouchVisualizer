@@ -4,85 +4,43 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/morizotter/TouchVisualizer)
 [![Circle CI](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master.svg?style=shield&circle-token=b7eb2e179731634bcac95d1e4f8e90b837b092e3)](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master) [![Join the chat at https://gitter.im/morizotter/TouchVisualizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/morizotter/TouchVisualizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-TouchVisualizer is a lightweight and pure Swift implemented library for visualizing touches on the screen. Let's give an effective presentation with TouchVisualizer!
+TouchVisualizer is a lightweight pure-Swift implementation for visualising `UITouch` events.
 
-## Features
+##Features
+- Works with just **a single line** of code!
+- Supports multiple fingers.
+- Supports multiple `UIWindow`'s.
+- Displays touch radius (finger size).
+- Displays touch duration.
+- Customise the finger-points image and colour.
+- Supports iPhone and iPad in both portrait and landscape mode.
 
-- Works with **just a single line of code**!
-- Multiple fingers supported.
-- Multiple UIWindows supported.
-- Shows touch radius.
-- Shows touch duration.
-- You can change colors and images of finger points.
-- iPhone and iPad with portlait and landscape supported.
-
-## How it looks
-
-### Portlait
-
+##How it looks
+###Portrait:
 ![one](misc/one.gif)
-
-### Landscape
-
+###Landscape:
 ![two](misc/two.gif)
-
-### Robots
-
+###Robots:
 ![three](misc/three.gif)
-
-### Implemented in app
-
+###In-app implementation:
 ![four](misc/four.gif)
 
 It's fun!
 
-## Usage
+##Runtime Requirements
 
-`import TouchVisualizer` and just write the following line wherever you want to start visualization.
+- iOS8.1 or later
+- Xcode 6.3
 
-```
-Visualizer.start()
-```
+## Installation and Setup
+**Note:** Embedded frameworks require a minimum deployment target of iOS 8.1.
+**Information:** To use TouchVisualizer with a project targeting iOS 8.0 or lower, you must include the `TouchVisualizer.swift` source file directly in your project.
 
-You can stop presentation from the app like this.
-
-```
-Visualizer.stop()
-```
-
-It is really simple, isn't it? And you can change settings like:
-
-```
-var config = Configuration()
-config.color = UIColor.redColor()
-config.image = UIImage(named: "YOUR-IMAGE")
-config.showsTimer = true
-config.showsTouchRadius = true
-config.showsLog = true
-Visualizer.start(config)
-```
-
-### Configration properties
-
-|name|type|description|default|
-|:----|:----|:----|:----|
-| color | UIColor | Color of touch point and text. | default color |
-| image | UIImage | Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color above. | circle image |
-| defaultSize| CGize | Default size of touch point.| 60 x 60px |
-| showsTimer| Bool | Shows touch duration. | false |
-| showsTouchRadius | Bool | Shows touch radius by scalling touch point. It doesn't work on simulator. | false |
-| showsLog | Bool | Shows log. | false |
-
-## Installation
-
-> Embedded frameworks require a minimum deployment target of iOS 8.1
-> To use TouchVisualizer with a project targeting iOS 8.0 or lower, you must include the TouchVisualizer.swift source file directly in your project.
-
-### CocoaPods
+###CocoaPods
 
 [CocoaPods](http://cocoapods.org) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
-```
+```bash
 $ gem update
 $ gem install cocoapods
 $ pods --version
@@ -101,7 +59,7 @@ pod "TouchVisualizer", '~>1.2'
 
 then, `pod install`
 
-### Carthage
+###Carthage
 
 See [instruction here](https://github.com/Carthage/Carthage#installing-carthage).
 
@@ -111,33 +69,74 @@ Known Xcode 6.3.1 Problem: If you failed to install with errors. Try this comman
 sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
 ```
 
-### Manual
+###Manual Installation
 
-Copy files in the `Pod/Classes` directory into your project. That's all.
+Copy files in the `Pod` directory into your project. That's all.
 
-## Requirements
+## Usage
 
-- iOS8.1 or later
-- Xcode 6.3
+To start using TouchVisualizer, write the following line wherever you want to start visualising:
 
-## Document
+```swift
+import TouchVisualizer
+``` 
 
-### Peripheral
+Then invoke visualisation, by calling:
+
+```swift
+Visualizer.start()
+```
+
+and stop the presentation like this:
+
+```swift
+Visualizer.stop()
+```
+
+It is really simple, isn't it? 
+
+##Customisation
+
+TouchVisualizer also has the ability to customise your touch events. Here is an example of what can be customised:
+
+```swift
+var config = Configuration()
+config.color = UIColor.redColor()
+config.image = UIImage(named: "YOUR-IMAGE")
+config.showsTimer = true
+config.showsTouchRadius = true
+config.showsLog = true
+Visualizer.start(config)
+```
+
+###Configuration properties
+
+|name|type|description|default|
+|:----|:----|:----|:----|
+| color | `UIColor` | Color of touch point and text. | default color |
+| image | `UIImage` | Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color above. | circle image |
+| defaultSize| `CGize` | Default size of touch point.| 60 x 60px |
+| showsTimer| `Bool` | Shows touch duration. | false |
+| showsTouchRadius | `Bool` | Shows touch radius by scalling touch point. It doesn't work on simulator. | false |
+| showsLog | `Bool` | Shows log. | false |
+
+##Documentation
+###Peripheral
 
 - [How to take an iOS screen movie](misc/take_a_movie.md)
 
-### Presentation
+###Presentation
 
 - [TouchVisualizer Demo movie #potatotips // Speaker Deck](https://speakerdeck.com/morizotter/touchvisualizer-demo-movie-number-potatotips) @potatotips May 13 2015
 
-## Contribution
+##Contribution
 
 I'm waiting for your contribution:)
 
-## License
+##Licensing
 
 TouchVisualizer is available under the MIT license. See the LICENSE file for more info.
 
-## Alternative
+##Alternative
 
 There is similar *touch visualization* library: [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer). It seems support lower iOS versions and probably works neater. If TouchVisualizer doesn't fit for your project. Let's try this.
