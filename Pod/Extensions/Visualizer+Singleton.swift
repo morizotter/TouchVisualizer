@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: - Visualizer+Singleton
 extension Visualizer {
     public class func isEnabled() -> Bool {
         return sharedInstance.enabled

@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: - Visualizer+Simulator
 extension Visualizer {
     public func warnIfSimulator() {
         #if (arch(i386) || arch(x86_64)) && os(iOS)

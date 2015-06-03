@@ -72,8 +72,8 @@
 		FF1A1AA11AFF6C2200267156 /* TouchVisualizer */ = {
 			isa = PBXGroup;
 			children = (
-				FF1A1ABB1AFF6C6200267156 /* Pod */,
 				FF1A1AA41AFF6C2200267156 /* TouchVisualizer.h */,
+				FF1A1ABB1AFF6C6200267156 /* Pod */,
 				FF1A1AA21AFF6C2200267156 /* Supporting Files */,
 			);
 			path = TouchVisualizer;
@@ -90,8 +90,8 @@
 		FF1A1ABB1AFF6C6200267156 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A55C498F1B1E920F005308F2 /* Extensions */,
 				FF1A1ABC1AFF6C6200267156 /* Assets */,
+				A55C498F1B1E920F005308F2 /* Extensions */,
 				FF1A1ABE1AFF6C6200267156 /* Classes */,
 			);
 			path = Pod;
