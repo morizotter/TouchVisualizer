@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIWindow {
+extension UIWindow {
     public var swizzlingMessage: String {
         return "Method Swizzlings: sendEvent: and description"
     }

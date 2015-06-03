@@ -8,16 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		A55C498B1B1E8259005308F2 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C498A1B1E8259005308F2 /* Visualizer.swift */; };
+		A55C49911B1E9222005308F2 /* Visualizer+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C49901B1E9222005308F2 /* Visualizer+Singleton.swift */; };
+		A55C49931B1E9279005308F2 /* Visualizer+Simulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C49921B1E9279005308F2 /* Visualizer+Simulator.swift */; };
+		A55C49951B1E93CB005308F2 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C49941B1E93CB005308F2 /* UIWindow+Swizzle.swift */; };
 		FF1A1AA51AFF6C2200267156 /* TouchVisualizer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF1A1AA41AFF6C2200267156 /* TouchVisualizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF1A1AC41AFF6C6200267156 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = FF1A1ABD1AFF6C6200267156 /* .gitkeep */; };
 		FF1A1AC51AFF6C6200267156 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = FF1A1ABF1AFF6C6200267156 /* .gitkeep */; };
 		FF1A1AC61AFF6C6200267156 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC01AFF6C6200267156 /* TouchView.swift */; };
 		FF1A1AC81AFF6C6200267156 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC21AFF6C6200267156 /* Configuration.swift */; };
-		FF1A1AC91AFF6C6200267156 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC31AFF6C6200267156 /* UIWindow+Swizzle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A55C498A1B1E8259005308F2 /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
+		A55C49901B1E9222005308F2 /* Visualizer+Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Visualizer+Singleton.swift"; path = "Extensions/Visualizer+Singleton.swift"; sourceTree = "<group>"; };
+		A55C49921B1E9279005308F2 /* Visualizer+Simulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Visualizer+Simulator.swift"; path = "Extensions/Visualizer+Simulator.swift"; sourceTree = "<group>"; };
+		A55C49941B1E93CB005308F2 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+Swizzle.swift"; path = "Extensions/UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
 		FF1A1A9F1AFF6C2200267156 /* TouchVisualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchVisualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1A1AA31AFF6C2200267156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF1A1AA41AFF6C2200267156 /* TouchVisualizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchVisualizer.h; sourceTree = "<group>"; };
@@ -25,7 +30,6 @@
 		FF1A1ABF1AFF6C6200267156 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		FF1A1AC01AFF6C6200267156 /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		FF1A1AC21AFF6C6200267156 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		FF1A1AC31AFF6C6200267156 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A55C498F1B1E920F005308F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A55C49901B1E9222005308F2 /* Visualizer+Singleton.swift */,
+				A55C49921B1E9279005308F2 /* Visualizer+Simulator.swift */,
+				A55C49941B1E93CB005308F2 /* UIWindow+Swizzle.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		FF1A1A951AFF6C2200267156 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +90,7 @@
 		FF1A1ABB1AFF6C6200267156 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				A55C498F1B1E920F005308F2 /* Extensions */,
 				FF1A1ABC1AFF6C6200267156 /* Assets */,
 				FF1A1ABE1AFF6C6200267156 /* Classes */,
 			);
@@ -97,7 +112,6 @@
 				FF1A1AC01AFF6C6200267156 /* TouchView.swift */,
 				A55C498A1B1E8259005308F2 /* Visualizer.swift */,
 				FF1A1AC21AFF6C6200267156 /* Configuration.swift */,
-				FF1A1AC31AFF6C6200267156 /* UIWindow+Swizzle.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -183,9 +197,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF1A1AC81AFF6C6200267156 /* Configuration.swift in Sources */,
+				A55C49951B1E93CB005308F2 /* UIWindow+Swizzle.swift in Sources */,
 				FF1A1AC61AFF6C6200267156 /* TouchView.swift in Sources */,
 				A55C498B1B1E8259005308F2 /* Visualizer.swift in Sources */,
-				FF1A1AC91AFF6C6200267156 /* UIWindow+Swizzle.swift in Sources */,
+				A55C49931B1E9279005308F2 /* Visualizer+Simulator.swift in Sources */,
+				A55C49911B1E9222005308F2 /* Visualizer+Singleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

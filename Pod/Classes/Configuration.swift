@@ -10,7 +10,7 @@ import UIKit
 
 public struct Configuration {
     private struct Constants {
-        static let defaultColor = UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8)
+        static let defaultColor = UIColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 0.8)
     }
     
     // Color of touch points

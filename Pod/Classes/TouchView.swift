@@ -10,12 +10,12 @@ import UIKit
 
 final public class TouchView: UIImageView {
     
-    // MARK: - Properties
+    // MARK: - Public Variables
     public weak var touch: UITouch?
+    private weak var timer: NSTimer?
     private var _config: Configuration
     private var previousRatio: CGFloat = 1.0
     private var startDate: NSDate?
-    private weak var timer: NSTimer?
     private var lastTimeString: String!
     
     public var config: Configuration {
