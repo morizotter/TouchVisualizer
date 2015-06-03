@@ -1,6 +1,6 @@
 //
 //  TouchVisualizer.swift
-//  Pods
+//  TouchVisualizer
 //
 //  Created by MORITA NAOKI on 2015/01/24.
 //  Copyright (c) 2015年 molabo. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class Visualizer: NSObject {
+final public class Visualizer {
     
     // MARK: - Private Variables
     private var config: Configuration!
@@ -19,7 +19,7 @@ final public class Visualizer: NSObject {
     static let sharedInstance = Visualizer()
     
     // MARK: - Object life cycle
-    private override init() {
+    private init() {
         NSNotificationCenter
             .defaultCenter()
             .addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -42,11 +42,11 @@ final public class Visualizer: NSObject {
     }
     
     // MARK: - Helper Functions
-    @objc func applicationDidBecomeActiveNotification(notification: NSNotification) {
+    @objc public func applicationDidBecomeActiveNotification(notification: NSNotification) {
         UIApplication.sharedApplication().keyWindow?.swizzle()
     }
     
-    @objc func orientationDidChangeNotification(notification: NSNotification) {
+    @objc public func orientationDidChangeNotification(notification: NSNotification) {
         let instance = Visualizer.sharedInstance
         for touch in instance.touchViews {
             touch.removeFromSuperview()
@@ -108,7 +108,7 @@ extension Visualizer {
     
     private func findTouchView(touch: UITouch) -> TouchView? {
         for view in touchViews {
-            if view.touch == touch {
+            if touch == view.touch {
                 return view
             }
         }
@@ -117,7 +117,7 @@ extension Visualizer {
     }
     
     public func handleEvent(event: UIEvent) {
-        if event.type != .Touches {
+        if .Touches != event.type {
             return
         }
         
@@ -178,7 +178,7 @@ extension Visualizer {
             return
         }
         
-        var ti = 0
+        var ti = 0.0
         var viewLogs = [[String:String]]()
         for view in touchViews {
             var index = ""
@@ -218,7 +218,7 @@ extension Visualizer {
             log += "[\(index)]<\(phase)> c:\(center) r:\(radius)\t"
         }
         
-        if previousLog == log {
+        if log == previousLog {
             return
         }
         

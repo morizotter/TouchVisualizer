@@ -3,7 +3,7 @@
 //  TouchVisualizer
 //
 //  Created by MORITA NAOKI on 2015/01/27.
-//
+//  Copyright (c) 2015年 molabo. All rights reserved.
 //
 
 import UIKit
@@ -29,15 +29,14 @@ final public class TouchView: UIImageView {
     }
     
     lazy var timerLabel: UILabel = {
-        let size = CGSizeMake(200.0, 44.0)
-        let bottom = 8.0 as CGFloat
-        var label:UILabel = UILabel(frame: CGRect(
-            x: -(size.width - CGRectGetWidth(self.frame)) / 2,
-            y: -size.height - bottom,
-            width: size.width,
-            height: size.height
-            )
-        )
+        let size = CGSize(width: 200.0, height: 44.0)
+        let bottom: CGFloat = 8.0
+        var label = UILabel()
+        
+        label.frame = CGRect(x: -(size.width - CGRectGetWidth(self.frame)) / 2,
+                             y: -size.height - bottom,
+                             width: size.width,
+                             height: size.height)
         
         label.font = UIFont(name: "Helvetica", size: 24.0)
         label.textAlignment = .Center
@@ -48,7 +47,7 @@ final public class TouchView: UIImageView {
     
     // MARK: - Object life cycle
     convenience init() {
-        self.init(frame:CGRectZero)
+        self.init(frame: CGRectZero)
     }
     
     override init(frame: CGRect) {

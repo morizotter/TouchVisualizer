@@ -13,7 +13,7 @@
 		FF1A1AC51AFF6C6200267156 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = FF1A1ABF1AFF6C6200267156 /* .gitkeep */; };
 		FF1A1AC61AFF6C6200267156 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC01AFF6C6200267156 /* TouchView.swift */; };
 		FF1A1AC81AFF6C6200267156 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC21AFF6C6200267156 /* Configuration.swift */; };
-		FF1A1AC91AFF6C6200267156 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC31AFF6C6200267156 /* UIWindow.swift */; };
+		FF1A1AC91AFF6C6200267156 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A1AC31AFF6C6200267156 /* UIWindow+Swizzle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		FF1A1ABF1AFF6C6200267156 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		FF1A1AC01AFF6C6200267156 /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		FF1A1AC21AFF6C6200267156 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		FF1A1AC31AFF6C6200267156 /* UIWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		FF1A1AC31AFF6C6200267156 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 				FF1A1AC01AFF6C6200267156 /* TouchView.swift */,
 				A55C498A1B1E8259005308F2 /* Visualizer.swift */,
 				FF1A1AC21AFF6C6200267156 /* Configuration.swift */,
-				FF1A1AC31AFF6C6200267156 /* UIWindow.swift */,
+				FF1A1AC31AFF6C6200267156 /* UIWindow+Swizzle.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 				FF1A1AC81AFF6C6200267156 /* Configuration.swift in Sources */,
 				FF1A1AC61AFF6C6200267156 /* TouchView.swift in Sources */,
 				A55C498B1B1E8259005308F2 /* Visualizer.swift in Sources */,
-				FF1A1AC91AFF6C6200267156 /* UIWindow.swift in Sources */,
+				FF1A1AC91AFF6C6200267156 /* UIWindow+Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
