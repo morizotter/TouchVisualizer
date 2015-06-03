@@ -21,13 +21,13 @@ public struct Configuration {
     Image of touch points.
     */
     public var image: UIImage? = {
-        let rect = CGRectMake(0, 0, 60.0, 60.0);
+        let rect = CGRectMake(0, 0, 60.0, 60.0)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         let contextRef = UIGraphicsGetCurrentContext()
         CGContextSetFillColorWithColor(contextRef, defaultColor.CGColor)
-        CGContextFillEllipseInRect(contextRef, rect);
+        CGContextFillEllipseInRect(contextRef, rect)
         var image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         image = image.imageWithRenderingMode(.AlwaysTemplate)
         return image
         }()

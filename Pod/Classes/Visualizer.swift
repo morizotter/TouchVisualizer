@@ -8,28 +8,40 @@
 
 import UIKit
 
-final public class Visualizer {
+final public class Visualizer: NSObject {
     
+    // MARK: - Private Variables
     private var config: Configuration!
     private var touchViews = [TouchView]()
-    private var enabled:Bool = false
-    
+    private var enabled = false
     private var previousLog = ""
     
     static let sharedInstance = Visualizer()
     
-    private init() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
-        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+    // MARK: - Object life cycle
+    private override init() {
+        NSNotificationCenter
+            .defaultCenter()
+            .addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+        NSNotificationCenter
+            .defaultCenter()
+            .addObserver(self, selector: "applicationDidBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        
+        UIDevice
+            .currentDevice()
+            .beginGeneratingDeviceOrientationNotifications()
         
         warnIfSimulator()
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter
+            .defaultCenter()
+            .removeObserver(self)
     }
     
+    // MARK: - Helper Functions
     @objc func applicationDidBecomeActiveNotification(notification: NSNotification) {
         UIApplication.sharedApplication().keyWindow?.swizzle()
     }
@@ -42,11 +54,13 @@ final public class Visualizer {
     }
 }
 
+// MARK: - Visualizer+Singleton
 extension Visualizer {
     public class func isEnabled() -> Bool {
         return sharedInstance.enabled
     }
     
+    // MARK: - Start and Stop functions
     public class func start() {
         start(Configuration())
     }
@@ -55,6 +69,7 @@ extension Visualizer {
         let instance = sharedInstance
         instance.enabled = true
         instance.config = config
+        
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
                 if let subview = subview as? TouchView {
@@ -67,21 +82,23 @@ extension Visualizer {
     public class func stop() {
         let instance = sharedInstance
         instance.enabled = false
+        
         for touch in instance.touchViews {
             touch.removeFromSuperview()
         }
     }
     
+    // MARK: - Dequeue and locating TouchViews and handling events
     private func dequeueTouchView() -> TouchView {
         var touchView: TouchView?
         for view in touchViews {
-            if view.superview == nil {
+            if nil == view.superview {
                 touchView = view
                 break
             }
         }
         
-        if touchView == nil {
+        if nil == touchView {
             touchView = TouchView()
             touchViews.append(touchView!)
         }
@@ -95,55 +112,59 @@ extension Visualizer {
                 return view
             }
         }
+        
         return nil
     }
     
     public func handleEvent(event: UIEvent) {
-        if event.type != UIEventType.Touches {
+        if event.type != .Touches {
             return
         }
         
-        if(!Visualizer.sharedInstance.enabled){
+        if !Visualizer.sharedInstance.enabled {
             return
         }
         
         let keyWindow = UIApplication.sharedApplication().keyWindow!
-        
         for touch in event.allTouches()! as! Set<UITouch> {
             let phase = touch.phase
+            
             switch phase {
-            case .Began:
-                let view = dequeueTouchView()
-                view.config = Visualizer.sharedInstance.config
-                view.touch = touch
-                view.beginTouch()
-                view.center = touch.locationInView(keyWindow)
-                keyWindow.addSubview(view)
-                log(touch)
-            case .Moved:
-                if let view = findTouchView(touch) {
+                case .Began:
+                    let view = dequeueTouchView()
+                    view.config = Visualizer.sharedInstance.config
+                    view.touch = touch
+                    view.beginTouch()
                     view.center = touch.locationInView(keyWindow)
-                }
-                log(touch)
+                    keyWindow.addSubview(view)
+                    log(touch)
+            case .Moved:
+                    if let view = findTouchView(touch) {
+                        view.center = touch.locationInView(keyWindow)
+                    }
+                
+                    log(touch)
             case .Stationary:
-                log(touch)
-                break
+                    log(touch)
+                    break
             case .Ended, .Cancelled:
-                if let view = findTouchView(touch) {
-                    UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { [unowned self] () -> Void  in
-                        view.alpha = 0.0
-                        view.endTouch()
-                        }, completion: { [unowned self] (finished) -> Void in
-                            view.removeFromSuperview()
-                            self.log(touch)
-                        });
-                }
+                    if let view = findTouchView(touch) {
+                        UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { [unowned self] () -> Void  in
+                            view.alpha = 0.0
+                            view.endTouch()
+                            }, completion: { [unowned self] (finished) -> Void in
+                                view.removeFromSuperview()
+                                self.log(touch)
+                            })
+                    }
+                
                 log(touch)
             }
         }
     }
 }
 
+// MARK: - Visualizer+SimulatorUsage
 extension Visualizer {
     private func warnIfSimulator() {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
@@ -151,6 +172,7 @@ extension Visualizer {
         #endif
     }
     
+    // MARK: - Logging
     public func log(touch: UITouch) {
         if !config.showsLog {
             return
@@ -160,6 +182,7 @@ extension Visualizer {
         var viewLogs = [[String:String]]()
         for view in touchViews {
             var index = ""
+            
             if view.superview != nil {
                 index = "\(ti)"
                 ++ti
@@ -167,27 +190,27 @@ extension Visualizer {
             
             var phase = ""
             switch touch.phase {
-            case .Began: phase = "B"
-            case .Moved: phase = "M"
-            case .Ended: phase = "E"
-            case .Cancelled: phase = "C"
-            case .Stationary: phase = "S"
+                case .Began: phase = "B"
+                case .Moved: phase = "M"
+                case .Ended: phase = "E"
+                case .Cancelled: phase = "C"
+                case .Stationary: phase = "S"
             }
             
             let x = String(format: "%.02f", Float(view.center.x))
             let y = String(format: "%.02f", Float(view.center.y))
             let center = "(\(x), \(y))"
-            
             let radius = String(format: "%.02f", Float(touch.majorRadius))
-            
             viewLogs.append(["index": index, "center": center, "phase": phase, "radius": radius])
         }
         
         var log = "TV: "
         for viewLog in viewLogs {
+            
             if count(viewLog["index"]!) == 0 {
                 continue
             }
+            
             let index = viewLog["index"]!
             let center = viewLog["center"]!
             let phase = viewLog["phase"]!
@@ -198,6 +221,7 @@ extension Visualizer {
         if previousLog == log {
             return
         }
+        
         previousLog = log
         println(log)
     }

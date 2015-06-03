@@ -18,7 +18,7 @@ public extension UIWindow {
         
         var range = self.description.rangeOfString(swizzlingMessage, options: NSStringCompareOptions.LiteralSearch, range: nil, locale: nil)
         if (range?.startIndex != nil) {
-            return;
+            return
         }
         
         var sendEvent: Method = class_getInstanceMethod(object_getClass(self), "sendEvent:")
