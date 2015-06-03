@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class TouchVisualizer {
+final public class Visualizer {
     
     private var config: Configuration!
     private var touchViews = [TouchView]()
@@ -16,12 +16,14 @@ final public class TouchVisualizer {
     
     private var previousLog = ""
     
-    static let sharedInstance = TouchVisualizer()
+    static let sharedInstance = Visualizer()
     
     private init() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+        
+        warnIfSimulator()
     }
     
     deinit {
@@ -33,14 +35,14 @@ final public class TouchVisualizer {
     }
     
     @objc func orientationDidChangeNotification(notification: NSNotification) {
-        let instance = TouchVisualizer.sharedInstance
+        let instance = Visualizer.sharedInstance
         for touch in instance.touchViews {
             touch.removeFromSuperview()
         }
     }
-    
-    // MARK: - Methods
-    
+}
+
+extension Visualizer {
     public class func isEnabled() -> Bool {
         return sharedInstance.enabled
     }
@@ -50,13 +52,12 @@ final public class TouchVisualizer {
     }
     
     public class func start(config: Configuration) {
-        
         let instance = sharedInstance
         instance.enabled = true
         instance.config = config
         if let window = UIApplication.sharedApplication().keyWindow {
             for subview in window.subviews {
-                if (subview as? TouchView != nil) {
+                if let subview = subview as? TouchView {
                     subview.removeFromSuperview()
                 }
             }
@@ -98,12 +99,11 @@ final public class TouchVisualizer {
     }
     
     public func handleEvent(event: UIEvent) {
-        
         if event.type != UIEventType.Touches {
             return
         }
         
-        if(!TouchVisualizer.sharedInstance.enabled){
+        if(!Visualizer.sharedInstance.enabled){
             return
         }
         
@@ -114,7 +114,7 @@ final public class TouchVisualizer {
             switch phase {
             case .Began:
                 let view = dequeueTouchView()
-                view.config = TouchVisualizer.sharedInstance.config
+                view.config = Visualizer.sharedInstance.config
                 view.touch = touch
                 view.beginTouch()
                 view.center = touch.locationInView(keyWindow)
@@ -133,14 +133,22 @@ final public class TouchVisualizer {
                     UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { [unowned self] () -> Void  in
                         view.alpha = 0.0
                         view.endTouch()
-                    }, completion: { [unowned self] (finished) -> Void in
-                        view.removeFromSuperview()
-                        self.log(touch)
-                    });
+                        }, completion: { [unowned self] (finished) -> Void in
+                            view.removeFromSuperview()
+                            self.log(touch)
+                        });
                 }
                 log(touch)
             }
         }
+    }
+}
+
+extension Visualizer {
+    private func warnIfSimulator() {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            println("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.")
+        #endif
     }
     
     public func log(touch: UITouch) {

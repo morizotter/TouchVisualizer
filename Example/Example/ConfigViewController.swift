@@ -19,7 +19,7 @@ final class ConfigViewController: UITableViewController {
     @IBOutlet weak var redColorCell: UITableViewCell!
     @IBOutlet weak var greenColorCell: UITableViewCell!
     
-    var config = TouchVisualizerConfig()
+    var config = Configuration()
     
     let colors = [
         "blue": UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8),
@@ -31,7 +31,7 @@ final class ConfigViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        TouchVisualizer.start()
+        Visualizer.start()
         updateCells()
     }
     
@@ -50,7 +50,7 @@ final class ConfigViewController: UITableViewController {
             if isSimulator() {
                 let controller = UIAlertController(
                     title: "Warning",
-                    message: "This property doesn't work on simulator because it is not possible to read touch radius on it. Please test it on device.",
+                    message: "This property doesn't work on the simulator because it is not possible to read touch radius on it. Please test it on device.",
                     preferredStyle: .Alert
                 )
                 controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
@@ -73,7 +73,7 @@ final class ConfigViewController: UITableViewController {
         }
         
         updateCells()
-        TouchVisualizer.start(config)
+        Visualizer.start(config)
     }
     
     func updateCells() {
@@ -110,7 +110,7 @@ final class ConfigViewController: UITableViewController {
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
-        TouchVisualizer.start()
+        Visualizer.start()
     }
     
     @IBAction func doneButtonTapped(sender: UIBarButtonItem) {

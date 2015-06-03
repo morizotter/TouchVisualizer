@@ -51,16 +51,16 @@ class ViewController: UITableViewController {
         )
         
         var startOrStopTitle = "Start Visualizer"
-        if TouchVisualizer.isEnabled() {
+        if Visualizer.isEnabled() {
             startOrStopTitle = "Stop Visualizer"
         }
         let startOrStopAction = UIAlertAction(title: startOrStopTitle, style: .Default, handler:
             { [unowned self] (alertAction) -> Void in
-                if TouchVisualizer.isEnabled() {
-                    TouchVisualizer.stop()
+                if Visualizer.isEnabled() {
+                    Visualizer.stop()
                     self.navigationItem.leftBarButtonItem?.enabled = false
                 } else {
-                    TouchVisualizer.start()
+                    Visualizer.start()
                     self.navigationItem.leftBarButtonItem?.enabled = true
                 }
             }

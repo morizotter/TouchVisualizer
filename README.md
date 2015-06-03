@@ -41,28 +41,28 @@ It's fun!
 `import TouchVisualizer` and just write the following line wherever you want to start visualization.
 
 ```
-TouchVisualizer.start()
+Visualizer.start()
 ```
 
 You can stop presentation from the app like this.
 
 ```
-TouchVisualizer.stop()
+Visualizer.stop()
 ```
 
 It is really simple, isn't it? And you can change settings like:
 
 ```
-var config = TouchVisualizerConfig()
+var config = Configuration()
 config.color = UIColor.redColor()
 config.image = UIImage(named: "YOUR-IMAGE")
 config.showsTimer = true
 config.showsTouchRadius = true
 config.showsLog = true
-TouchVisualizer.start(config)
+Visualizer.start(config)
 ```
 
-### Config properties
+### Configration properties
 
 |name|type|description|default|
 |:----|:----|:----|:----|
@@ -96,7 +96,7 @@ platform :ios, '8.1'
 
 use_frameworks!
 
-pod "TouchVisualizer", '~>1.1'
+pod "TouchVisualizer", '~>1.2'
 ```
 
 then, `pod install`
