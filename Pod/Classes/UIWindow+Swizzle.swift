@@ -2,9 +2,6 @@
 //  UIWindow+Swizzle.swift
 //  TouchVisualizer
 //
-//  Created by MORITA NAOKI on 2015/01/27.
-//  Copyright (c) 2015年 molabo. All rights reserved.
-//
 
 import UIKit
 

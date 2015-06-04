@@ -4,7 +4,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/morizotter/TouchVisualizer)
 [![Circle CI](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master.svg?style=shield&circle-token=b7eb2e179731634bcac95d1e4f8e90b837b092e3)](https://circleci.com/gh/morizotter/TouchVisualizer/tree/master) [![Join the chat at https://gitter.im/morizotter/TouchVisualizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/morizotter/TouchVisualizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-TouchVisualizer is a lightweight pure-Swift implementation for visualising `UITouch` events.
+TouchVisualizer is a lightweight pure Swift implementation for visualising touches on the screen.
 
 ##Features
 - Works with just **a single line of code**!
@@ -50,6 +50,8 @@ $ pods --version
 To integrate TouchVisualizer into your Xcode project using CocoaPods, specify it in your `Podfile` and run `pod install`.
 
 ```bash
+platform :ios, '8.1'
+use_frameworks!
 pod "TouchVisualizer", '~>1.2'
 ```
 
@@ -79,7 +81,7 @@ To start using TouchVisualizer, write the following line wherever you want to st
 
 ```swift
 import TouchVisualizer
-``` 
+```
 
 Then invoke visualisation, by calling:
 
@@ -93,7 +95,7 @@ and stop the presentation like this:
 Visualizer.stop()
 ```
 
-It is really simple, isn't it? 
+It is really simple, isn't it?
 
 ##Customisation
 

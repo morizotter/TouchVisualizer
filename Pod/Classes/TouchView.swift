@@ -2,16 +2,13 @@
 //  TouchView.swift
 //  TouchVisualizer
 //
-//  Created by MORITA NAOKI on 2015/01/27.
-//  Copyright (c) 2015年 molabo. All rights reserved.
-//
 
 import UIKit
 
 final public class TouchView: UIImageView {
     
     // MARK: - Public Variables
-    public weak var touch: UITouch?
+    internal weak var touch: UITouch?
     private weak var timer: NSTimer?
     private var _config: Configuration
     private var previousRatio: CGFloat = 1.0
@@ -66,7 +63,7 @@ final public class TouchView: UIImageView {
     }
     
     // MARK: - Begin and end touching functions
-    public func beginTouch() {
+    internal func beginTouch() {
         alpha = 1.0
         timerLabel.alpha = 0.0
         layer.transform = CATransform3DIdentity
@@ -105,7 +102,7 @@ final public class TouchView: UIImageView {
         }
     }
     
-    public func updateSize() {
+    internal func updateSize() {
         if let touch = touch {
             let ratio = touch.majorRadius * 2.0 / _config.defaultSize.width
             if ratio != previousRatio {
