@@ -162,7 +162,7 @@ extension Visualizer {
 extension Visualizer {
     public func warnIfSimulator() {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
-            println("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.")
+            print("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.")
         #endif
     }
     
