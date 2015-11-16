@@ -7,7 +7,7 @@ machine:
   environment:
     XCODE_SCHEME: ExampleTexts
   xcode:
-    version: "6.3.1"
+    version: "7.0"
 dependencies:
   override:
     - bundle install
