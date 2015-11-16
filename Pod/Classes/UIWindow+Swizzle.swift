@@ -11,17 +11,17 @@ extension UIWindow {
     }
     
     public func swizzle() {
-        var range = self.description.rangeOfString(swizzlingMessage, options: .LiteralSearch, range: nil, locale: nil)
+        let range = self.description.rangeOfString(swizzlingMessage, options: .LiteralSearch, range: nil, locale: nil)
         if (range?.startIndex != nil) {
             return
         }
         
-        var sendEvent = class_getInstanceMethod(object_getClass(self), "sendEvent:")
-        var swizzledSendEvent = class_getInstanceMethod(object_getClass(self), "swizzledSendEvent:")
+        let sendEvent = class_getInstanceMethod(object_getClass(self), "sendEvent:")
+        let swizzledSendEvent = class_getInstanceMethod(object_getClass(self), "swizzledSendEvent:")
         method_exchangeImplementations(sendEvent, swizzledSendEvent)
         
-        var description: Method = class_getInstanceMethod(object_getClass(self), "description")
-        var swizzledDescription: Method = class_getInstanceMethod(object_getClass(self), "swizzledDescription")
+        let description: Method = class_getInstanceMethod(object_getClass(self), "description")
+        let swizzledDescription: Method = class_getInstanceMethod(object_getClass(self), "swizzledDescription")
         method_exchangeImplementations(description, swizzledDescription)
     }
     
