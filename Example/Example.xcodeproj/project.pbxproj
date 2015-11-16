@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44B5E41972D5EDF7B99A2347 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFA0A3B9BFBDEC298674EBA /* Pods_ExampleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		C4E6F97F8235F055F974F868 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFD340AB516E90F7280B83B /* Pods_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		44B5E41972D5EDF7B99A2347 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFA0A3B9BFBDEC298674EBA /* Pods_ExampleTests.framework */; };
+		C4E6F97F8235F055F974F868 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFD340AB516E90F7280B83B /* Pods_Example.framework */; };
 		FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1A1A74E52500DC12EF /* AppDelegate.swift */; };
 		FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */; };
 		FF828F201A74E52500DC12EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF828F1E1A74E52500DC12EF /* Main.storyboard */; };
@@ -200,6 +200,8 @@
 		FF828F0D1A74E52400DC12EF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = molabo;
 				TargetAttributes = {

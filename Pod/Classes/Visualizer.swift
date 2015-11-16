@@ -217,6 +217,6 @@ extension Visualizer {
         }
         
         previousLog = log
-        print(log)
+        print(log, terminator: "")
     }
 }
