@@ -15,4 +15,4 @@ dependencies:
         timeout: 300
 test:
   override:
-    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace
+    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.1'
