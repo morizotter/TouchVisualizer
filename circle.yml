@@ -7,7 +7,7 @@ machine:
   environment:
     XCODE_SCHEME: ExampleTexts
   xcode:
-    version: "7.0"
+    version: "7.1"
 dependencies:
   override:
     - bundle install
@@ -15,4 +15,4 @@ dependencies:
         timeout: 300
 test:
   override:
-    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.1'
+    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0'
