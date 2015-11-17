@@ -121,7 +121,7 @@ extension Visualizer {
         }
         
         let keyWindow = UIApplication.sharedApplication().keyWindow!
-        for touch in event.allTouches()! as! Set<UITouch> {
+        for touch in event.allTouches()! {
             let phase = touch.phase
             
             switch phase {
@@ -162,7 +162,7 @@ extension Visualizer {
 extension Visualizer {
     public func warnIfSimulator() {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
-            println("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.")
+            print("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.", terminator: "")
         #endif
     }
     
@@ -201,7 +201,7 @@ extension Visualizer {
         var log = "TV: "
         for viewLog in viewLogs {
             
-            if count(viewLog["index"]!) == 0 {
+            if (viewLog["index"]!).characters.count == 0 {
                 continue
             }
             
@@ -217,6 +217,6 @@ extension Visualizer {
         }
         
         previousLog = log
-        println(log)
+        print(log, terminator: "")
     }
 }
