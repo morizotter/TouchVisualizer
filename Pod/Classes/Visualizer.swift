@@ -144,7 +144,7 @@ extension Visualizer {
                 break
             case .Ended, .Cancelled:
                 if let view = findTouchView(touch) {
-                    UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { [unowned self] () -> Void  in
+                    UIView.animateWithDuration(0.2, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void  in
                         view.alpha = 0.0
                         view.endTouch()
                         }, completion: { [unowned self] (finished) -> Void in

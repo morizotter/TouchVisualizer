@@ -26,10 +26,7 @@ public struct Configuration {
         var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-//        image = image.imageWithRenderingMode(.AlwaysTemplate)
-        //FIXME: Currently this property doesn't work well. Release version doesn't have problem.
-        // The problem is that if `imageWithRenderingMode(.AlwaysTemplate)`, touch is not on the top window in another window comes out.
-        return image
+        return image.imageWithRenderingMode(.AlwaysTemplate)
         }()
 
     /**
