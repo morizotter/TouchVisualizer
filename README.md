@@ -29,8 +29,11 @@ It's fun!
 
 ##Runtime Requirements
 
+- Swift 2.1
 - iOS8.1 or later
-- Xcode 6.3
+- Xcode 7.1
+
+TouchVisualizer works with Swift 2.1 from version 1.3.0.
 
 ## Installation and Setup
 **Note:** Embedded frameworks require a minimum deployment target of iOS 8.1.
@@ -52,7 +55,7 @@ To integrate TouchVisualizer into your Xcode project using CocoaPods, specify it
 ```bash
 platform :ios, '8.1'
 use_frameworks!
-pod "TouchVisualizer", '~>1.2'
+pod "TouchVisualizer", '~>1.3.0'
 ```
 
 ###Installing with Carthage
@@ -68,7 +71,7 @@ $ brew install carthage
 To integrate TouchVisualizer into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "morizotter/TouchVisualizer" "1.2.1"
+github "morizotter/TouchVisualizer" "1.3.0"
 ```
 
 ###Manual Installation
