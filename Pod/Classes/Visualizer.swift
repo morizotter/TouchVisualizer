@@ -5,7 +5,7 @@
 
 import UIKit
 
-final public class Visualizer {
+final public class Visualizer:NSObject {
     
     // MARK: - Public Variables
     static public let sharedInstance = Visualizer()
@@ -15,7 +15,8 @@ final public class Visualizer {
     private var previousLog = ""
     
     // MARK: - Object life cycle
-    private init() {
+    private override init() {
+      super.init()
         NSNotificationCenter
             .defaultCenter()
             .addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
