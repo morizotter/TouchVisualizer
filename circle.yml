@@ -10,4 +10,4 @@ machine:
     version: "7.3"
 test:
   override:
-    - xcodebuild test -scheme ExampleTests -workspace Example.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0'
+    - xcodebuild test -scheme ExampleTests -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0'
