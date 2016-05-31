@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TouchVisualizer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
