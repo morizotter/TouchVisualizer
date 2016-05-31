@@ -7,42 +7,41 @@
 //
 
 import UIKit
-import TouchVisualizer
 
 final class ConfigViewController: UITableViewController {
-    
+
     @IBOutlet weak var timerCell: UITableViewCell!
     @IBOutlet weak var touchRadiusCell: UITableViewCell!
     @IBOutlet weak var logCell: UITableViewCell!
-    
+
     @IBOutlet weak var blueColorCell: UITableViewCell!
     @IBOutlet weak var redColorCell: UITableViewCell!
     @IBOutlet weak var greenColorCell: UITableViewCell!
-    
+
     var config = Configuration()
-    
+
     let colors = [
         "blue": UIColor(red: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 0.8),
         "green": UIColor(red: 22/255.0, green: 160/255.0, blue: 133/255.0, alpha: 0.8),
         "red": UIColor(red: 192/255.0, green: 57/255.0, blue: 43/255.0, alpha: 0.8)
     ]
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         Visualizer.start()
         updateCells()
     }
-    
+
     // MARK: - TableView Delegate
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
+
         if cell == timerCell {
             config.showsTimer = !config.showsTimer
         }
@@ -71,11 +70,11 @@ final class ConfigViewController: UITableViewController {
         if cell == greenColorCell {
             config.color = colors["green"]!
         }
-        
+
         updateCells()
         Visualizer.start(config)
     }
-    
+
     func updateCells() {
         let boolCells = [timerCell, touchRadiusCell, logCell]
         for cell in boolCells {
@@ -85,7 +84,7 @@ final class ConfigViewController: UITableViewController {
         for cell in checkmarkCells {
             cell.accessoryType = .None
         }
-        
+
         if config.showsTimer {
             timerCell.detailTextLabel?.text = "true"
         }
@@ -97,26 +96,24 @@ final class ConfigViewController: UITableViewController {
         }
         if config.color == colors["blue"] {
             blueColorCell.accessoryType = .Checkmark
-        }
-        else if config.color == colors["red"] {
+        } else if config.color == colors["red"] {
             redColorCell.accessoryType = .Checkmark
-        }
-        else if config.color == colors["green"] {
+        } else if config.color == colors["green"] {
             greenColorCell.accessoryType = .Checkmark
         }
     }
-    
+
     // MARK: - Actions
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
         Visualizer.start()
     }
-    
+
     @IBAction func doneButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     func isSimulator() -> Bool {
         var simulator = false
         #if (arch(i386) || arch(x86_64)) && os(iOS)
@@ -125,4 +122,3 @@ final class ConfigViewController: UITableViewController {
         return simulator
     }
 }
-
