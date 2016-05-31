@@ -70,7 +70,7 @@ final public class TouchView: UIImageView {
         previousRatio = 1.0
         frame = CGRect(origin: frame.origin, size: _config.defaultSize)
         startDate = NSDate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: "update:", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: #selector(self.update(_:)), userInfo: nil, repeats: true)
         
         NSRunLoop
             .mainRunLoop()

@@ -16,12 +16,12 @@ extension UIWindow {
             return
         }
         
-        let sendEvent = class_getInstanceMethod(object_getClass(self), "sendEvent:")
-        let swizzledSendEvent = class_getInstanceMethod(object_getClass(self), "swizzledSendEvent:")
+        let sendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIApplication.sendEvent(_:)))
+        let swizzledSendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIWindow.swizzledSendEvent(_:)))
         method_exchangeImplementations(sendEvent, swizzledSendEvent)
         
-        let description: Method = class_getInstanceMethod(object_getClass(self), "description")
-        let swizzledDescription: Method = class_getInstanceMethod(object_getClass(self), "swizzledDescription")
+        let description: Method = class_getInstanceMethod(object_getClass(self), #selector(NSObject.description as () -> String))
+        let swizzledDescription: Method = class_getInstanceMethod(object_getClass(self), #selector(UIWindow.swizzledDescription))
         method_exchangeImplementations(description, swizzledDescription)
     }
     

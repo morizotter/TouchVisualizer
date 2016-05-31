@@ -19,11 +19,11 @@ final public class Visualizer:NSObject {
       super.init()
         NSNotificationCenter
             .defaultCenter()
-            .addObserver(self, selector: "orientationDidChangeNotification:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+            .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         NSNotificationCenter
             .defaultCenter()
-            .addObserver(self, selector: "applicationDidBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
         UIDevice
             .currentDevice()
@@ -180,7 +180,7 @@ extension Visualizer {
             
             if view.superview != nil {
                 index = "\(ti)"
-                ++ti
+                ti += 1
             }
             
             var phase: String!
