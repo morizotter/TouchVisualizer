@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9097246E1CFE13F50017F85F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 909724671CFE13F50017F85F /* .gitkeep */; };
-		9097246F1CFE13F50017F85F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 909724691CFE13F50017F85F /* .gitkeep */; };
-		909724701CFE13F50017F85F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097246A1CFE13F50017F85F /* Configuration.swift */; };
-		909724711CFE13F50017F85F /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097246B1CFE13F50017F85F /* TouchView.swift */; };
-		909724721CFE13F50017F85F /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097246C1CFE13F50017F85F /* UIWindow+Swizzle.swift */; };
-		909724731CFE13F50017F85F /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097246D1CFE13F50017F85F /* Visualizer.swift */; };
+		9097247B1CFE16760017F85F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724751CFE16760017F85F /* Configuration.swift */; };
+		9097247D1CFE16760017F85F /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724771CFE16760017F85F /* TouchView.swift */; };
+		9097247E1CFE16760017F85F /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724791CFE16760017F85F /* UIWindow+Swizzle.swift */; };
+		9097247F1CFE16760017F85F /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097247A1CFE16760017F85F /* Visualizer.swift */; };
 		FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1A1A74E52500DC12EF /* AppDelegate.swift */; };
 		FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */; };
 		FF828F201A74E52500DC12EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF828F1E1A74E52500DC12EF /* Main.storyboard */; };
@@ -34,12 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		909724671CFE13F50017F85F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		909724691CFE13F50017F85F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		9097246A1CFE13F50017F85F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		9097246B1CFE13F50017F85F /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
-		9097246C1CFE13F50017F85F /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
-		9097246D1CFE13F50017F85F /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
+		909724751CFE16760017F85F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		909724771CFE16760017F85F /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
+		909724791CFE16760017F85F /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
+		9097247A1CFE16760017F85F /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
 		FF828F151A74E52500DC12EF /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF828F191A74E52500DC12EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF828F1A1A74E52500DC12EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,34 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		909724651CFE13F50017F85F /* Pod */ = {
+		909724741CFE16760017F85F /* TouchVisualizer */ = {
 			isa = PBXGroup;
 			children = (
-				909724661CFE13F50017F85F /* Assets */,
-				909724681CFE13F50017F85F /* Classes */,
+				909724751CFE16760017F85F /* Configuration.swift */,
+				909724771CFE16760017F85F /* TouchView.swift */,
+				909724791CFE16760017F85F /* UIWindow+Swizzle.swift */,
+				9097247A1CFE16760017F85F /* Visualizer.swift */,
 			);
-			name = Pod;
-			path = ../../Pod;
-			sourceTree = "<group>";
-		};
-		909724661CFE13F50017F85F /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				909724671CFE13F50017F85F /* .gitkeep */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		909724681CFE13F50017F85F /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				909724691CFE13F50017F85F /* .gitkeep */,
-				9097246A1CFE13F50017F85F /* Configuration.swift */,
-				9097246B1CFE13F50017F85F /* TouchView.swift */,
-				9097246C1CFE13F50017F85F /* UIWindow+Swizzle.swift */,
-				9097246D1CFE13F50017F85F /* Visualizer.swift */,
-			);
-			path = Classes;
+			name = TouchVisualizer;
+			path = ../../TouchVisualizer;
 			sourceTree = "<group>";
 		};
 		FF828F0C1A74E52400DC12EF = {
@@ -123,7 +101,7 @@
 		FF828F171A74E52500DC12EF /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				909724651CFE13F50017F85F /* Pod */,
+				909724741CFE16760017F85F /* TouchVisualizer */,
 				FF828F1A1A74E52500DC12EF /* AppDelegate.swift */,
 				FF84A2CA1AF929A3005A5759 /* ViewController.swift */,
 				FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */,
@@ -245,9 +223,7 @@
 			files = (
 				FF828F201A74E52500DC12EF /* Main.storyboard in Resources */,
 				FF828F251A74E52500DC12EF /* LaunchScreen.xib in Resources */,
-				9097246F1CFE13F50017F85F /* .gitkeep in Resources */,
 				FF828F221A74E52500DC12EF /* Images.xcassets in Resources */,
-				9097246E1CFE13F50017F85F /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,12 +242,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF84A2CB1AF929A3005A5759 /* ViewController.swift in Sources */,
-				909724731CFE13F50017F85F /* Visualizer.swift in Sources */,
-				909724721CFE13F50017F85F /* UIWindow+Swizzle.swift in Sources */,
-				909724701CFE13F50017F85F /* Configuration.swift in Sources */,
+				9097247F1CFE16760017F85F /* Visualizer.swift in Sources */,
+				9097247E1CFE16760017F85F /* UIWindow+Swizzle.swift in Sources */,
+				9097247B1CFE16760017F85F /* Configuration.swift in Sources */,
 				FFF1D64E1A75001500EB3DD4 /* DetailViewController.swift in Sources */,
 				FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */,
-				909724711CFE13F50017F85F /* TouchView.swift in Sources */,
+				9097247D1CFE16760017F85F /* TouchView.swift in Sources */,
 				FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
