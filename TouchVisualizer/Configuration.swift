@@ -21,12 +21,12 @@ public struct Configuration {
 
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         let contextRef = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(contextRef, Constants.defaultColor.CGColor)
-        CGContextFillEllipseInRect(contextRef, rect)
+        contextRef?.setFillColor(Constants.defaultColor.cgColor)
+        contextRef?.fillEllipse(in: rect)
         var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return image.imageWithRenderingMode(.AlwaysTemplate)
+        return image?.withRenderingMode(.alwaysTemplate)
         }()
 
     /**

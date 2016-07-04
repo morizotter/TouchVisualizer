@@ -11,8 +11,8 @@ extension UIWindow {
     }
     
     public func swizzle() {
-        let range = self.description.rangeOfString(swizzlingMessage, options: .LiteralSearch, range: nil, locale: nil)
-        if (range?.startIndex != nil) {
+        let range = self.description.range(of: swizzlingMessage, options: .literalSearch, range: nil, locale: nil)
+        if (range?.lowerBound != nil) {
             return
         }
         
@@ -25,7 +25,7 @@ extension UIWindow {
         method_exchangeImplementations(description, swizzledDescription)
     }
     
-    public func swizzledSendEvent(event: UIEvent) {
+    public func swizzledSendEvent(_ event: UIEvent) {
         Visualizer.sharedInstance.handleEvent(event)
         swizzledSendEvent(event)
     }
