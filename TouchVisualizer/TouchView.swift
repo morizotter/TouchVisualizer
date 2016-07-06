@@ -9,10 +9,10 @@ final public class TouchView: UIImageView {
     
     // MARK: - Public Variables
     internal weak var touch: UITouch?
-    private weak var timer: NSTimer?
+    private weak var timer: Timer?
     private var _config: Configuration
     private var previousRatio: CGFloat = 1.0
-    private var startDate: NSDate?
+    private var startDate: Date?
     private var lastTimeString: String!
     
     public var config: Configuration {
@@ -30,13 +30,13 @@ final public class TouchView: UIImageView {
         let bottom: CGFloat = 8.0
         var label = UILabel()
         
-        label.frame = CGRect(x: -(size.width - CGRectGetWidth(self.frame)) / 2,
+        label.frame = CGRect(x: -(size.width - self.frame.width) / 2,
                              y: -size.height - bottom,
                              width: size.width,
                              height: size.height)
         
         label.font = UIFont(name: "Helvetica", size: 24.0)
-        label.textAlignment = .Center
+        label.textAlignment = .center
         self.addSubview(label)
         
         return label
@@ -44,7 +44,7 @@ final public class TouchView: UIImageView {
     
     // MARK: - Object life cycle
     convenience init() {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
     }
     
     override init(frame: CGRect) {
@@ -69,12 +69,12 @@ final public class TouchView: UIImageView {
         layer.transform = CATransform3DIdentity
         previousRatio = 1.0
         frame = CGRect(origin: frame.origin, size: _config.defaultSize)
-        startDate = NSDate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / 60.0, target: self, selector: #selector(self.update(_:)), userInfo: nil, repeats: true)
+        startDate = Date()
+        timer = Timer.scheduledTimer(timeInterval: 1.0 / 60.0, target: self, selector: #selector(self.update(_:)), userInfo: nil, repeats: true)
         
-        NSRunLoop
-            .mainRunLoop()
-            .addTimer(timer!, forMode: NSRunLoopCommonModes)
+        RunLoop
+            .main()
+            .add(timer!, forMode: RunLoopMode.commonModes)
         
         if _config.showsTimer {
             timerLabel.alpha = 1.0
@@ -90,9 +90,9 @@ final public class TouchView: UIImageView {
     }
     
     // MARK: - Update Functions
-    internal func update(timer: NSTimer) {
+    internal func update(_ timer: Timer) {
         if let startDate = startDate {
-            let interval = NSDate().timeIntervalSinceDate(startDate)
+            let interval = Date().timeIntervalSince(startDate)
             let timeString = String(format: "%.02f", Float(interval))
             timerLabel.text = timeString
         }

@@ -28,7 +28,7 @@ final class ConfigViewController: UITableViewController {
 
     // MARK: - Life Cycle
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Visualizer.start()
         updateCells()
@@ -36,11 +36,11 @@ final class ConfigViewController: UITableViewController {
 
     // MARK: - TableView Delegate
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
 
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRow(at: indexPath)
 
         if cell == timerCell {
             config.showsTimer = !config.showsTimer
@@ -50,10 +50,10 @@ final class ConfigViewController: UITableViewController {
                 let controller = UIAlertController(
                     title: "Warning",
                     message: "This property doesn't work on the simulator because it is not possible to read touch radius on it. Please test it on device.",
-                    preferredStyle: .Alert
+                    preferredStyle: .alert
                 )
-                controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-                self.presentViewController(controller, animated: true, completion: nil)
+                controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(controller, animated: true, completion: nil)
                 return
             }
             config.showsTouchRadius = !config.showsTouchRadius
@@ -78,11 +78,11 @@ final class ConfigViewController: UITableViewController {
     func updateCells() {
         let boolCells = [timerCell, touchRadiusCell, logCell]
         for cell in boolCells {
-            cell.detailTextLabel?.text = "false"
+            cell?.detailTextLabel?.text = "false"
         }
         let checkmarkCells = [blueColorCell, redColorCell, greenColorCell]
         for cell in checkmarkCells {
-            cell.accessoryType = .None
+            cell?.accessoryType = .none
         }
 
         if config.showsTimer {
@@ -95,23 +95,23 @@ final class ConfigViewController: UITableViewController {
             logCell.detailTextLabel?.text = "true"
         }
         if config.color == colors["blue"] {
-            blueColorCell.accessoryType = .Checkmark
+            blueColorCell.accessoryType = .checkmark
         } else if config.color == colors["red"] {
-            redColorCell.accessoryType = .Checkmark
+            redColorCell.accessoryType = .checkmark
         } else if config.color == colors["green"] {
-            greenColorCell.accessoryType = .Checkmark
+            greenColorCell.accessoryType = .checkmark
         }
     }
 
     // MARK: - Actions
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         Visualizer.start()
     }
 
     @IBAction func doneButtonTapped(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     func isSimulator() -> Bool {
