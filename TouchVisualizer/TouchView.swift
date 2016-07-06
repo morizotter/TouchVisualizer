@@ -44,7 +44,7 @@ final public class TouchView: UIImageView {
     
     // MARK: - Object life cycle
     convenience init() {
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
     }
     
     override init(frame: CGRect) {
