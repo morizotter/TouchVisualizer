@@ -11,7 +11,7 @@ extension UIWindow {
     }
     
     public func swizzle() {
-        let range = self.description.range(of: swizzlingMessage, options: .literalSearch, range: nil, locale: nil)
+        let range = self.description.range(of: swizzlingMessage, options: .literal, range: nil, locale: nil)
         if (range?.lowerBound != nil) {
             return
         }

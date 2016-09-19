@@ -73,7 +73,7 @@ final public class TouchView: UIImageView {
         timer = Timer.scheduledTimer(timeInterval: 1.0 / 60.0, target: self, selector: #selector(self.update(_:)), userInfo: nil, repeats: true)
         
         RunLoop
-            .main()
+            .main
             .add(timer!, forMode: RunLoopMode.commonModes)
         
         if _config.showsTimer {
