@@ -5,32 +5,25 @@
 
 import UIKit
 
+fileprivate var isSwizzled = false
+
+@available(iOS 8.0, *)
 extension UIWindow {
-    public var swizzlingMessage: String {
-        return "Method Swizzlings: sendEvent: and description"
-    }
-    
-    public func swizzle() {
-        let range = self.description.range(of: swizzlingMessage, options: .literalSearch, range: nil, locale: nil)
-        if (range?.lowerBound != nil) {
-            return
-        }
-        
-        let sendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIApplication.sendEvent(_:)))
-        let swizzledSendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIWindow.swizzledSendEvent(_:)))
-        method_exchangeImplementations(sendEvent, swizzledSendEvent)
-        
-        let description: Method = class_getInstanceMethod(object_getClass(self), #selector(NSObject.description as () -> String))
-        let swizzledDescription: Method = class_getInstanceMethod(object_getClass(self), #selector(UIWindow.swizzledDescription))
-        method_exchangeImplementations(description, swizzledDescription)
-    }
-    
-    public func swizzledSendEvent(_ event: UIEvent) {
-        Visualizer.sharedInstance.handleEvent(event)
-        swizzledSendEvent(event)
-    }
-    
-    public func swizzledDescription() -> String {
-        return swizzledDescription() + "; " + swizzlingMessage
-    }
+	
+	public func swizzle() {
+		if (isSwizzled) {
+			return
+		}
+		
+		let sendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIApplication.sendEvent(_:)))
+		let swizzledSendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIWindow.swizzledSendEvent(_:)))
+		method_exchangeImplementations(sendEvent, swizzledSendEvent)
+		
+		isSwizzled = true
+	}
+	
+	public func swizzledSendEvent(_ event: UIEvent) {
+		Visualizer.sharedInstance.handleEvent(event)
+		swizzledSendEvent(event)
+	}
 }

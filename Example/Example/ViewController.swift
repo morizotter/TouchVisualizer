@@ -12,9 +12,9 @@ class ViewController: UITableViewController {
 
     // MARK: - Life Cycle
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PushToDetail" {
-            let viewController = segue.destinationViewController as! DetailViewController
+            let viewController = segue.destination as! DetailViewController
             if let cell = sender as? UITableViewCell {
                 viewController.text = cell.detailTextLabel?.text
             }

@@ -9,24 +9,24 @@ final public class Visualizer:NSObject {
     
     // MARK: - Public Variables
     static public let sharedInstance = Visualizer()
-    private var enabled = false
-    private var config: Configuration!
-    private var touchViews = [TouchView]()
-    private var previousLog = ""
+    fileprivate var enabled = false
+    fileprivate var config: Configuration!
+    fileprivate var touchViews = [TouchView]()
+    fileprivate var previousLog = ""
     
     // MARK: - Object life cycle
     private override init() {
       super.init()
         NotificationCenter
-            .default()
+            .default
             .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         NotificationCenter
-            .default()
+            .default
             .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         UIDevice
-            .current()
+            .current
             .beginGeneratingDeviceOrientationNotifications()
         
         warnIfSimulator()
@@ -34,13 +34,13 @@ final public class Visualizer:NSObject {
     
     deinit {
         NotificationCenter
-            .default()
+            .default
             .removeObserver(self)
     }
     
     // MARK: - Helper Functions
     @objc internal func applicationDidBecomeActiveNotification(_ notification: Notification) {
-        UIApplication.shared().keyWindow?.swizzle()
+        UIApplication.shared.keyWindow?.swizzle()
     }
     
     @objc internal func orientationDidChangeNotification(_ notification: Notification) {
@@ -57,22 +57,26 @@ extension Visualizer {
     }
     
     // MARK: - Start and Stop functions
-    public class func start() {
-        start(Configuration())
-    }
     
-    public class func start(_ config: Configuration) {
+    public class func start(_ config: Configuration = Configuration()) {
+		
+		if config.showsLog {
+			print("Visualizer start...")
+		}
         let instance = sharedInstance
         instance.enabled = true
         instance.config = config
         
-        if let window = UIApplication.shared().keyWindow {
+        if let window = UIApplication.shared.keyWindow {
             for subview in window.subviews {
                 if let subview = subview as? TouchView {
                     subview.removeFromSuperview()
                 }
             }
         }
+		if config.showsLog {
+			print("started !")
+		}
     }
     
     public class func stop() {
@@ -121,8 +125,8 @@ extension Visualizer {
             return
         }
         
-        let keyWindow = UIApplication.shared().keyWindow!
-        for touch in event.allTouches()! {
+        let keyWindow = UIApplication.shared.keyWindow!
+        for touch in event.allTouches! {
             let phase = touch.phase
             
             switch phase {
