@@ -124,8 +124,14 @@ extension Visualizer {
         if !Visualizer.sharedInstance.enabled {
             return
         }
-        
-        let keyWindow = UIApplication.shared.keyWindow!
+
+        var topWindow = UIApplication.shared.keyWindow!
+        for window in UIApplication.shared.windows {
+            if window.isHidden == false && window.windowLevel > topWindow.windowLevel {
+                topWindow = window
+            }
+        }
+
         for touch in event.allTouches! {
             let phase = touch.phase
             
@@ -135,12 +141,12 @@ extension Visualizer {
                 view.config = Visualizer.sharedInstance.config
                 view.touch = touch
                 view.beginTouch()
-                view.center = touch.location(in: keyWindow)
-                keyWindow.addSubview(view)
+                view.center = touch.location(in: topWindow)
+                topWindow.addSubview(view)
                 log(touch)
             case .moved:
                 if let view = findTouchView(touch) {
-                    view.center = touch.location(in: keyWindow)
+                    view.center = touch.location(in: topWindow)
                 }
                 
                 log(touch)
