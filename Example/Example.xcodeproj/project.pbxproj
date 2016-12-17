@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90121A0B1E05886E00014C48 /* KeyboardDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90121A0A1E05886E00014C48 /* KeyboardDemoViewController.swift */; };
 		9097247B1CFE16760017F85F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724751CFE16760017F85F /* Configuration.swift */; };
 		9097247D1CFE16760017F85F /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724771CFE16760017F85F /* TouchView.swift */; };
 		9097247E1CFE16760017F85F /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724791CFE16760017F85F /* UIWindow+Swizzle.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90121A0A1E05886E00014C48 /* KeyboardDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDemoViewController.swift; sourceTree = "<group>"; };
 		909724751CFE16760017F85F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		909724771CFE16760017F85F /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		909724791CFE16760017F85F /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				FF84A2CA1AF929A3005A5759 /* ViewController.swift */,
 				FFF1D64D1A75001500EB3DD4 /* DetailViewController.swift */,
 				FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */,
+				90121A0A1E05886E00014C48 /* KeyboardDemoViewController.swift */,
 				FF828F1E1A74E52500DC12EF /* Main.storyboard */,
 				FF828F231A74E52500DC12EF /* LaunchScreen.xib */,
 				FF828F211A74E52500DC12EF /* Images.xcassets */,
@@ -254,6 +257,7 @@
 				FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */,
 				9097247D1CFE16760017F85F /* TouchView.swift in Sources */,
 				FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */,
+				90121A0B1E05886E00014C48 /* KeyboardDemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

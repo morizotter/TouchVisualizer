@@ -37,7 +37,7 @@ class ViewController: UITableViewController {
     // MARK: - Actions
 
     @IBAction func rightBarButtonItemTapped(sender: AnyObject) {
-        let alertAction = UIAlertAction(title: "Show Alert", style: .default, handler: { [unowned self] (alertAction) -> Void in
+        let alertAction = UIAlertAction(title: "Show Alert", style: .default) { [unowned self] (alertAction) -> Void in
                 let controller = UIAlertController(
                     title: "Alert",
                     message: "Even when alert shows, your tap is visible.",
@@ -45,13 +45,14 @@ class ViewController: UITableViewController {
                 )
                 controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(controller, animated: true, completion: nil)
-            })
-
-        var startOrStopTitle = "Start Visualizer"
-        if Visualizer.isEnabled() {
-            startOrStopTitle = "Stop Visualizer"
+            }
+        let keyboardDemoAction = UIAlertAction(title: "Keyboard Demo", style: .default) { [unowned self] (alertAction) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "KeyboardDemoNavigation")
+            self.present(viewController, animated: true, completion: nil)
         }
-        let startOrStopAction = UIAlertAction(title: startOrStopTitle, style: .default, handler: { [unowned self] (alertAction) -> Void in
+        let startOrStopTitle = Visualizer.isEnabled() ? "Stop Visualizer" : "Start Visualizer"
+        let startOrStopAction = UIAlertAction(title: startOrStopTitle, style: .default) { [unowned self] (alertAction) -> Void in
                 if Visualizer.isEnabled() {
                     Visualizer.stop()
                     self.navigationItem.leftBarButtonItem?.isEnabled = false
@@ -59,7 +60,7 @@ class ViewController: UITableViewController {
                     Visualizer.start()
                     self.navigationItem.leftBarButtonItem?.isEnabled = true
                 }
-            })
+            }
 
         let controller = UIAlertController(
             title: "ActionSheet",
@@ -67,6 +68,7 @@ class ViewController: UITableViewController {
             preferredStyle: .actionSheet
         )
         controller.addAction(alertAction)
+        controller.addAction(keyboardDemoAction)
         controller.addAction(startOrStopAction)
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(controller, animated: true, completion: nil)
