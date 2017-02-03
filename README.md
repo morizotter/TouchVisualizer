@@ -97,6 +97,11 @@ and stop the presentation like this:
 ```swift
 Visualizer.stop()
 ```
+Get touch locations by this:
+
+```swift
+Visualizer.getTouches()
+```
 
 It is really simple, isn't it?
 
