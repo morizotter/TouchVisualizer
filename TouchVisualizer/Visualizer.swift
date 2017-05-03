@@ -126,7 +126,7 @@ extension Visualizer {
         return nil
     }
     
-    public func handleEvent(_ event: UIEvent) {
+    open func handleEvent(_ event: UIEvent) {
         if event.type != .touches {
             return
         }
