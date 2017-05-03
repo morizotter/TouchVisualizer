@@ -92,7 +92,8 @@ extension Visualizer {
         let instance = sharedInstance
         var touches: [UITouch] = []
         for view in instance.touchViews {
-            touches.append(view.touch!)
+            guard let touch = view.touch else { continue }
+            touches.append(touch)
         }
         return touches
     }
@@ -161,7 +162,6 @@ extension Visualizer {
                 log(touch)
             case .stationary:
                 log(touch)
-                break
             case .ended, .cancelled:
                 if let view = findTouchView(touch) {
                     UIView.animate(withDuration: 0.2, delay: 0.0, options: .allowUserInteraction, animations: { () -> Void  in
@@ -192,23 +192,21 @@ extension Visualizer {
             return
         }
         
-        var ti = 0.0
+        var ti = 0
         var viewLogs = [[String:String]]()
         for view in touchViews {
             var index = ""
             
-            if view.superview != nil {
-                index = "\(ti)"
-                ti += 1
-            }
+            index = "\(ti)"
+            ti += 1
             
             var phase: String!
             switch touch.phase {
             case .began: phase = "B"
             case .moved: phase = "M"
+            case .stationary: phase = "S"
             case .ended: phase = "E"
             case .cancelled: phase = "C"
-            case .stationary: phase = "S"
             }
             
             let x = String(format: "%.02f", view.center.x)
@@ -218,7 +216,8 @@ extension Visualizer {
             viewLogs.append(["index": index, "center": center, "phase": phase, "radius": radius])
         }
         
-        var log = "TV: "
+        var log = ""
+        
         for viewLog in viewLogs {
             
             if (viewLog["index"]!).characters.count == 0 {
@@ -229,7 +228,7 @@ extension Visualizer {
             let center = viewLog["center"]!
             let phase = viewLog["phase"]!
             let radius = viewLog["radius"]!
-            log += "[\(index)]<\(phase)> c:\(center) r:\(radius)\t"
+            log += "Touch: [\(index)]<\(phase)> c:\(center) r:\(radius)\t\n"
         }
         
         if log == previousLog {
