@@ -88,6 +88,15 @@ extension Visualizer {
         }
     }
     
+    public class func getTouches() -> [UITouch] {
+        let instance = sharedInstance
+        var touches: [UITouch] = []
+        for view in instance.touchViews {
+            touches.append(view.touch!)
+        }
+        return touches
+    }
+    
     // MARK: - Dequeue and locating TouchViews and handling events
     private func dequeueTouchView() -> TouchView {
         var touchView: TouchView?
