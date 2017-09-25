@@ -7,7 +7,7 @@ machine:
   environment:
     XCODE_SCHEME: ExampleTexts
   xcode:
-    version: "8.0"
+    version: "9.0"
 test:
   override:
     - xcodebuild test -scheme ExampleTests -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0'
