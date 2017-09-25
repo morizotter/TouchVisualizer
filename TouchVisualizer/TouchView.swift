@@ -90,7 +90,7 @@ final public class TouchView: UIImageView {
     }
     
     // MARK: - Update Functions
-    internal func update(_ timer: Timer) {
+    @objc internal func update(_ timer: Timer) {
         guard let startDate = startDate else { return }
         
         let interval = Date().timeIntervalSince(startDate)

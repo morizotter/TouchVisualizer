@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
     //   it WAS `moved` at the time emmited.
     //   So use `getTouches` func for limited debug purpose.
     //   If you want to know the exact value, please override `handleEvent:` in UIWindow+Swizzle.swift.
-    func logTouches(timer: Timer) {
+    @objc func logTouches(timer: Timer) {
         for (idx, touch) in Visualizer.getTouches().enumerated() {
             print("[\(idx)] location: \(touch.location(in: self.view))")
         }
