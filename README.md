@@ -29,14 +29,14 @@ It's fun!
 
 ## Runtime Requirements
 
-- Swift 3.0
-- Xcode 8.0
+- Swift 4.0
+- Xcode 9.0
 - iOS8.0 or later
 
-TouchVisualizer works with Swift 3 from version 2.0.1.
+TouchVisualizer works with Swift 3 from version 3.0.0.
 
 ## Installation and Setup
-**Note:** Embedded frameworks require a minimum deployment target of iOS 8.1.
+**Note:** Embedded frameworks require a minimum deployment target of iOS 9.0.
 
 **Information:** To use TouchVisualizer with a project targeting iOS 8.0 or lower, you must include the `TouchVisualizer.swift` source file directly in your project.
 
@@ -55,7 +55,7 @@ To integrate TouchVisualizer into your Xcode project using CocoaPods, specify it
 ```bash
 platform :ios, '8.0'
 use_frameworks!
-pod "TouchVisualizer", '~>2.0.1'
+pod "TouchVisualizer", '~>3.0.0'
 ```
 
 ### Installing with Carthage
@@ -71,7 +71,7 @@ $ brew install carthage
 To integrate TouchVisualizer into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "morizotter/TouchVisualizer" "2.0.1"
+github "morizotter/TouchVisualizer" "3.0.0"
 ```
 
 ### Manual Installation
@@ -107,7 +107,7 @@ It is really simple, isn't it?
 
 ## Customisation
 
-TouchVisualizer also has the ability to customise your touch events. Here is an example of what can be customised:
+TouchVisualizer also has the ability to customize your touch events. Here is an example of what can be customized:
 
 ```swift
 var config = Configuration()
@@ -125,9 +125,9 @@ Visualizer.start(config)
 |:----|:----|:----|:----|
 | color | `UIColor` | Color of touch point and text. | default color |
 | image | `UIImage` | Touch point image. If rendering mode is set to  `UIImageRenderingModeAlwaysTemplate`, the image is filled with color above. | circle image |
-| defaultSize| `CGize` | Default size of touch point.| 60 x 60px |
+| defaultSize| `CGSize` | Default size of touch point.| 60 x 60px |
 | showsTimer| `Bool` | Shows touch duration. | false |
-| showsTouchRadius | `Bool` | Shows touch radius by scalling touch point. It doesn't work on simulator. | false |
+| showsTouchRadius | `Bool` | Shows touch radius by scaling touch point. It doesn't work on simulator. | false |
 | showsLog | `Bool` | Shows log. | false |
 
 ## Documentation
@@ -146,4 +146,4 @@ Please file issues or submit pull requests for anything you’d like to see! We'
 ## Licensing
 TouchVisualizer is released under the MIT license. Go read the LICENSE file for more information.
 #### Miscellaneous
-There is a similar *touch visualisation* library called [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer), which is written in Objective-C. [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer) supports earlier versions of iOS and is more mature. If TouchVisualizer isn't enough for you, try that!
+There is a similar *touch visualization* library called [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer), which is written in Objective-C. [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer) supports earlier versions of iOS and is more mature. If TouchVisualizer isn't enough for you, try that!
