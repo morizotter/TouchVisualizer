@@ -68,6 +68,7 @@ extension Visualizer {
         instance.config = config
         
         if let window = UIApplication.shared.keyWindow {
+            window.swizzle()
             for subview in window.subviews {
                 if let subview = subview as? TouchView {
                     subview.removeFromSuperview()

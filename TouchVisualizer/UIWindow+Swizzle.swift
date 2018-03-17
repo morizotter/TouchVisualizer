@@ -11,9 +11,7 @@ fileprivate var isSwizzled = false
 extension UIWindow {
 	
 	public func swizzle() {
-		if (isSwizzled) {
-			return
-		}
+        guard isSwizzled == false else { return }
 		
 		let sendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIApplication.sendEvent(_:)))
 		let swizzledSendEvent = class_getInstanceMethod(object_getClass(self), #selector(UIWindow.swizzledSendEvent(_:)))
