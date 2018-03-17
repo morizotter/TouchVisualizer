@@ -20,11 +20,7 @@ final public class Visualizer:NSObject {
         NotificationCenter
             .default
             .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
-        NotificationCenter
-            .default
-            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        
+
         UIDevice
             .current
             .beginGeneratingDeviceOrientationNotifications()
@@ -39,9 +35,6 @@ final public class Visualizer:NSObject {
     }
     
     // MARK: - Helper Functions
-    @objc internal func applicationDidBecomeActiveNotification(_ notification: Notification) {
-        UIApplication.shared.keyWindow?.swizzle()
-    }
     
     @objc internal func orientationDidChangeNotification(_ notification: Notification) {
         let instance = Visualizer.sharedInstance
@@ -68,6 +61,7 @@ extension Visualizer {
         instance.config = config
         
         if let window = UIApplication.shared.keyWindow {
+            window.swizzle()
             for subview in window.subviews {
                 if let subview = subview as? TouchView {
                     subview.removeFromSuperview()
