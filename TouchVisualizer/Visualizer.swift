@@ -20,7 +20,11 @@ final public class Visualizer:NSObject {
         NotificationCenter
             .default
             .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-
+        
+        NotificationCenter
+            .default
+            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        
         UIDevice
             .current
             .beginGeneratingDeviceOrientationNotifications()
@@ -35,11 +39,23 @@ final public class Visualizer:NSObject {
     }
     
     // MARK: - Helper Functions
+    @objc internal func applicationDidBecomeActiveNotification(_ notification: Notification) {
+        UIApplication.shared.keyWindow?.swizzle()
+
+        let nav = UINavigationController()
+        nav.swizzle()
+    }
     
     @objc internal func orientationDidChangeNotification(_ notification: Notification) {
         let instance = Visualizer.sharedInstance
         for touch in instance.touchViews {
             touch.removeFromSuperview()
+        }
+    }
+    
+    public func removeAllTouchViews() {
+        for view in self.touchViews {
+            view.removeFromSuperview()
         }
     }
 }
@@ -61,7 +77,6 @@ extension Visualizer {
         instance.config = config
         
         if let window = UIApplication.shared.keyWindow {
-            window.swizzle()
             for subview in window.subviews {
                 if let subview = subview as? TouchView {
                     subview.removeFromSuperview()
@@ -135,10 +150,9 @@ extension Visualizer {
                 topWindow = window
             }
         }
-
+        
         for touch in event.allTouches! {
             let phase = touch.phase
-            
             switch phase {
             case .began:
                 let view = dequeueTouchView()
@@ -161,10 +175,10 @@ extension Visualizer {
                     UIView.animate(withDuration: 0.2, delay: 0.0, options: .allowUserInteraction, animations: { () -> Void  in
                         view.alpha = 0.0
                         view.endTouch()
-                        }, completion: { [unowned self] (finished) -> Void in
-                            view.removeFromSuperview()
-                            self.log(touch)
-                        })
+                    }, completion: { [unowned self] (finished) -> Void in
+                        view.removeFromSuperview()
+                        self.log(touch)
+                    })
                 }
                 
                 log(touch)
@@ -214,7 +228,7 @@ extension Visualizer {
         
         for viewLog in viewLogs {
             
-            if (viewLog["index"]!).count == 0 {
+            if (viewLog["index"]!).characters.count == 0 {
                 continue
             }
             
