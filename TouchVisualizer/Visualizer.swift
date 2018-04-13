@@ -32,11 +32,6 @@ extension UIWindow {
         Visualizer.sharedInstance.handleEvent(event)
         swizzledSendEvent(event)
     }
-    
-    @objc public func swizzledPushViewController(_ viewController: UIViewController, animated: Bool) {
-        Visualizer.sharedInstance.removeAllTouchViews()
-        swizzledPushViewController(viewController, animated: animated)
-    }
 }
 
 extension UINavigationController {
