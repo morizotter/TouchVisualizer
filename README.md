@@ -30,8 +30,8 @@ It's fun!
 ## Runtime Requirements
 
 - Swift 4.0
-- Xcode 9.0
-- iOS8.0 or later
+- Xcode 9.2
+- iOS9.0 or later
 
 TouchVisualizer works with Swift 3 from version 3.0.0.
 
