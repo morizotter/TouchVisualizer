@@ -116,7 +116,7 @@ final class ConfigViewController: UITableViewController {
 
     func isSimulator() -> Bool {
         var simulator = false
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
             simulator = true
         #endif
         return simulator
