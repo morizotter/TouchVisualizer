@@ -25,16 +25,6 @@ extension UIWindow {
         )
         method_exchangeImplementations(sendEvent!, swizzledSendEvent!)
         
-        let pushEvent = class_getInstanceMethod(
-            UINavigationController.classForCoder(), 
-            #selector(UINavigationController.pushViewController(_:animated:))
-        )
-        let swizzledPushEvent = class_getInstanceMethod(
-            UINavigationController.classForCoder(), 
-            #selector(UINavigationController.swizzledPushViewController(_:animated:))
-        )
-        method_exchangeImplementations(pushEvent!, swizzledPushEvent!)
-        
         isSwizzled = true
     }
 }
@@ -44,12 +34,5 @@ extension UIWindow {
     @objc public func swizzledSendEvent(_ event: UIEvent) {
         Visualizer.sharedInstance.handleEvent(event)
         swizzledSendEvent(event)
-    }
-}
-
-extension UINavigationController {
-    @objc public func swizzledPushViewController(_ viewController: UIViewController, animated: Bool) {
-        Visualizer.sharedInstance.removeAllTouchViews()
-        swizzledPushViewController(viewController, animated: animated)
     }
 }
