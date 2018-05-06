@@ -225,7 +225,7 @@ extension Visualizer {
         
         for viewLog in viewLogs {
             
-            if (viewLog["index"]!).characters.count == 0 {
+            if (viewLog["index"]!).count == 0 {
                 continue
             }
             
