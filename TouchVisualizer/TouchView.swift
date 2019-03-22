@@ -9,10 +9,10 @@ final public class TouchView: UIImageView {
     
     // MARK: - Public Variables
     internal weak var touch: UITouch?
-    private weak var timer: Timer?
+    private var displayLink: CADisplayLink?
     private var _config: Configuration
     private var previousRatio: CGFloat = 1.0
-    private var startDate: Date?
+    private var startTime: CFTimeInterval = 0
     private var lastTimeString: String!
     
     public var config: Configuration {
@@ -59,7 +59,7 @@ final public class TouchView: UIImageView {
     }
     
     deinit {
-        timer?.invalidate()
+        displayLink?.invalidate()
     }
     
     // MARK: - Begin and end touching functions
@@ -69,12 +69,9 @@ final public class TouchView: UIImageView {
         layer.transform = CATransform3DIdentity
         previousRatio = 1.0
         frame = CGRect(origin: frame.origin, size: _config.defaultSize)
-        startDate = Date()
-        timer = Timer.scheduledTimer(timeInterval: 1.0 / 60.0, target: self, selector: #selector(self.update(_:)), userInfo: nil, repeats: true)
-        
-        RunLoop
-            .main
-            .add(timer!, forMode: RunLoop.Mode.common)
+        startTime = CACurrentMediaTime()
+        displayLink = CADisplayLink(target: self, selector: #selector(update(_:)))
+        displayLink?.add(to: .main, forMode: .common)
         
         if _config.showsTimer {
             timerLabel.alpha = 1.0
@@ -86,14 +83,13 @@ final public class TouchView: UIImageView {
     }
     
     func endTouch() {
-        timer?.invalidate()
+        displayLink?.invalidate()
+        displayLink = nil
     }
     
     // MARK: - Update Functions
-    @objc internal func update(_ timer: Timer) {
-        guard let startDate = startDate else { return }
-        
-        let interval = Date().timeIntervalSince(startDate)
+    @objc internal func update(_ timer: CADisplayLink) {
+        let interval = CACurrentMediaTime() - startTime
         let timeString = String(format: "%.02f", Float(interval))
         timerLabel.text = timeString
         
