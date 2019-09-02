@@ -179,6 +179,8 @@ extension Visualizer {
                 }
                 
                 log(touch)
+            @unknown default:
+                self.log(touch)
             }
         }
     }
@@ -212,6 +214,7 @@ extension Visualizer {
             case .stationary: phase = "S"
             case .ended: phase = "E"
             case .cancelled: phase = "C"
+            @unknown default: phase = "U"
             }
             
             let x = String(format: "%.02f", view.center.x)
