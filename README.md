@@ -55,7 +55,7 @@ To integrate TouchVisualizer into your Xcode project using CocoaPods, specify it
 ```bash
 platform :ios, '8.0'
 use_frameworks!
-pod "TouchVisualizer", '~>3.0.0'
+pod "TouchVisualizer", '~> 3.0'
 ```
 
 ### Installing with Carthage
