@@ -10,7 +10,7 @@
 		90121A0B1E05886E00014C48 /* KeyboardDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90121A0A1E05886E00014C48 /* KeyboardDemoViewController.swift */; };
 		9097247B1CFE16760017F85F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724751CFE16760017F85F /* Configuration.swift */; };
 		9097247D1CFE16760017F85F /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724771CFE16760017F85F /* TouchView.swift */; };
-		9097247E1CFE16760017F85F /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724791CFE16760017F85F /* UIWindow+Swizzle.swift */; };
+		9097247E1CFE16760017F85F /* UIApplication+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909724791CFE16760017F85F /* UIApplication+Swizzle.swift */; };
 		9097247F1CFE16760017F85F /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097247A1CFE16760017F85F /* Visualizer.swift */; };
 		FF828F1B1A74E52500DC12EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1A1A74E52500DC12EF /* AppDelegate.swift */; };
 		FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF828F1C1A74E52500DC12EF /* ConfigViewController.swift */; };
@@ -36,7 +36,7 @@
 		90121A0A1E05886E00014C48 /* KeyboardDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDemoViewController.swift; sourceTree = "<group>"; };
 		909724751CFE16760017F85F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		909724771CFE16760017F85F /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
-		909724791CFE16760017F85F /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
+		909724791CFE16760017F85F /* UIApplication+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Swizzle.swift"; sourceTree = "<group>"; };
 		9097247A1CFE16760017F85F /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
 		FF828F151A74E52500DC12EF /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF828F191A74E52500DC12EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			children = (
 				909724751CFE16760017F85F /* Configuration.swift */,
 				909724771CFE16760017F85F /* TouchView.swift */,
-				909724791CFE16760017F85F /* UIWindow+Swizzle.swift */,
+				909724791CFE16760017F85F /* UIApplication+Swizzle.swift */,
 				9097247A1CFE16760017F85F /* Visualizer.swift */,
 			);
 			name = TouchVisualizer;
@@ -251,7 +251,7 @@
 			files = (
 				FF84A2CB1AF929A3005A5759 /* ViewController.swift in Sources */,
 				9097247F1CFE16760017F85F /* Visualizer.swift in Sources */,
-				9097247E1CFE16760017F85F /* UIWindow+Swizzle.swift in Sources */,
+				9097247E1CFE16760017F85F /* UIApplication+Swizzle.swift in Sources */,
 				9097247B1CFE16760017F85F /* Configuration.swift in Sources */,
 				FFF1D64E1A75001500EB3DD4 /* DetailViewController.swift in Sources */,
 				FF828F1D1A74E52500DC12EF /* ConfigViewController.swift in Sources */,
