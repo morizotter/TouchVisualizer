@@ -7,9 +7,10 @@ import UIKit
 
 fileprivate var isSwizzled = false
 
-@available(iOS 8.0, *)
+@available(iOSApplicationExtension, unavailable)
 extension UIWindow {
-	
+
+    @available(iOS 8.0, *)
 	public func swizzle() {
         guard isSwizzled == false else {
             return
@@ -30,6 +31,7 @@ extension UIWindow {
 }
 
 // MARK: - Swizzle
+@available(iOSApplicationExtension, unavailable)
 extension UIWindow {
     @objc public func swizzledSendEvent(_ event: UIEvent) {
         Visualizer.sharedInstance.handleEvent(event)

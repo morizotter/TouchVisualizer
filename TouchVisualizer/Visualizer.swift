@@ -5,7 +5,8 @@
 
 import UIKit
 
-final public class Visualizer:NSObject {
+@available(iOSApplicationExtension, unavailable)
+final public class Visualizer: NSObject {
     
     // MARK: - Public Variables
     static public let sharedInstance = Visualizer()
@@ -57,6 +58,7 @@ final public class Visualizer:NSObject {
     }
 }
 
+@available(iOSApplicationExtension, unavailable)
 extension Visualizer {
     public class func isEnabled() -> Bool {
         return sharedInstance.enabled
@@ -182,6 +184,7 @@ extension Visualizer {
     }
 }
 
+@available(iOSApplicationExtension, unavailable)
 extension Visualizer {
     public func warnIfSimulator() {
         #if targetEnvironment(simulator)
