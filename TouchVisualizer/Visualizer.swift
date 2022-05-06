@@ -64,16 +64,15 @@ extension Visualizer {
     
     // MARK: - Start and Stop functions
     
-    public class func start(_ config: Configuration = Configuration()) {
-		
+    public class func start(_ config: Configuration = Configuration(), in window: UIWindow? = UIApplication.shared.keyWindow) {
 		if config.showsLog {
 			print("Visualizer start...")
 		}
         let instance = sharedInstance
         instance.enabled = true
         instance.config = config
-        
-        if let window = UIApplication.shared.keyWindow {
+
+        if let window = window {
             for subview in window.subviews {
                 if let subview = subview as? TouchView {
                     subview.removeFromSuperview()
