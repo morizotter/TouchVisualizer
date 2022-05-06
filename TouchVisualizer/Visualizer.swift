@@ -5,7 +5,7 @@
 
 import UIKit
 
-final public class Visualizer:NSObject {
+final public class Visualizer: NSObject {
     
     // MARK: - Public Variables
     static public let sharedInstance = Visualizer()
@@ -21,10 +21,6 @@ final public class Visualizer:NSObject {
             .default
             .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         
-        NotificationCenter
-            .default
-            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
         UIDevice
             .current
             .beginGeneratingDeviceOrientationNotifications()
@@ -39,9 +35,6 @@ final public class Visualizer:NSObject {
     }
     
     // MARK: - Helper Functions
-    @objc internal func applicationDidBecomeActiveNotification(_ notification: Notification) {
-        UIApplication.shared.keyWindow?.swizzle()
-    }
     
     @objc internal func orientationDidChangeNotification(_ notification: Notification) {
         let instance = Visualizer.sharedInstance
@@ -64,7 +57,7 @@ extension Visualizer {
     
     // MARK: - Start and Stop functions
     
-    public class func start(_ config: Configuration = Configuration(), in window: UIWindow? = UIApplication.shared.keyWindow) {
+    public class func start(_ config: Configuration = Configuration(), in window: UIWindow) {
 		if config.showsLog {
 			print("Visualizer start...")
 		}
@@ -72,11 +65,11 @@ extension Visualizer {
         instance.enabled = true
         instance.config = config
 
-        if let window = window {
-            for subview in window.subviews {
-                if let subview = subview as? TouchView {
-                    subview.removeFromSuperview()
-                }
+        window.swizzle()
+
+        for subview in window.subviews {
+            if let subview = subview as? TouchView {
+                subview.removeFromSuperview()
             }
         }
 		if config.showsLog {
