@@ -8,7 +8,10 @@ import UIKit
 final public class Visualizer:NSObject {
     
     // MARK: - Public Variables
-    static public let sharedInstance = Visualizer()
+    static public let sharedInstance: Visualizer = {
+        UIApplication.swizzle()
+        return Visualizer()
+    }()
     fileprivate var enabled = false
     fileprivate var config: Configuration!
     fileprivate var touchViews = [TouchView]()
@@ -20,10 +23,6 @@ final public class Visualizer:NSObject {
         NotificationCenter
             .default
             .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
-        
-        NotificationCenter
-            .default
-            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         UIDevice
             .current
@@ -39,10 +38,6 @@ final public class Visualizer:NSObject {
     }
     
     // MARK: - Helper Functions
-    @objc internal func applicationDidBecomeActiveNotification(_ notification: Notification) {
-        UIApplication.shared.keyWindow?.swizzle()
-    }
-    
     @objc internal func orientationDidChangeNotification(_ notification: Notification) {
         let instance = Visualizer.sharedInstance
         for touch in instance.touchViews {
