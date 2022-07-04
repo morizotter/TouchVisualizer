@@ -143,6 +143,12 @@ extension Visualizer {
 
         var topWindow = UIApplication.shared.keyWindow!
         for window in UIApplication.shared.windows {
+            // Case where webview brings up a fake empty keyboard when displaing a PDF on iPad and keeping it up until a keyboard is actually needed/used
+            // Affects iOS 12, 13, 14
+            if String(describing: type(of: window)) == "UIRemoteKeyboardWindow" && window.subviews.first?.subviews.first?.frame.size.height == 0 {
+                continue
+            }
+            
             if window.isHidden == false && window.windowLevel > topWindow.windowLevel {
                 topWindow = window
             }
